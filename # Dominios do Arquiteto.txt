@@ -1,0 +1,106 @@
+Conhecimento em linguagens de programação: Python, Go, etc;
+Experiência com Cloud Computing: AWS, Azure, GCP;
+Domínio de padrões de arquitetura: MVC, Hexagonal, CQRS, Event-Driven;
+Banco de Dados SQL e NoSQL: MySQL, PostgreSQL, DynamoDB;
+Conhecimento em Segurança da Informação: OAuth, JWT, OpenID, TLS;
+Habilidade em Comunicação;
+
+------------------------------------------------------------------------------------
+
+Requisitos Obrigatório:
+Experiência Em Desenvolvimento Backend (Java/Nodejs/Typescript);
+Experiência Em Desenvolvimento Cloud Native;
+Experiência Em Processamento Distribuído Por Eventos (Kafka/Kafka Streams/Zookeeper);
+Experiência De Modelagem Para Microsserviços;
+Experiência Em Modelagem De Software Utilizando Ddd (Domain Driven Design);
+Experiência Com Docker;
+Experiência Em Metodologias Ágeis;
+Conhecimento Com Kubernetes;
+Conhecimento Em Banco De Dados Sql E Nosql;
+
+Desejável
+Experiência Com Monitoração (Prometheus/Grafana).
+Experiência Com Banco De Dados Distribuído.
+Conhecimento Em Linux.
+
+------------------------------------------------------------------------------------
+
+* Domínio em Arquitetura de Software orientada a serviços (SOA) e microsserviços;
+* Experiência com padrões de projeto (Design Patterns) e boas práticas de engenharia de software;
+* Conhecimento em containers e orquestração (Docker, Kubernetes);
+* Arquitetura baseada em eventos (Event-Driven Architecture);
+* Conhecimento em APIs RESTful;
+* Ferramentas de versionamento e integração contínua (Git e GitLab);
+* Princípios de segurança da informação aplicados a sistemas;
+* Práticas de desenvolvimento em Java e Angular. 
+
+* Conhecimento em arquitetura de sistemas legados e estratégias de modernização;
+* Práticas em Modelagem de sistemas e uso de BPMN;
+* Práticas de desenvolvimento ágil: Manifesto Ágil, Scrum, Kanban, DevOps.
+* ⁠Atuação na construção, manutenção e revisão de documentação técnica.
+
+Desejável:
+* Conhecimento em Clean Architecture;
+* Experiência em liderança técnica de times multidisciplinares;
+* ⁠Facilidade em comunicação e apresentação de projetos.
+* Conhecimento em PHP SqlServer, Db2, PostgreSQL.
+
+------------------------------------------------------------------------------------
+
+Estar alinhado à nossa cultura;
+Superior completo em Tecnologia da Informação, Engenharia da Computação, Ciência da Computação, Análise de Sistemas ou áreas correlatas;
+Sólida experiência com desenvolvimento em Java utilizando Spring Framework (Spring MVC, Boot, Data, Security) e API Gateway;
+Vivência em soluções baseadas em Microserviços, garantindo escalabilidade e modularidade;
+Prática com comunicação assíncrona utilizando Kafka ou ferramentas similares;
+Vivência em soluções e ambientes em cloud (AWS, GCP ou Azure);
+Ter atuado com rotinas com bancos de dados relacionais e não relacionais, garantindo performance e consistência;
+Experiência com Design Patterns e Princípios de Arquitetura (POSA), aplicando boas práticas de design de software;
+Habilidade com clusters e containers utilizando Kubernetes (Helm Charts, Docker Imagens);
+Ter atuado com infraestrutura como código utilizando Ansible e Terraform;
+Conhecimento em soluções de Observabilidade, versionamento e migração de bancos de dados, além de OIDC (OpenID Connect);
+Habilidade na construção de soluções baseadas em DDD.
+
+------------------------------------------------------------------------------------
+
+REQUISITOS TÉCNICOS 
+- Programação Orientada a Objetos (OOP): Domínio em Java.
+- APIs REST e gRPC: Experiência na definição e construção de APIs eficientes e seguras.
+
+BOAS PRÁTICAS DE ARQUITETURA
+- Aplicar princípios SOLID e KISS para um código modular, reutilizável e simples. Especialista em Arquitetura Hexagonal e Limpa, com uso estratégico de Design Patterns (Factory, Strategy, Observer, CQRS, Event Sourcing, entre outros).
+ 
+OBSERVABILIDADE E MONITORAMENTO
+- Ferramentas: Datadog, New Relic, Kibana, Grafana.
+- Análise de Performance: Coleta de métricas, logs estruturados, configuração de dashboards e alertas para antecipar falhas.
+ 
+INFRAESTRUTURA E COMPONENTES
+- Mensageria: RabbitMQ, Kafka, Azure Service Bus.
+- Bancos de Dados: SQL (PostgreSQL, SQL Server) e NoSQL (MongoDB, Redis).
+- Cache: Redis, Memcached.
+- Segurança e Configurações: Vault, Secrets Manager, Kubernetes (ConfigMaps e Secrets).
+- Jobs Assíncronos: Workers e Locks Distribuídos (Redlock, Zookeeper).
+
+RESILIÊNCIA E PERFORMANCE 
+- Técnicas: Retry com backoff exponencial, Circuit Breaker (Resilience4j, Hystrix), DLQ, Rate-limiting e Defensive Cache.
+
+ARQUITETURA ORIENTADA A EVENTOS
+- Abordagens: Event-Driven Architecture (EDA), Event Sourcing, CQRS.
+- Mensageria Assíncrona: Publicação e consumo de eventos com Kafka, RabbitMQ, Azure Service Bus.
+
+------------------------------------------------------------------------------------
+
+ Perfil sênior, pró ativo e colaborativo;
+ Vivência em ambiente bancário (framework BIA; atendimento de regulatórios);
+ Experiência prática em arquitetar e projetar soluções corporativas;
+ Experiência prévia em desenvolvimento de sistemas, preferencialmente Java, Microserviços e APIs;
+ Experiência na criação de soluções de arquitetura em ambientes Cloud (IaaS, PaaS, SaaS), preferencialmente GCP;
+ Experiência em direcionar uso de soluções autogerenciáveis;
+ Experiência em Integrações de aplicações (APIs, Webservices, Mensageria, Orquestradores, Microsserviços) e arquiteturas distribuídas;
+ Experiência em Arquitetura de Aplicações / Sistemas, TOGAF, Design Patterns, Princípios SOLID, Clean Architecture, Arquitetura Hexagonal, DDD;
+ Vivência em ambientes de cultura ágil (Scrum, Kanban, SAFe);
+ Conhecimento de métodos de Discovery, construção de MVPs, experimentação;
+ Conhecimento em Finops, DevSecOps(CI/CD, Infra as a Code, etc.)
+ Conhecimento em SRE (observability, soluções em alta disponibilidade);
+ Conhecimento em cybersecurity, OAuth2, JWT, AD, criptografia, WAF, firewall e demais aspectos de segurança das aplicações;
+ Experiência na Condução de POCs e avaliações de tecnologias;
+

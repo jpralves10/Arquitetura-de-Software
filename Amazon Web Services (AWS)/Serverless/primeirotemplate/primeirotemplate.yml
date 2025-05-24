@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources: 
+  FilaCriadaComCloudFormation: 
+    Type: AWS::SQS::Queue
+    Properties: 
+      RedrivePolicy: 
+        deadLetterTargetArn: 
+          Fn::GetAtt: 
+            - "FilaDLQCriadaComCloudFormation"
+            - "Arn"
+        maxReceiveCount: 3
+  FilaDLQCriadaComCloudFormation: 
+    Type: AWS::SQS::Queue
+
+
+Outputs: 
+  SourceQueueURL: 
+    Description: "URL of source queue"
+    Value: 
+      Ref: "FilaCriadaComCloudFormation"
+  SourceQueueARN: 
+    Description: "ARN of source queue"
+    Value: 
+      Fn::GetAtt: 
+        - "FilaCriadaComCloudFormation"
+        - "Arn"
+  DeadLetterQueueURL: 
+    Description: "URL of dead-letter queue"
+    Value: 
+      Ref: "FilaDLQCriadaComCloudFormation"
+  DeadLetterQueueARN: 
+    Description: "ARN of dead-letter queue"
+    Value: 
+      Fn::GetAtt: 
+        - "FilaDLQCriadaComCloudFormation"
+        - "Arn"

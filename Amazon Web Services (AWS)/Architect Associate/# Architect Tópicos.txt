@@ -1,0 +1,77 @@
+Topic				No. of Questions
+Latest Topics				25
+Cost Management				10
+Virtual Private Cloud (VPC)		35
+Simple Storage Service (S3)		25
+Elastic File System(EFS)		10
+API Gateway				10
+Elastic Container Service (ECS)		10
+AWS Lambda				25
+Elastic Block Store (EBS)		10
+SQS, SNS, STS				10
+ELB and Autoscaling			10
+Route53					10
+RDS & DynamoDB				10
+Additional questions			20
+Total					220
+
+Sr No	Lab Name										Topic				Duration (in Minutes)
+1	Access and tour AWS console								AWS					15
+2	Introduction to IAM									IAM, IAM Policy, IAM User, IAM Group	20
+3	Introduction to Amazon Elastic Compute Cloud(EC2)					EC2					30
+4	Launch a Spot Instance with Amazon EC2							Spot Instance				60
+5	Allocating Elastic IP and Associating it to EC2 Instance				EC2					45
+6	Create EC2 Instance and Connect to windows machine using RDC				EC2					45
+7	Introduction to Amazon Simple Storage Service(S3)					S3					30
+8	Creating AMI From EC2 Instance								EC2					30
+9	How to enable versioning Amazon S3							S3					30
+10	Creating S3 Lifecycle Policy								S3					30
+11	Setup Cross Region Replication and Versioning in S3					S3					45
+12	Comparing Data Transfer Speeds with S3 Transfer Acceleration				S3					45
+13	Creating and Subscribing to SNS Topics,Adding event for S3 bucket			SNS, S3					30
+14	How to Create a static website using Amazon S3						S3					30
+15	Generate S3 presign URL using CloudShell						S3					45
+16	Accessing S3 with AWS IAM Roles	IAM Role, EC2, 						S3					30
+17	AWS S3 Multipart Upload using AWS CLI							S3,EC2					60
+18	Introduction to Amazon Cloudfront							Cloudfront,S3				60
+19	Introduction to AWS Relational Database Service						RDS					50
+20	How to Query into RDS MySQL Using AWS Lambda						RDS, IAM, Lambda			60
+21	Introduction to AWS Elastic Load Balancer						Elastic Load Balancer(ELB), EC2		30
+22	Introduction to Amazon Auto Scaling							Auto Scaling				55
+23	Create and Configure Amazon EC2 Auto Scaling with Launch Templates			Auto Scaling, EC2			55
+24	Deploying Amazon RDS Multi-AZ and Read Replica, Simulate Failover			Aurora					60
+25	How to Encrypt an Unencrypted RDS DB Instance						RDS					80
+26	Export Amazon RDS DB Snapshot to S3e							RDS					90
+27	Using CloudWatch for Resource Monitoring, Create CloudWatch Alarms and Dashboards	Cloudwatch, Alarms, Dashboard		45
+28	Introduction to AWS Elastic Beanstalk							Elastic Beanstalk			45
+29	Introduction to AWS DynamoDB								DynamoDB				30
+30	DynamoDB and Global Secondary Index							DynamoDB				45
+31	Build Amazon VPC with Public and Private Subnets from Scratch				VPC, Subnets				30
+32	Creating NAT Gateways in AWS								NAT Gateway, EC2, VPC			90
+33	Understanding and Configuring Layered Security in an AWS VPC				EC2, VPC				60
+34	Deploying a Highly Available Web Application and Bastion Host in AWS			Bastion Host, EC2, ELB			60
+35	Creating Events in Cloudwatch								CloudWatch, Events			30
+36	Launch Amazon EC2 instance, Launch Amazon RDS Instance, Connecting RDS from EC2 InstanceEC2,RDS					55
+37	Introduction to Amazon Lambda								Lambda,S3				30
+38	Introduction to Amazon Cloudformation							Cloudformation				30
+39	How to Create Virtual Private Cloud(VPC) with AWS CloudFormation			VPC, CloudFormation			55
+40	Introduction to Creating AWS VPC Flow Logs						VPC					45
+41	Access S3 from Private EC2 instance using VPC Endpoint					VPC, EC2				90
+42	AWS VPC NACL Lab - Case study								VPC					90
+43	Peer VPC with Transit Gateway and its components					VPC, EC2, Transit Gateway		90
+44	Creating New EC2 Instance using snapshot						EC2					30
+45	Resizing Amazon EBS Volume								EBS,EC2					45
+46	Introduction to Amazon Aurora								Aurora					60
+47	Introduction to Simple Queuing Service (SQS)						SQS					45
+48	Difference between SQS Visibility Timeout and Delay Queue				SQS, Lambda, IAM			30
+49	Creating a User Pool in AWS Cognito							AWS Cognito				30
+50	Enabling CloudWatch Logs in API Gateway							API Gateway				30
+51	Introduction to Amazon Simple Email Service SES	Amazon 					SES					15
+52	Getting Started with Amazon Elastic Container Service using Fargate			Elastic Container Service		30
+53	Introduction to Amazon Elastic Container Service (ECS)					Elastic Container Service		60
+54	Creating Cloud9 IDE and Running Scripts							Cloud9					30
+55	Querying Data in S3 with Amazon Athena							S3, Athena				45
+56	Transfer data to S3 using Amazon Kinesis Firehose					Kinesis Firehose, S3, IAM		45
+57	Check the Compliance status of Security group using AWS Config				AWS Config				60
+58	Check AWS Resources in Trusted Advisor							Trusted advisor				60
+59	Deploying sample Node.js application with AWS OpsWorks					OpsWorks				60
