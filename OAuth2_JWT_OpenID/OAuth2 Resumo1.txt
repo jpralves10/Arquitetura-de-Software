@@ -1,0 +1,30 @@
+OAuth 2.0 (Open Authorization) é um protocolo de autorização que permite a um utilizador conceder acesso limitado a recursos protegidos a uma aplicação, sem ter de partilhar as suas credenciais. Representa uma alternativa segura e flexível aos métodos tradicionais de autenticação.
+
+Principais benefícios do OAuth 2.0
+Segurança:
+O utilizador não precisa de partilhar as suas credenciais (como nome de utilizador e palavra-passe) com a aplicação. O processo de autorização é realizado através de um servidor de autorização, responsável por verificar a identidade do utilizador e conceder o acesso ao aplicativo.
+
+Flexibilidade:
+O OAuth 2.0 oferece diferentes tipos de fluxos de autorização, adequados a vários tipos de aplicações, desde aplicações web a aplicações móveis e de desktop.
+
+Facilidade de uso:
+O utilizador apenas precisa de clicar num botão para conceder acesso à aplicação, sem digitar manualmente as suas credenciais.
+ 
+Principais conceitos do OAuth 2.0
+* Utilizador: O proprietário dos recursos a que se pretende aceder.
+* Aplicação (Cliente): A aplicação que solicita acesso aos recursos do utilizador.
+* Servidor de Autorização: Responsável por autenticar o utilizador e conceder os tokens de acesso à aplicação.
+* Servidor de Recursos: Hospeda os recursos protegidos (como ficheiros, dados pessoais, etc.).
+
+Fluxos de autorização do OAuth 2.0
+* Código de Autorização: O mais seguro, utilizado por aplicações web que podem manter confidencialidade.
+* Implícito: Um fluxo mais simples, adequado para aplicações do lado do cliente (menos seguro, hoje em desuso).
+* Concessão de Recursos (Resource Owner Password Credentials): Utilizado quando a aplicação precisa diretamente das credenciais do utilizador (uso desaconselhado atualmente).
+* Credenciais do Cliente (Client Credentials): Utilizado quando não há intervenção do utilizador, ideal para comunicação entre servidores.
+
+Exemplo de uso do OAuth 2.0
+Imagine que um utilizador quer guardar um ficheiro no Google Drive através de uma aplicação web. A aplicação redireciona o utilizador para o servidor de autorização do Google, onde este se autentica e concede permissão à aplicação. Após a autorização, a aplicação recebe um token de acesso, que pode ser usado para comunicar com o servidor de recursos (Google Drive) e carregar o ficheiro.
+
+Conclusão
+O OAuth 2.0 é um protocolo essencial para garantir segurança, praticidade e flexibilidade no acesso a recursos protegidos em aplicações web, móveis e desktop. Ele protege as credenciais dos utilizadores e permite que aplicações interajam com serviços externos de forma controlada e segura.
+ 
