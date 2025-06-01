@@ -1,0 +1,97 @@
+******************** Arquiteto(a) de Soluções IA Expert ********************
+
+
+Módulo 1 | Fundamentos da Inteligência Artificial
+
+
+Introdução à Inteligência Artificial:
+Definição de IA e sua evolução histórica;
+Diferenças entre IA, aprendizado de máquina (Machine Learning – ML) e aprendizado profundo (Deep Learning – DL);
+Visão geral dos tipos de IA: IA fraca vs. IA forte.
+Conceitos Fundamentais de IA:
+Algoritmos de aprendizado de máquina: supervisionado, não supervisionado e por reforço;
+Modelos discriminativos vs Generativos;
+Redes neurais e estruturas básicas de dados para IA;
+Ferramentas e linguagens de programação para IA: Python, TensorFlow, PyTorch.
+Aplicações e Casos de Uso da IA:
+Exemplos práticos de IA no dia a dia;
+IA nas indústrias: saúde, finanças, educação e mais;
+Benefícios e limitações da IA.
+Ética e IA:
+Discussão sobre viés e justiça em sistemas de IA;
+Privacidade de dados e segurança na era da IA;
+Regulamentações e políticas de IA.
+
+Módulo 2 |  Implementando e Trabalhando com IA 
+
+
+Identificando Oportunidades de IA:
+Como identificar problemas solucionáveis com IA;
+Avaliação de prontidão para IA nas organizações (maturidade analítica das organizações);
+Estudos de caso de transformação digital com IA.
+Planejamento e Implementação de Soluções de IA:
+Etapas para desenvolver e implementar projetos de IA;
+Coleta e tratamento de dados para aprendizado de máquina;
+Monitoramento e avaliação de modelos de IA.
+Estratégias de Aprendizado e Melhoria Contínua:
+Importância dos dados e da qualidade dos dados para IA;
+Técnicas de aprimoramento de modelos: ajuste fino, transferência de aprendizagem;
+Implementando ciclos de feedback e aprendizado contínuo.
+Liderança e Competências Organizacionais em IA:
+Desenvolvimento de competências de IA dentro das organizações;
+Decisões estratégicas: construir internamente, comprar ou terceirizar soluções de IA;
+Criando uma cultura orientada por dados e IA.
+
+Módulo 3 | Inteligência Artificial e IA Generativa Aplicadas às Soluções de TI
+
+
+Aplicações de IA em Soluções de TI:
+Modelo de regressão e sistemas de recomendação personalizados;
+Detecção de padrões e de anomalias;
+Chatbots Inteligentes, Prompt Engineering (Engenharia de Prompt) e soluções de IA conversacional;
+Análise preditiva e prescritiva;
+Soluções de detecção de fraude;
+Soluções de conformidade.
+Inteligência Artificial como Apoio à Engenharia de Confiabilidade de Sites (Site Reliability Engineering - SRE)
+Processamento de Linguagem Natural (Natural Language Processing - NLP), Compreensão de Linguagem Natural (Natural Language Understanding - NLU) e Geração de Linguagem Natural (Natural Language Generation - NLG)
+O que é IA Generativa
+Aplicabilidade e Importância da IA Generativa nas Soluções de TI
+OpenAI’s GPT-4
+Entendendo a Arquitetura de Modelos Generativos:
+Rede Adversária Generativa (Generative Adversarial Networks - GANs);
+Codificadores automáticos variacionais (Variational Autoencoders - VAEs)
+Transformer;
+Chatbot.
+IA Generativa na Elaboração de Projetos Arquiteturais de Software, de Dados e de Soluções
+IA Generativa para a Geração Automatizada de Código
+IA Generativa na Detecção e Resolução de Problemas em Sistemas de Software
+Modelos Generativos para Simulação e Prototipagem Rápida de Sistemas de Software
+IA Generativa na Documentação Automatizada e Explicação de Modelos de IA
+
+Módulo 4 | Inteligência Artificial como Serviço
+
+
+Serviços Básicos de IA em Nuvem:
+Visão geral dos serviços básicos de IA em nuvem (AWS, Azure e GCP);
+Serviços de reconhecimento de imagem;
+Serviços de reconhecimento de voz;
+Serviços de processamento de linguagem natural;
+Serviços de recomendações personalizadas.
+Treinamento de Modelos de IA em Nuvem:
+Ferramentas e serviços oferecidos pelos provedores de nuvem para treinamento de modelos de inteligência artificial;
+Estratégias de treinamento, incluindo seleção de algoritmos, otimização de parâmetros e processamento de grandes conjuntos de dados.
+Implantação e Escalonamento de Modelos de IA em Nuvem:
+GPU e TPU para workloads de IA;
+Discussão sobre diferentes opções de implantação, incluindo contêineres, funções serverless e serviços gerenciados;
+Estratégias de escalonamento para lidar com cargas de trabalho variáveis e volumes de dados em expansão.
+Monitoramento e Manutenção de Modelos de IA em Nuvem:
+Monitoramento contínuo de modelos de IA em ambientes de produção;
+Utilização de métricas e ferramentas de monitoramento para avaliar o desempenho e a qualidade dos modelos em produção.
+Ferramentas e Plataformas para Gerenciamento de Modelos de IA em Nuvem:
+Ferramentas e serviços disponíveis para facilitar o gerenciamento de modelos de IA em nuvem;
+Plataformas de gerenciamento de ciclo de vida de modelos, controle de versão e colaboração em equipe.
+Segurança e Ética na IA em Nuvem:
+Desafios de segurança na IA em nuvem;
+Privacidade de dados e conformidade regulatória;
+Questões éticas relacionadas à IA em nuvem;
+Estratégias para mitigar riscos de segurança e garantir a ética no uso da IA em nuvem.

@@ -1,0 +1,62 @@
+******************** Arquiteto(a) de Software ********************
+
+Módulo 1 | Fundamentos de Arquitetura de Software
+
+
+Introdução à Arquitetura de Software;
+Arquitetura de Software x Arquitetura de Soluções x Arquitetura Corporativa;
+O papel do(a) Arquiteto(a) de Software, hard e soft skills do(a) Arquiteto(a) de Software;
+Processos Decisórios (frame, alternativas, informação, valores, raciocínio lógico e compromisso com a ação);
+Riscos e Mitigação de Riscos (5W2H);
+Frameworks arquiteturais (TOGAF);
+The Open Group IT4IT™ Reference Architecture;
+ArchiMate x UML x BPMN;
+Ciclos de Vida de Desenvolvimento de Software;
+Metodologias ágeis x DevOps x Arquitetura de Software;
+Customer Development;
+Lean Startup;
+Gestão de Configuração e Versionamento, Ferramentas para SCM (Git/SVN/Azure DevOps);
+Boards (Trello / Azure Devops / JIRA).
+
+Módulo 2 |  Requisitos Arquiteturais e Modelagem Arquitetural
+
+
+Introdução à Engenharia de Requisitos;
+Tipos de requisitos;
+Técnicas para classificação e análise de requisitos (FURPS+ e SMART);
+Ferramentas para gerenciamento de requisitos;
+Refinamento (Grooming) de requisitos;
+Requisitos arquiteturais;
+Introdução à UML;
+Modelo 4+1;
+C4 Model;
+Ferramentas usadas para testes de cada tipo de requisito;
+Ferramentas para modelagem arquitetural / UML: Astah, Lucidchart, Yuml e Draw.io;
+Ferramentas para gerenciamento de requisitos: Helix RM, JIRA, Orcanos, Openreq, OSRMT, RE-Tools e ReQtest.
+
+Módulo 3 | Design Patterns, Estilos e Padrões Arquiteturais
+
+
+Introdução à Programação Orientada a Objetos;
+Princípios SOLID;
+Design Patterns (Padrões de Projetos);
+Clean Architecture;
+Arquitetura Hexagonal;
+Estilos e Padrões Arquiteturais;
+Padrões de Integração de Aplicações (EDI, EAI, ESB e Web Services).
+
+Módulo 4 | Principais Arquiteturas de Software da Atualidade
+
+
+Arquitetura de microsserviços;
+SWAGGER;
+Arquitetura API REST e GraphQL;
+Arquitetura orientada a eventos; 
+Arquitetura serverless;
+Azure Functions / AWS Lambda;
+Arquitetura de sistemas Web; 
+Frameworks para desenvolvimento de sistemas Web (Angular / React / Vue.js);
+Arquitetura de sistemas mobile
+Plataforma Nativa para iOS e Android;
+Plataformas Híbridas: Xamarin, Flutter, React Native, Ionic;
+Arquitetura cloud native.

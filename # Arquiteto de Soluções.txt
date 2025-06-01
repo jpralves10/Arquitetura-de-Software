@@ -1,0 +1,76 @@
+******************** Arquiteto(a) de Soluções ********************
+
+Módulo 1 | Computação em Nuvem
+
+
+Princípios da computação em nuvem;
+Nuvens Públicas, Privadas e Híbridas;
+Modalidades de Serviços;
+Soluções Cloud-First;
+TCO / ROI;
+Migração para a nuvem e os 6 R’s (Lift & Shift, Reshape, etc);
+Overview da Azure, AWS e GCP;
+Azure Portal, Console AWS, Console GCP;
+Soluções Multicloud;
+Cloud Management Platforms (CMP);
+Conectividade com a nuvem;
+Soluções de Edge Computing e CDN;
+Serviços de infraestrutura básica: virtual machine e containers;
+Recursos para escalabilidade, elasticidade e alta disponibilidade;  
+Serviços de backup, monitoração e automação;
+Continuidade de negócios (PCN / PCS) e recuperação de desastres;
+Calculadores de TCO e ROI;
+Virtual Box, Hyper-V;
+Docker e Kubernetes (AKS, EKS e GKE);
+Ferramentas de backup e monitoração da Azure, AWS e GCP.
+
+Módulo 2 |  Soluções de Rede e Cibersegurança
+
+
+Fundamentos e Conceitos Redes de Computadores
+Ativos e Passivos de Redes
+Arquitetura, Tecnologia, Modelos e Protocolos de Rede
+Endereçamento e Mascaramento de Redes (IPV4 e IPV6)
+Roteamento e Rotas
+Soluções de alta disponibilidade em redes e balanceamento de carga
+Fundamentos e Conceitos sobre Segurança da Informação e Segurança Cibernética
+Defesa em Profundidade
+Ferramentas de segurança; DLP e Criptografia Dados
+Serviços de conectividade, rede e segurança na nuvem (SDN, VPC, VPN)
+Melhores Práticas de Segurança em Cloud
+Soluções de apoio à LGPD
+
+Módulo 3 | Soluções Digitais
+
+
+Internet das Coisas (IoT);
+Soluções de Internet das Coisas (IoT) na nuvem;
+Inteligência Artificial (IA) e Machine Learning (ML);
+Soluções de Inteligência Artificial (IA) e Machine Learning (ML) na nuvem;
+Blockchain;
+Soluções para DevOps;
+Jenkins, JIRA;
+Azure DevOps, AWS DevOps Services, SonarQube;
+Soluções de Infraestrutura como código (IaC);
+Puppet, Ansible, Chef, Vagrant e Terraform;
+Azure Resource Manager, AWS Cloud Formation, Google Cloud Deployment Manager; 
+Soluções de Telemetria;
+ELK Stack, Dynatrace, Prometheus + Grafana;
+Chatbots, soluções de reconhecimento áudio / visual. 
+
+Módulo 4 | Soluções para Armazenamento de Dados
+
+
+Tipos de dados
+Tecnologias de armazenamento
+Serviços de armazenamento em nuvem
+Bancos de dados relacionais, NOSQL e NewSQL
+Bancos de dados distribuídos e Arquiteturas escaláveis de dados
+Data Lake x Data Warehouse
+Pesquisa indexada
+Bancos de dados em tempo real
+Banco de dados como serviço na nuvem
+Soluções para extração, ingestão, transformação e análise de dados
+Big Data
+Ecossistema Hadoop
+Soluções para Big Data na nuvem
