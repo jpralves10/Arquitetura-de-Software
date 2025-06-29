@@ -24,3 +24,16 @@ $env:NODE_OPTIONS = "--openssl-legacy-provider"
 - Extensão Chrome
 
 React Developer Tools
+Redux DevTools
+
+- REDUX
+
+npm install redux react-redux
+
+- Server
+
+npm run build
+
+npm install -g serve
+
+serve -s build

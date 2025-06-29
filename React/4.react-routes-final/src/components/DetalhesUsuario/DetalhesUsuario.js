@@ -8,7 +8,9 @@ function DetalhesUsuario() {
   const [usuario, setUsuario] = useState({})
 
   useEffect(() => {
-    fetch(`https://reqres.in/api/users/${id}`)
+    fetch(`https://reqres.in/api/users/${id}`, {
+      headers: { "x-api-key": "reqres-free-v1" }
+    })
       .then(resposta => resposta.json())
       .then(dados => {
         if (dados.data) {

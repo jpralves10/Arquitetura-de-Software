@@ -20,7 +20,10 @@ class Usuarios extends Component {
   removerUsuario(usuario) {
     if (window.confirm(`Tem certeza que deseja remover "${usuario.nome} ${usuario.sobrenome}"?`)) {
       fetch(`https://reqres.in/api/users/${usuario.id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+          "x-api-key": "reqres-free-v1"
+        },
       })
         .then(resposta => {
           if (resposta.ok) {
@@ -33,9 +36,14 @@ class Usuarios extends Component {
   }
 
   componentDidMount() {
-    fetch('https://reqres.in/api/users')
+    fetch('https://reqres.in/api/users', {
+      method: "GET",
+      headers: {
+        "x-api-key": "reqres-free-v1",
+      },
+    })
       .then(resposta => resposta.json())
-      .then(dados => {
+      .then(dados => {        
         const usuarios = dados.data.map(usuario => ({
           id: usuario.id,
           nome: usuario.first_name,

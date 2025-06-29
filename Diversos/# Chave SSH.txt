@@ -1,0 +1,46 @@
+O que é chave SSH do Git?
+Uma chave SSH é a credencial de acesso para o protocolo de rede SSH (shell seguro). Esse protocolo de rede segura autenticado e criptografado é usado para comunicação remota entre máquinas em rede aberta não segura. O SSH é usado para transferência remota de arquivos, gerenciamento de rede e acesso remoto ao sistema operacional. O acrônimo SSH também é usado para descrever um conjunto de ferramentas usadas para interagir com o protocolo SSH.
+
+O SSH usa um par de chaves para iniciar um aperto de mãos seguro entre partes remotas. O par de chaves contém uma chave pública e privada. A nomenclatura privada versus pública pode ser confusa, pois ambas são chamadas de chaves. É mais útil pensar na chave pública como "fechadura" e na chave privada como a "chave". Você concede o “bloqueio” público a partes remotas para criptografar ou “bloquear” os dados. Esses dados são abertos com a chave “privada” que você mantém em local seguro.
+
+Como criar chave SSH
+As chaves SSH são geradas por meio de algoritmo criptográfico de chave pública, sendo o mais comum o RSA ou o DSA. Em um nível muito alto, as chaves SSH são geradas por meio de fórmula matemática que leva 2 números primos e uma variável de semente aleatória para gerar a chave pública e privada. Essa é uma fórmula unidirecional que garante que a chave pública possa ser derivada da chave privada, mas a chave privada não pode ser derivada da chave pública.
+
+As chaves SSH são criadas usando uma ferramenta de geração de chaves. O conjunto de ferramentas de linha de comando SSH inclui uma ferramenta de keygen. A maioria dos provedores de hospedagem git oferece guias sobre como criar chave SSH.
+
+------------------------------------------
+
+Entendendo as Chaves SSH: Autenticação e Segurança para Acesso Remoto... Git/Github
+
+#GitHub
+#Git
+
+As Chaves SSH (Secure Shell) desempenham um papel fundamental na garantia de autenticação segura e comunicações criptografadas ao acesso a servidores remotamente. Este artigo explora a natureza das Chaves SSH, seu funcionamento e sua aplicação específica no contexto do Git e do GitHub.
+
+Chaves SSH: Fundamentos e Funcionamento.
+
+As Chaves SSH são pares de chaves criptográficas: uma chave pública e uma chave privada. Essas chaves são a base para autenticação segura e criptografia nas comunicações. No processo de autenticação, a chave pública é compartilhada com servidores, enquanto a chave privada é mantida no dispositivo do usuário.
+
+Benefícios das Chaves SSH.
+
+Segurança Reforçada: A autenticação baseada em Chaves SSH é mais segura do que senhas tradicionais, uma vez que as chaves privadas nunca são transmitidas pela rede.
+Eficiência na Autenticação: Elimina a necessidade de inserir senhas repetidamente, agilizando o processo de autenticação.
+Criptografia Assimétrica: A autenticação é baseada em criptografia assimétrica, o que garante uma camada extra de segurança.
+Aplicação de Chaves SSH no Contexto do Git e GitHub.
+
+Geração do Par de Chaves: Desenvolvedores geram um par de chaves localmente: uma pública e uma privada.
+Chave Pública no GitHub: A chave pública é adicionada à conta do GitHub, permitindo a identificação do usuário.
+Operações de Git Seguras: A chave privada é usada pelo Git para autenticar o usuário em operações como clonagem, push e pull.
+Vantagens da Utilização de Chaves SSH no Git e GitHub.
+
+Fortalecimento da Segurança: A autenticação via Chaves SSH melhora a segurança, evitando senhas vulneráveis.
+Produtividade Aprimorada: O processo de autenticação rápido e a ausência de senhas economizam tempo.
+Colaboração Eficiente: Chaves públicas compartilhadas facilitam a colaboração em equipe.
+Passos para Implementar Chaves SSH no Git e GitHub.
+
+Geração das Chaves: Criação do par de chaves localmente, garantindo a posse da chave privada.
+Integração com GitHub: Adição da chave pública à conta do GitHub para identificação.
+Configuração Local do Git: Configuração do Git para usar a chave privada em operações remotas.
+O que me ajudou a ver que:
+
+Chaves SSH desempenham um papel vital na segurança cibernética moderna. Elas oferecem autenticação sólida e comunicações criptografadas. No contexto do Git e do GitHub, as Chaves SSH elevam a segurança, eficiência e colaboração no desenvolvimento de software. Ao dominar a implementação de Chaves SSH, os desenvolvedores estão bem posicionados para enfrentar os desafios de segurança e produtividade no mundo da tecnologia.

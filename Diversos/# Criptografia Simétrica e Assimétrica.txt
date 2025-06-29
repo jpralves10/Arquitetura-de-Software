@@ -1,0 +1,80 @@
+-------------------- Criptografia Simétrica --------------------
+
+Os algoritmos simétricos mais conhecidos são mais rápidos do que os algoritmos de chave pública mais conhecidos. Portanto, eles são preferenciais ao processar grandes quantidades de dados. Alguns dos algoritmos simétricos mais comuns são RC4, TRIPLE DES (Data Encryption Standard) e AES (Advanced Encryption Standard)
+
+-------------------- Criptografia Assimétrica --------------------
+
+Os principais algoritmos de criptografia assimétrica incluem RSA, ECC e DSA. Eles são usados para criar pares de chaves pública/privada, onde a chave pública pode ser usada para criptografar mensagens e a chave privada é usada para descriptografar. Esses algoritmos se baseiam na dificuldade de resolver problemas matemáticos específicos para garantir a segurança. 
+
+RSA (Rivest-Shamir-Adleman):
+Baseado na dificuldade de fatorar números grandes. 
+Amplamente utilizado para criptografia e assinatura digital. 
+Utiliza pares de chaves pública e privada, onde a chave pública é usada para criptografar e a privada para descriptografar. 
+
+ECC (Criptografia de Curva Elíptica):
+Utiliza propriedades de curvas elípticas para segurança, permitindo chaves menores e mais eficientes em termos de desempenho.
+Também utilizada para criptografia e assinatura digital.
+Oferece segurança equivalente a chaves RSA maiores, com menor custo computacional. 
+
+DSA (Digital Signature Algorithm):
+Projetado especificamente para assinaturas digitais, não para criptografia geral.
+É um padrão para a geração de assinaturas digitais, garantindo a autenticidade e integridade de documentos.
+Pode ser usado em conjunto com algoritmos de criptografia para um sistema de segurança mais completo. 
+
+Outros algoritmos importantes:
+
+Diffie-Hellman:
+Usado para trocar chaves de forma segura entre duas partes, permitindo o estabelecimento de uma chave simétrica para comunicação posterior. 
+
+ElGamal:
+Baseado no problema do logaritmo discreto, podendo ser usado para criptografia e assinatura digital. 
+
+Criptografia de curva elíptica (ECC):
+Inclui vários algoritmos e protocolos específicos, como ECDSA, ECDH, etc., que se beneficiam das propriedades de curvas elípticas para segurança. 
+
+Criptosistema de Cramer-Shoup:
+Uma alternativa ao RSA, também baseada na dificuldade de problemas matemáticos, com foco em segurança. 
+
+Esses algoritmos são as ferramentas fundamentais na criptografia de chave pública, cada um com suas aplicações e vantagens específicas. 
+
+
+-------------------- Algoritmos para HASH --------------------
+
+Os algoritmos de hash mais comuns incluem MD5, SHA-1, SHA-2 (com variações como SHA-256 e SHA-512), e SHA-3. Cada um possui características específicas de segurança e eficiência. 
+
+Algoritmos de Hash Mais Utilizados:
+
+MD5 (Message Digest Algorithm 5):
+Um algoritmo de 128 bits, considerado historicamente importante, mas que possui vulnerabilidades e não é mais recomendado para aplicações de segurança. 
+
+SHA-1 (Secure Hash Algorithm 1):
+Um algoritmo de 160 bits, também considerado obsoleto devido a falhas de segurança. 
+
+SHA-2 (Secure Hash Algorithm 2):
+Uma família de algoritmos, incluindo SHA-256 e SHA-512, que são mais seguros e amplamente utilizados em diversas aplicações, como SSL/TLS e blockchain. 
+
+SHA-256:
+Uma variante do SHA-2, produzindo um hash de 256 bits, conhecido por sua robustez e uso em criptomoedas e segurança web. 
+
+SHA-512:
+Outra variante do SHA-2, gerando um hash de 512 bits, oferecendo maior segurança, mas com um desempenho ligeiramente inferior. 
+
+SHA-3:
+Uma família de algoritmos, projetada para substituir o SHA-2, oferecendo novas características e maior resistência a ataques. 
+
+BLAKE2 e BLAKE3:
+São algoritmos de hash mais recentes, conhecidos por seu alto desempenho, sendo potenciais substitutos do SHA em algumas aplicações. 
+
+Outros Algoritmos:
+
+RIPEMD:
+Uma família de funções de hash, com versões como RIPEMD-160, que são consideradas mais seguras que as funções MD e similares ao SHA-1. 
+
+Whirlpool:
+Um algoritmo de hash de 512 bits, desenvolvido por Vincent Rijmen e Paulo S.L.M. Barreto, adotado pela ISO e conhecido por sua segurança e uso em assinaturas digitais e verificação de integridade de dados. 
+
+Observações:
+- A escolha do algoritmo de hash depende da aplicação e dos requisitos de segurança e desempenho. 
+- É importante considerar as vulnerabilidades conhecidas de cada algoritmo e optar por alternativas mais robustas quando necessário. 
+- Alguns algoritmos, como o MD5 e SHA-1, são considerados obsoletos e não devem ser utilizados em novas aplicações que requerem alta segurança. 
+

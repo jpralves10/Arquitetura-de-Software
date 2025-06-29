@@ -7,7 +7,9 @@ function Usuarios() {
   const [usuarios, setUsuarios] = useState([])
 
   useEffect(() => {
-    fetch('https://reqres.in/api/users')
+    fetch('https://reqres.in/api/users', {
+      headers: { "x-api-key": "reqres-free-v1" },
+    })
     .then(resposta => resposta.json())
     .then(dados => {
       const usuarios = dados.data.map(usuario => ({
@@ -24,7 +26,8 @@ function Usuarios() {
   const removerUsuario = usuario => {
     if (window.confirm(`Tem certeza que deseja remover "${usuario.nome} ${usuario.sobrenome}"?`)) {
       fetch(`https://reqres.in/api/users/${usuario.id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: { "x-api-key": "reqres-free-v1" },
       })
         .then(resposta => {
           if (resposta.ok) {
