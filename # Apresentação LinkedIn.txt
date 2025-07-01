@@ -1,0 +1,42 @@
+Olá! 👋,
+Meu nome é Jean Alves e tenho 35 anos.
+Sou desenvolvedor sênior com 12 anos de experiência em desenvolvimento de aplicativos na área de negócios e sistemas bancários.
+Passo meu tempo livre estudando novas tecnologias e criando projetos de exemplo no GitHub.
+Gosto de detalhes e espírito de equipe.
+Aprenderei e, com paciência e determinação, transformarei os desafios que enfrentarei em experiências.
+
+Principais Conhecimentos:::
+
+
+• Conhecimento em Linguagens de Programação: 
+Java, Python, NodeJs, JavaScript, Typescript;
+
+• Conhecimento Framework Spring: 
+Spring Core, Spring Boot, Spring Security, Spring Data, Quarkus;
+
+• Frameworks de Desenvolvimento Web:
+Angular, React
+
+• Experiência com Cloud Computing:
+AWS;
+
+• Domínio de Padrões de Arquitetura: 
+Design Patterns, Hexagonal, Clean Architecture, Microservice, Event-Driven;
+
+• Banco de Dados SQL e NoSQL: 
+MySQL, PostgreSQL, DB2, MongoDB, DynamoDB;
+
+• Conhecimento em Segurança da Informação:
+OAuth, JWT, OpenID
+
+• Protocolos e Interfaces de Comunicação:
+RESTful, WebSocket
+
+• Conhecimento em Gestão de Aplicações: 
+Docker, Kubernates, ArgoCD, OpenShift;
+
+• Integração Continua e Analise Estática de Código: 
+Jenkins, SonarQube
+
+• Conceitos de Metodologias Ágeis de Desenvolvimento: 
+Scrum e/ou Kanban
