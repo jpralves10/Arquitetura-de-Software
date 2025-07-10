@@ -3,6 +3,7 @@ Experiência com Cloud Computing: AWS, Azure, GCP;
 Domínio de padrões de arquitetura: MVC, Hexagonal, CQRS, Event-Driven;
 Banco de Dados SQL e NoSQL: MySQL, PostgreSQL, DynamoDB;
 Conhecimento em Segurança da Informação: OAuth, JWT, OpenID, TLS;
+Conhecimento intermediário em serviços de mensageria, tais como: JMS, SQS, SNS
 Habilidade em Comunicação;
 
 ------------------------------------------------------------------------------------
