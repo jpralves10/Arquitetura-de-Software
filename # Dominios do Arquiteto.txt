@@ -6,6 +6,10 @@ Conhecimento em Segurança da Informação: OAuth, JWT, OpenID, TLS;
 Conhecimento intermediário em serviços de mensageria, tais como: JMS, SQS, SNS
 Habilidade em Comunicação;
 
+AWS(Storage, SNS, SQS, EC2, ECS/EKS, Lambda, ELB, Database, API Gateway, Route 53, VPC, etc..)  
+
+Blockchain (Criptografia, Algoritmos de Consenso, Aplicações Descentralizadas (DApp), Contratos Inteligentes, Arquitetura do Bitcoin e Ethereum, Web3, Tokenização, etc..) 
+
 ------------------------------------------------------------------------------------
 
 Requisitos Obrigatório:

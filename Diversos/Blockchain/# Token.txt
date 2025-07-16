@@ -1,0 +1,28 @@
+Um token blockchain é uma representação digital de um ativo ou valor, emitida em uma blockchain existente, como a Ethereum. Diferente das criptomoedas nativas de suas próprias blockchains (como Bitcoin), os tokens são construídos sobre blockchains existentes e podem representar uma variedade de coisas, como direitos de propriedade, acesso a serviços, ou até mesmo ativos físicos tokenizados. 
+
+Elaborando:
+
+Token vs. Criptomoeda:
+A principal diferença é que as criptomoedas possuem suas próprias blockchains, enquanto os tokens são construídos em blockchains existentes. Por exemplo, o Bitcoin é uma criptomoeda, enquanto tokens como o Ether (ETH), o token nativo da Ethereum, podem ser usados para acessar serviços na plataforma ou para criar novos tokens. 
+
+Tipos de Tokens:
+Existem diversos tipos de tokens, incluindo:
+
+- Tokens de utilidade: Permitem o acesso a produtos ou serviços dentro de uma plataforma, como o token ENJ, que é usado para criar itens digitais em jogos na rede Ethereum. 
+
+- Tokens de segurança: Representam ativos financeiros como ações ou títulos, e podem ser usados para tokenizar a propriedade de bens como imóveis. 
+
+- Tokens não fungíveis (NFTs): São únicos e indivisíveis, como obras de arte digitais ou itens de colecionador, e não podem ser trocados por outro item idêntico. 
+
+Como funcionam:
+Tokens são criados por meio de contratos inteligentes (smart contracts) na blockchain, que definem como o token funciona, incluindo sua emissão, transferência e utilidade. As transações com tokens são registradas na blockchain, garantindo transparência e segurança. 
+
+Utilidades:
+Tokens podem ser usados para uma variedade de propósitos, incluindo:
+
+- Pagamentos: Facilitar transações dentro de um ecossistema ou plataforma. 
+
+- Acesso a serviços: Permitir que os usuários acessem recursos ou serviços específicos em uma plataforma, como participar de uma votação ou acessar conteúdo exclusivo. 
+
+- Representação de ativos: Representar a propriedade de ativos do mundo real, como imóveis ou obras de arte, permitindo a sua negociação de forma digital e segura. 
+

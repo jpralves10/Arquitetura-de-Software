@@ -1,0 +1,19 @@
+Em blockchain, um "nonce" (abreviação de "number used once" ou número usado uma vez) é um número que é adicionado a um bloco de transações para ajudar na mineração. Ele é usado para gerar um hash que atenda a critérios específicos de dificuldade, permitindo que o bloco seja adicionado à cadeia de blocos. 
+Elaboração:
+
+Mineração:
+O nonce é um número que os mineradores tentam encontrar para resolver o problema criptográfico associado à adição de um novo bloco à blockchain. 
+
+Prova de Trabalho:
+O processo de encontrar o nonce correto é uma prova de trabalho, demonstrando que o minerador realizou o esforço computacional necessário para adicionar o bloco à cadeia. 
+
+Segurança:
+O uso de nonces ajuda a garantir a segurança da blockchain, pois dificulta a manipulação ou criação de blocos falsos. 
+
+Ataques de Repetição:
+O nonce também ajuda a prevenir ataques de repetição, onde um invasor tenta usar a mesma transação várias vezes. 
+
+Exemplo Bitcoin:
+No Bitcoin, o nonce é um campo no cabeçalho do bloco, e os mineradores modificam esse número até que o hash do bloco atenda aos critérios de dificuldade. 
+
+Em resumo, o nonce é um número crucial para o funcionamento seguro e eficiente da mineração e da própria blockchain. 
