@@ -1,0 +1,50 @@
+Scrum e Kanban são metodologias ágeis, mas com abordagens diferentes. Scrum é um framework estruturado com ciclos definidos (sprints) e papéis fixos, enquanto Kanban é um sistema visual que foca na melhoria contínua do fluxo de trabalho, sem ciclos fixos e com menos estrutura. 
+
+*** Scrum: ***
+
+Estrutura:
+Define papéis como Product Owner, Scrum Master e Equipe de Desenvolvimento, além de eventos como Daily Scrum, Sprint Planning, Sprint Review e Sprint Retrospective. 
+
+Ciclos:
+Trabalha em sprints, iterações de curta duração (geralmente de 1 a 4 semanas) com entregas definidas no início de cada sprint. 
+
+Foco:
+Entrega de valor incremental através de ciclos definidos, com foco em objetivos claros e prazos. 
+
+Flexibilidade:
+Menos flexível que o Kanban devido à estrutura e ciclos definidos. 
+
+*** Kanban: ***
+
+Estrutura:
+Não possui papéis definidos nem eventos fixos, podendo ser adaptado ao contexto da equipe. 
+
+Ciclos:
+Não possui ciclos definidos, permitindo entregas contínuas e flexíveis. 
+
+Foco:
+Visualização do fluxo de trabalho, com o objetivo de identificar gargalos, otimizar o processo e garantir um fluxo contínuo de trabalho. 
+
+Flexibilidade:
+Altamente flexível, adaptando-se a diferentes contextos e necessidades da equipe. 
+
+>> Principais Diferenças:
+
+Estrutura:
+Scrum possui uma estrutura mais rígida, com papéis e eventos definidos, enquanto Kanban é mais flexível. 
+
+Ciclos:
+Scrum trabalha com sprints, enquanto Kanban não tem ciclos definidos. 
+
+Foco:
+Scrum foca na entrega de valor incremental em ciclos, enquanto Kanban foca na melhoria contínua do fluxo de trabalho. 
+
+Flexibilidade:
+Kanban é mais flexível e adaptável, enquanto Scrum é menos flexível devido à sua estrutura. 
+
+Em resumo:
+- Scrum é uma boa opção para equipes que precisam de um framework estruturado para desenvolver projetos complexos com entregas definidas. 
+- Kanban é mais adequado para equipes que buscam otimizar o fluxo de trabalho, priorizar tarefas e garantir entregas contínuas, com maior flexibilidade e adaptação. 
+
+A escolha entre Scrum e Kanban depende das necessidades e características da equipe e do projeto. 
+

@@ -8,7 +8,7 @@ Habilidade em Comunicação;
 
 AWS(Storage, SNS, SQS, EC2, ECS/EKS, Lambda, ELB, Database, API Gateway, Route 53, VPC, etc..)  
 
-Blockchain (Criptografia, Algoritmos de Consenso, Aplicações Descentralizadas (DApp), Contratos Inteligentes, Arquitetura do Bitcoin e Ethereum, Web3, Tokenização, etc..) 
+Blockchain (Criptografia, Algoritmos de Consenso, Aplicações Descentralizadas (DApp), Contratos Inteligentes, Arquitetura Bitcoin/Ethereum, Web3, Tokenização, etc..) 
 
 ------------------------------------------------------------------------------------
 
