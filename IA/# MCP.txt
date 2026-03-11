@@ -1,0 +1,18 @@
+MCP é a sigla para Model Context Protocol (Protocolo de Contexto de Modelo), um padrão aberto desenvolvido pela Anthropic (criadora do Claude) que funciona como uma ponte universal, conectando modelos de IA a dados externos, ferramentas e sistemas de software. 
+
+Lançado em novembro de 2024, ele resolve o problema de fragmentação onde desenvolvedores precisavam criar integrações personalizadas para cada novo modelo ou ferramenta, agindo como um conector "USB" para a inteligência artificial. 
+
+Principais características do MCP
+Conexão Padronizada: Permite que IAs (como o Claude, ChatGPT, etc.) acessem facilmente repositórios de código, bancos de dados, APIs de negócios e ferramentas de produtividade.
+Acesso a Dados em Tempo Real: Facilita a leitura de arquivos locais ou dados de aplicações como Jira, GitHub, Slack e Google Drive.
+Padrão Aberto: Sendo open-source, é adotado por diversos agentes e ferramentas de desenvolvimento para evitar integrações proprietárias caóticas. 
+
+Por que o MCP é importante?
+Antes do MCP, as IAs eram "isoladas", operando apenas com o conhecimento do seu treinamento estático. O MCP transforma modelos simples em agentes de IA dinâmicos que podem interagir com o mundo externo, ler documentos reais e agir em nome do usuário. 
+
+Exemplos de uso:
+Uma IA de desenvolvimento (IDE) usando MCP para ler o repositório local do GitHub e fazer commits.
+Um chatbot de IA consultando o Postgres para analisar dados em tempo real. 
+
+Em resumo, o MCP padroniza a forma como a inteligência artificial interage com o ecossistema digital, tornando-a mais útil, precisa e conectada.
+

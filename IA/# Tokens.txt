@@ -1,0 +1,31 @@
+No contexto de Grandes Modelos de Linguagem (LLMs), como GPT, Gemini ou Claude, os tokens são as unidades básicas de dados que a inteligência artificial processa para entender e gerar texto. 
+Ao contrário dos humanos, que leem palavras inteiras, as LLMs dividem o texto de entrada em fragmentos menores — os tokens — que podem ser palavras inteiras, partes de palavras (subpalavras), números, caracteres individuais ou símbolos de pontuação. 
+
+A seguir, uma explicação detalhada sobre como eles funcionam e sua importância:
+
+1. O que compõe um Token?
+
+Um token não é necessariamente uma palavra. A tokenização (o processo de dividir o texto) segue regras para maximizar a eficiência: 
+Palavras comuns: Podem ser um token inteiro (ex: "casa").
+Palavras complexas/longas: São divididas em várias subpalavras (ex: "inconstitucional" pode virar "in", "consti", "tucional").
+Pontuação e Espaços: Geralmente tratados como tokens separados. 
+Regra geral: Em inglês, 1 token equivale a aproximadamente 4 caracteres ou 0,75 de uma palavra. Portanto, 1.000 tokens correspondem a cerca de 750 palavras. 
+
+2. O Processo de Tokenização
+
+Antes de uma LLM processar uma pergunta (prompt), o texto passa por um tokenizer que converte caracteres em números. 
+Texto de entrada: "IA é genial"
+Tokens: ["IA", " é", " geni", "al"]
+Números (IDs): [3245, 452, 10893, 312] 
+A IA "pensa" em números, não em letras. A geração de texto é a previsão do próximo token numérico na sequência. 
+
+3. Por que Tokens são fundamentais em LLMs?
+
+Janela de Contexto: LLMs têm um limite de quantos tokens podem processar de uma só vez (a "context window"). Se um prompt + resposta exceder esse limite, o modelo "esquece" o início da conversa.
+Moeda da IA (Custos): APIs de LLMs (como OpenAI API) cobram com base no número de tokens processados (entrada) e gerados (saída). Paga-se por tokens, não por tempo de uso.
+Desempenho: Modelos com tokenizadores mais eficientes conseguem entender melhor idiomas com acentuação ou palavras compostas (como o português) sem desperdiçar espaço. 
+
+Resumo
+
+Tokens são os "tijolos" de Lego que a IA usa para construir linguagem. Entender tokens é essencial para otimizar o uso de prompts, controlar custos e gerenciar o limite de memória (contexto) dos modelos. 
+

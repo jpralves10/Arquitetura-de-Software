@@ -1,0 +1,14 @@
+--- event driven é o mesmo que event sourcing ? ---
+
+Não, Event Driven Architecture (EDA) e Event Sourcing (ES) não são a mesma coisa, embora sejam conceitos relacionados e frequentemente usados juntos. Event Driven foca na comunicação assíncrona baseada em eventos, enquanto Event Sourcing foca no armazenamento do estado como uma sequência de eventos imutáveis. 
+
+Diferenças Principais:
+- Event-Driven Architecture (EDA): É um padrão de arquitetura onde sistemas reagem a eventos em tempo real, permitindo o desacoplamento de serviços. O foco é comunicar que algo aconteceu ("PedidoCriado") para outros componentes reagirem.
+- Event Sourcing (ES): É uma estratégia de persistência de dados. Em vez de salvar apenas o estado atual de um objeto (como numa tabela SQL comum), você armazena todo o histórico de alterações (eventos) que levaram àquele estado. 
+
+Como se complementam:
+O Event Sourcing é considerado uma forma avançada de implementar sistemas Event-Driven. Você pode usar Event Sourcing para persistir dados (salvar o histórico) e, ao mesmo tempo, emitir esses eventos para que outros serviços consumam (comunicação Event-Driven). 
+
+Em resumo:
+Event Sourcing: Como você armazena o estado (histórico).
+Event Driven: Como seus serviços comunicam e reagem.

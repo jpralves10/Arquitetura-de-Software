@@ -1,0 +1,30 @@
+Agentes de IA é igual a MCP ???
+
+Não, agentes de IA não são a mesma coisa que MCP, mas eles funcionam juntos. 
+A maneira mais fácil de entender a diferença é:
+Agentes de IA são o "cérebro" (a inteligência que toma decisões e executa tarefas).
+MCP é a "ponte" ou a infraestrutura (o padrão que conecta o cérebro às ferramentas e dados). 
+
+Aqui está uma explicação detalhada:
+1. O que são Agentes de IA?
+Agentes de IA são sistemas de software baseados em LLMs (Modelos de Linguagem Grande) que possuem autonomia para raciocinar, planejar e executar ações para atingir um objetivo específico (por exemplo, "agendar uma reunião" ou "analisar este documento"). 
+
+2. O que é MCP (Model Context Protocol)?
+Desenvolvido pela Anthropic, o MCP é um protocolo aberto (standard) que padroniza como os agentes de IA se conectam a dados externos, ferramentas de negócios e repositórios de conteúdo (como GitHub, Slack, Bancos de Dados). Antes do MCP, desenvolvedores precisavam construir integrações personalizadas para cada agente, o que era caótico e demorado. 
+
+3. Como eles se relacionam?
+O MCP potencializa os agentes de IA, permitindo que eles acessem ferramentas em tempo real com segurança. 
+
+Agente: Decide que precisa ler um arquivo.
+MCP: Fornece a conexão padronizada segura para abrir aquele arquivo. 
+
+Resumo das Diferenças
+Característica 			Agentes de IA			MCP (Model Context Protocol)
+Função			Raciocínio, decisão e ação		Conectividade e acesso a dados
+O que é?		Sistema de software/Cognitivo		Protocolo/Padrão de infraestrutura
+Analogia		O "Cérebro"				A "Ponte/Ferramenta"
+Foco			Entregar resultados			Padronizar conexões
+
+Em suma, MCP é uma tecnologia que permite que agentes de IA sejam mais poderosos, seguros e fáceis de integrar, mas o agente é quem faz o trabalho de inteligência.
+
+

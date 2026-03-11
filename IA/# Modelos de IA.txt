@@ -1,0 +1,18 @@
+Modelos de IA (Inteligência Artificial) são programas computacionais treinados com grandes volumes de dados para identificar padrões, fazer previsões, tomar decisões ou gerar novos conteúdos. Eles atuam como "cérebros virtuais", sendo o resultado final da aplicação de algoritmos a conjuntos de dados, permitindo que máquinas aprendam com experiências. 
+
+Principais Características e Conceitos:
+Treinamento: Um modelo é treinado com algoritmos e dados, transformando-se em uma estrutura pronta para uso.
+Ação: Capacidade de analisar entradas, entender padrões e agir, inclusive em dados não vistos anteriormente.
+Modelos de Fundação: Grandes modelos treinados com imensas quantidades de dados, adaptáveis a diversas tarefas (ex: GPT, BERT).
+Ajuste (Fine-tuning): Processo de refinar um modelo pré-treinado para tarefas específicas e menores. 
+
+Onde são aplicados?
+
+Os modelos de IA são usados em:
+
+Reconhecimento: Imagem, vídeo e voz.
+Processamento de Linguagem Natural (PLN): Tradução, resumos e chatbots.
+IA Generativa: Criação de texto, imagens e códigos.
+Análise Preditiva: Previsão de demanda e comportamento do usuário. 
+
+Diferente do algoritmo (a receita), o modelo é o "bolo pronto", ou seja, o sistema inteligente operacional. 

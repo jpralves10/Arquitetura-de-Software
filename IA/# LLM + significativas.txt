@@ -1,0 +1,71 @@
+--- LLM + significativas ---
+
+
+Com base no cenário de Inteligência Artificial em março de 2026, as Large Language Models (LLMs) mais significativas estão focadas em multimodalidade, raciocínio avançado, longas janelas de contexto e modelos de código aberto altamente eficientes. 
+
+Aqui está uma lista das LLMs mais influentes, divididas por categorias:
+1. Modelos Proprietários de Fronteira
+- GPT-5.2 / GPT-4o (OpenAI): É um padrão da indústria para raciocínio geral, programação e uso profissional. Tem recursos multimodais avançados como texto, áudio, imagem e vídeo.
+- Claude 4 Opus / Sonnet 4 (Anthropic): São reconhecidos pela alta capacidade de raciocínio, escrita criativa, segurança e janelas de contexto extensas, que são úteis para análise legal e técnica.
+- Gemini 3 Pro / 2.5 Pro (Google): Destaca-se pela integração multimodal nativa, grande capacidade de contexto (até 2M tokens) e eficiência para pesquisa profunda.
+- o1-preview / o3 (OpenAI): Estão focados em raciocínio complexo, matemática e programação (agente inteligente), avaliando a lógica antes de responder. 
+
+2. Modelos Open-Source/Open-Weights
+- Llama 3.1/4 (Meta): É líder na inovação open-source, oferecendo alto desempenho para empresas que precisam de soluções customizadas e soberania de dados.
+- DeepSeek-R1 / V3.2 (DeepSeek): São modelos altamente eficientes com raciocínio forte e baixo custo, ganhando destaque por desempenho próximo aos proprietários.
+- Mistral Large 2 / Small 3.2 (Mistral AI): Oferecem alta eficiência e velocidade, sendo ótimos para empresas que buscam modelos menores e mais rápidos (edge/servidores locais).
+- Qwen3 (Alibaba Cloud): É conhecido pelo forte desempenho em programação (coding) e tarefas matemáticas.
+Falcon 180B/Mamba 7B (TII): São modelos robustos para pesquisa e uso comercial, com arquiteturas inovadoras. 
+
+3. Modelos Especializados e Agentes
+- Perplexity AI: É especializado em pesquisa, verificação de fatos e busca em tempo real (substituindo motores de busca).
+- Kimi-K2.5 (Moonshot AI): Destaca-se em fluxos de trabalho de agentes (agentic workflows).
+- Apriel-1.5-15B-Thinker (ServiceNow): É um modelo multimodal focado em rodar em uma única GPU, o que resulta em eficiência no edge/enterprise.
+- Amazon Nova: É um conjunto de modelos base da Amazon integrados ao Bedrock, com suporte para geração multimodais (texto, imagem, vídeo). 
+
+Principais Tendências para 2026
+- Contexto Longo: Os modelos agora processam enormes volumes de dados, como Claude e Gemini.
+- Agentes de IA: Ocorre uma transição de chatbots para "colegas" que executam tarefas complexas e autónomas.
+- Multimodalidade: Há uma compreensão nativa de texto, imagem, áudio e vídeo.
+
+
+------------------------------------------------------------------------
+
+--- IA generativa + significativas ---
+
+
+Com base nas tendências do início de 2026, a inteligência artificial generativa evoluiu de chatbots simples para agentes autônomos e multimodais sofisticados. As ferramentas mais significativas são aquelas que oferecem alta capacidade de raciocínio, integração com ecossistemas de trabalho e geração de mídia realista. 
+
+Aqui estão as IAs generativas mais significativas em 2026, divididas por categorias:
+
+1. Grandes Modelos de Linguagem (LLMs) e Chatbots 
+- ChatGPT (OpenAI - GPT-5.2): continua como líder em versatilidade, focado em raciocínio complexo, geração de código e tarefas corporativas.
+- Claude (Anthropic - Claude 4.6/3.5 Sonnet): é reconhecido por sua inteligência para análise de dados e redação estratégica.
+- Google Gemini (Gemini 3/3.1): tem forte multimodalidade e está profundamente integrado ao ecossistema Google (Workspace, busca).
+- Perplexity AI: é considerado o melhor buscador com IA, focado em respostas precisas e citação de fontes.
+- DeepSeek (R1/3): é referência em eficiência e capacidades de ponta com custos reduzidos. 
+
+2. Geração de Imagem e Design
+- Midjourney: é líder em qualidade artística e fotorrealismo.
+- DALL·E 3 (OpenAI): está integrado ao ChatGPT e é excelente na compreensão de prompts complexos.
+- Ideogram / Leonardo AI: destacam-se na criação de layouts e imagens específicas para comunidades criativas.
+- Adobe Firefly: é a ferramenta padrão da indústria para design seguro e integrado ao Photoshop. 
+
+3. Geração de Vídeo e Movimento
+- Sora 2 (OpenAI): é a IA mais avançada para vídeos realistas, gerando clipes de 15 a 25 segundos com diálogos sincronizados.
+- Kling AI (3.0/3.1): tem alta capacidade de controle de movimentos, expressões e consistência cenográfica.
+- Google Veo 3: é um forte concorrente em qualidade cinematográfica com áudio nativo.
+- Runway ML (Gen-3): é preferido por agências e criativos para controle de vídeo generativo. 
+
+4. IA para Código e Desenvolvimento
+- GitHub Copilot: é amplamente utilizado para autocompletar e gerar grande parte do código funcional.
+- Cursor: é um editor de código baseado em IA que integra modelos avançados (como Claude) diretamente no fluxo de trabalho do desenvolvedor.
+- Replit Agent: é focado em prototipagem rápida e desenvolvimento de aplicações inteiras. 
+
+5. Produtividade, Agentes e Especializadas
+- Microsoft 365 Copilot: é uma IA integrada ao Office (Word, Excel, PPT) para empresas.
+- NotebookLM (Google): é especializado em pesquisa, síntese de documentos e análise de dados privativos.
+- Zapier / n8n: são plataformas de automação que usam IA para conectar fluxos de trabalho (Agentes).
+- Descript: é uma ferramenta líder para edição de vídeo e áudio baseada em texto. 
+
+Tendência Principal 2026: A transição de "chatbots passivos" para Agentes de IA (agentes autônomos) capazes de realizar tarefas com múltiplas etapas e se autocorriguir.

@@ -1,0 +1,9 @@
+IA generativa é um tipo de inteligência artificial focada em criar conteúdos originais — como textos, imagens, vídeos, músicas e códigos — a partir de comandos (prompts) do usuário. Ela utiliza modelos de aprendizado profundo (deep learning) treinados com grandes volumes de dados para identificar padrões e gerar novos materiais que imitam a criatividade humana. 
+
+Principais Características e Usos:
+Criação de Conteúdo: Gera textos (artigos, e-mails), imagens, vídeos, áudios e arte.
+Funcionalidade: Responde a perguntas, resume documentos, traduz idiomas e escreve códigos de programação.
+Modelos Base: Utiliza modelos de linguagem grande (LLMs) e redes neurais para entender e gerar linguagem natural.
+Aplicações: Chatbots de atendimento, design de produtos, marketing, simulação de cenários e descoberta de novos medicamentos. 
+
+Diferente da IA tradicional, que analisa ou classifica dados existentes, a IA generativa produz algo novo, simulando a capacidade criativa humana.

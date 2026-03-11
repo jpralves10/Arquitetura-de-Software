@@ -1,0 +1,18 @@
+CQRS (Command Query Responsibility Segregation) é um padrão arquitetural que separa as operações de leitura (Queries) e escrita (Commands) em modelos distintos para otimizar desempenho, escalabilidade e segurança. Ele permite escalar a leitura independentemente da escrita, sendo ideal para sistemas complexos ou com alta carga, muitas vezes utilizando consistência eventual.
+
+Principais Conceitos:
+- Comandos (Commands): Focados em alterar o estado do sistema (CREATE, UPDATE, DELETE). Não retornam dados, apenas sucesso/falha.
+- Consultas (Queries): Focadas em ler dados (SELECT). Não alteram o estado do sistema e retornam dados.
+- Modelos Separados: É comum ter bancos de dados otimizados para leitura (ex: desnormalizados) e outros para escrita.
+- Consistência Eventual: Como os dados são lidos de um local diferente do que foram escritos, a leitura pode ficar ligeiramente desatualizada por um curto período. 
+
+Quando Utilizar:
+- Sistemas de alta performance com leitura/escrita desbalanceadas.
+- Domínios complexos (frequentemente usando DDD - Domain-Driven Design).
+- Aplicações colaborativas multiusuário. 
+
+Vantagens e Desvantagens:
+- Vantagens: Escalabilidade independente, segurança refinada, código mais organizado e manutenível.
+- Desvantagens: Aumento da complexidade da arquitetura, necessidade de gerenciar a consistência eventual e curva de aprendizado mais alta. 
+
+Embora frequentemente associado ao Event Sourcing, o CQRS pode ser implementado sem ele.

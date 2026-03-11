@@ -1,0 +1,39 @@
+A janela de contexto em Inteligência Artificial (IA) refere-se à quantidade máxima de informações (texto, código, imagens ou áudio) que um modelo de linguagem (LLM) pode processar e "lembrar" simultaneamente durante uma única conversa ou tarefa. Ela atua como a memória de curto prazo da IA. 
+
+Aqui está um resumo detalhado:
+
+
+O que compõe a janela de contexto?
+
+Prompt de entrada: O que você pergunta.
+Histórico da conversa: As trocas anteriores entre você e a IA.
+Resposta da IA: O texto que está sendo gerado no momento. 
+
+
+Por que a Janela de Contexto é Importante?
+
+Coerência: Permite que a IA entenda referências a assuntos abordados no início de uma longa conversa sem se perder.
+
+Análise de Documentos: Janelas grandes permitem ler e analisar livros inteiros, relatórios longos ou bases de código complexas de uma só vez.
+
+Evita "Esquecimento": Se a conversa ultrapassar o limite, a IA começará a "esquecer" as primeiras mensagens. 
+
+
+Como funciona (Tokens)
+
+O contexto é medido em tokens (partes de palavras) e não apenas em palavras ou caracteres. Um token equivale a aproximadamente 4 caracteres em inglês, ou 0.75 de uma palavra. 
+
+Exemplos de Tamanhos de Contexto (2024-2025)
+
+Gemini 1.5 Pro (Google): Pode processar até 2 milhões de tokens, o que equivale a horas de vídeo ou milhares de páginas de documentos.
+
+Claude 3.5 Sonnet/Opus (Anthropic): Geralmente, operam com janelas grandes, como 128.000 ou mais.
+
+GPT-4o (OpenAI): Também oferece suporte para grandes janelas de contexto para análise aprofundada. 
+
+Limitações
+"Perda" de informação: IAs podem ter dificuldades em encontrar informações específicas em um contexto extremamente longo, um fenômeno conhecido como "agulha no palheiro".
+
+Custo e Velocidade: Contextos maiores exigem mais processamento, o que pode tornar a resposta mais lenta e cara. 
+
+Em resumo, a janela de contexto determina a capacidade do modelo de "entendimento" imediato sobre o assunto em discussão. 

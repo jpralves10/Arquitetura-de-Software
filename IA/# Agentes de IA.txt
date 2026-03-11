@@ -1,0 +1,23 @@
+Agentes de IA são sistemas de software autônomos que utilizam IA generativa e aprendizado de máquina para raciocinar, planejar, tomar decisões e executar tarefas complexas sem supervisão humana constante. Ao contrário de chatbots simples, agentes de IA podem usar ferramentas externas, interagir com ambientes e aprender continuamente, agindo como "funcionários digitais" para otimizar processos. 
+
+O que define um Agente de IA (Componentes principais):
+Cérebro (LLM): Modelos de linguagem que proporcionam raciocínio, compreensão de contexto e geração de linguagem.
+Memória: Banco de dados para armazenar histórico de interações e aprendizados passados.
+Ferramentas/Atuadores: Capacidade de navegar na internet, acessar arquivos, chamar APIs e executar comandos.
+Autonomia: Capacidade de operar de forma independente, percebendo o ambiente e agindo para alcançar um objetivo definido.
+
+Exemplos de Aplicação e Casos de Uso:
+Assistentes Pessoais Avançados: Agendamento de reuniões, leitura de e-mails e gerenciamento de calendários.
+Atendimento ao Cliente 24/7: Resolução de problemas complexos de forma simultânea.
+Automação de TI e Software: Geração, teste e depuração de código.
+Pesquisa e Análise: Extração de dados da web (web scraping), análise de mercado e síntese de informações.
+Operações Autônomas: Agentes que, em cenários avançados, podem contratar pessoas para tarefas físicas ou realizar pagamentos em criptomoedas. 
+
+Vantagens dos Agentes de IA:
+Eficiência e Produtividade: Redução de tempo na execução de fluxos de trabalho complexos.
+Escalabilidade: Capacidade de lidar com múltiplos processos simultaneamente.
+Adaptabilidade: Capacidade de aprender com novas variáveis e adaptar-se a mudanças, ao contrário de automações rígidas. 
+
+Plataformas Comuns para Criação:
+Ferramentas como n8n (interface visual), Auto-GPT, AgentGPT e BabyAGI permitem configurar esses agentes para diversas tarefas.
+
