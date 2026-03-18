@@ -1,0 +1,35 @@
+Os 7 estágios da Inteligência Artificial (IA) descrevem níveis de evolução da capacidade das máquinas, desde sistemas simples até inteligências hipotéticas muito avançadas. Veja um resumo curto de cada um:
+
+IA Reativa (Reactive Machines)
+Sistemas que apenas respondem a estímulos atuais, sem memória ou aprendizado.
+Ex.: programas de xadrez que analisam apenas o estado atual do jogo.
+
+IA de Memória Limitada (Limited Memory)
+Consegue usar dados do passado por um curto período para tomar decisões.
+Ex.: carros autônomos que analisam velocidade e posição recente de outros veículos.
+
+IA com Teoria da Mente (Theory of Mind)
+IA capaz de entender emoções, intenções e crenças humanas para interagir melhor.
+Ainda está em pesquisa.
+
+IA Autoconsciente (Self-aware AI)
+Sistema que teria consciência de si mesmo, sentimentos e entendimento de sua própria existência.
+Ainda não existe.
+
+IA Artificial Estreita (ANI – Artificial Narrow Intelligence)
+IA especializada em uma única tarefa específica.
+Ex.: assistentes virtuais, reconhecimento facial, recomendação de filmes.
+
+IA Geral (AGI – Artificial General Intelligence)
+IA que teria capacidade cognitiva semelhante à humana, podendo aprender e resolver qualquer problema intelectual.
+
+Superinteligência Artificial (ASI – Artificial Super Intelligence)
+IA que superaria a inteligência humana em todos os aspectos, incluindo criatividade, ciência e tomada de decisões.
+
+✅ Resumo:
+
+Estágios atuais: IA Reativa, Memória Limitada e ANI.
+
+Em desenvolvimento: Teoria da Mente.
+
+Hipotéticos: IA Autoconsciente, AGI e Superinteligência.

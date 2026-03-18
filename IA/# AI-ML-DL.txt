@@ -1,0 +1,121 @@
+AI, ML e DL são conceitos relacionados e fazem parte da evolução da Inteligência Artificial. Eles possuem uma relação hierárquica:
+
+AI ⟶ ML ⟶ DL
+
+Ou seja, Machine Learning é um subconjunto de AI, e Deep Learning é um subconjunto de Machine Learning.
+
+1. Artificial Intelligence (AI) – Inteligência Artificial 🤖
+
+Definição:
+Campo da ciência da computação que busca criar sistemas capazes de realizar tarefas que normalmente exigem inteligência humana.
+
+Exemplos de tarefas:
+
+Reconhecimento de voz
+
+Tomada de decisão
+
+Planejamento
+
+Visão computacional
+
+Tradução automática
+
+Exemplo de aplicação:
+
+Assistentes virtuais
+
+Sistemas especialistas
+
+Robôs autônomos
+
+📌 Resumo:
+AI é o campo geral que engloba todas as técnicas usadas para criar sistemas inteligentes.
+
+2. Machine Learning (ML) – Aprendizado de Máquina 📊
+
+Definição:
+Subárea da AI que permite que os computadores aprendam padrões a partir de dados sem serem explicitamente programados para cada regra.
+
+Como funciona:
+
+O algoritmo recebe dados
+
+Identifica padrões
+
+Cria um modelo
+
+Faz previsões ou decisões
+
+Principais tipos:
+
+Aprendizado supervisionado
+
+Aprendizado não supervisionado
+
+Aprendizado por reforço
+
+Exemplos:
+
+Detecção de spam
+
+Recomendação de filmes
+
+Previsão de vendas
+
+📌 Resumo:
+ML é a técnica que permite aprender automaticamente com dados.
+
+3. Deep Learning (DL) – Aprendizado Profundo 🧠
+
+Definição:
+Subárea do Machine Learning que utiliza redes neurais artificiais profundas (deep neural networks) para aprender padrões complexos.
+
+Essas redes são inspiradas no funcionamento do cérebro humano.
+
+Características:
+
+Muitas camadas de neurônios artificiais
+
+Capacidade de aprender representações complexas
+
+Funciona muito bem com grandes volumes de dados
+
+Exemplos de uso:
+
+Reconhecimento facial
+
+Carros autônomos
+
+Chatbots avançados
+
+Análise de imagens médicas
+
+📌 Resumo:
+DL é um tipo avançado de ML baseado em redes neurais profundas.
+
+Relação entre AI, ML e DL
+
+Podemos visualizar assim:
+
+Artificial Intelligence (AI)
+        │
+        ├── Machine Learning (ML)
+        │        │
+        │        └── Deep Learning (DL)
+
+Interpretação:
+
+AI → área geral da inteligência artificial
+
+ML → método dentro da AI que aprende com dados
+
+DL → técnica específica de ML baseada em redes neurais profundas
+
+| Conceito | O que é             	       | Função                       		    |
+| ------------- | -------------------------------   | ---------------------------- 	    |
+| **AI**       | Campo da computação       | Criar sistemas inteligentes      |
+| **ML**       | Subárea da AI             | Aprender padrões com dados          |
+| **DL**       | Subárea do ML                       | Usar redes neurais profundas     |
+
+

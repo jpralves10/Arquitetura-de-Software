@@ -7,3 +7,29 @@ Modelos Base: Utiliza modelos de linguagem grande (LLMs) e redes neurais para en
 Aplicações: Chatbots de atendimento, design de produtos, marketing, simulação de cenários e descoberta de novos medicamentos. 
 
 Diferente da IA tradicional, que analisa ou classifica dados existentes, a IA generativa produz algo novo, simulando a capacidade criativa humana.
+
+
+------------------------------------------------------------------------------------
+
+*** Outros tipos de Rede Neural ***
+
+Existem muitos outros tipos além de CNNs (imagens) e RNNs (sequências). Os mais notáveis hoje incluem Transformers (base de LLMs como GPT), Autoencoders (compressão/ruído), e Redes Adversárias Generativas (GANs) (criação de dados). Outras variações comuns são LSTMs e GRUs, que melhoram as RNNs. 
+
+Aqui estão os principais tipos de redes neurais profundas:
+1. Principais Arquiteturas Modernas
+- Transformers: Atualmente a arquitetura dominante para Processamento de Linguagem Natural (PLN) e cada vez mais usada em visão computacional, superando RNNs por processar sequências em paralelo.
+- Redes Neurais Convolucionais (CNNs): Especialistas em dados estruturados em grade, como imagens, usando camadas de convolução para detectar padrões.
+- Redes Neurais Recorrentes (RNNs): Projetadas para dados sequenciais (texto, séries temporais), onde a saída depende de entradas anteriores.
+- LSTM (Long Short-Term Memory): Uma forma avançada de RNN que resolve o problema de esquecimento de longo prazo.
+- GRU (Gated Recurrent Unit): Similar à LSTM, mas com arquitetura mais simples e eficiente. 
+
+2. Redes Generativas e de Compressão
+- GANs (Generative Adversarial Networks): Duas redes (gerador e discriminador) competem para criar dados sintéticos realistas, como imagens e vídeos.
+- Autoencoders: Usados para aprendizado não supervisionado, focados em compressão de dados (codificação) e reconstrução (decodificação). 
+
+3. Redes Básicas
+- Redes Feedforward (Perceptron Multicamadas - MLP): O tipo mais básico, onde os dados viajam apenas em uma direção, da entrada para a saída. 
+
+Essas arquiteturas variam dependendo se o objetivo é classificação (CNN), geração de conteúdo (GANs/Transformers) ou processamento sequencial (RNN/LSTM).
+
+

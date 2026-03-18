@@ -1,0 +1,50 @@
+*** Princípios ***
+
+Os 12 princípios do Manifesto Ágil orientam o desenvolvimento de software focado na satisfação do cliente através de entregas contínuas, colaboração intensa, flexibilidade a mudanças e equipes motivadas. Prioriza-se software funcional, simplicidade, excelência técnica e auto-organização, com conversas presenciais e melhoria contínua para um desenvolvimento sustentável. 
+
+Aqui estão os 12 princípios detalhados:
+1. Satisfação do Cliente: Nossa maior prioridade é satisfazer o cliente, através da entrega adiantada e contínua de software de valor.
+
+2. Mudanças Bem-vindas: Aceitar mudanças nos requisitos, mesmo no fim do desenvolvimento, para vantagem competitiva do cliente.
+
+3. Entregas Frequentes: Entregar software funcionando com frequência, na escala de semanas ou meses.
+
+4. Colaboração Diária: Pessoas de negócios e desenvolvedores devem trabalhar diariamente em conjunto por todo o projeto.
+
+5. Indivíduos Motivados: Construir projetos em torno de indivíduos motivados, dando-lhes o ambiente e suporte necessários.
+
+6. Conversa Face a Face: O método mais eficiente de transmitir informações é a conversa face a face.
+
+7. Software Funcional: Software funcional é a medida primária de progresso.
+
+8. Desenvolvimento Sustentável: Os processos ágeis promovem um ritmo sustentável (constante) indefinidamente.
+
+9. Excelência Técnica: Atenção contínua à excelência técnica e bom design aumenta a agilidade.
+
+10. Simplicidade: Simplicidade — a arte de maximizar a quantidade de trabalho que não precisou ser feito — é essencial.
+
+11. Equipes Auto-organizadas: As melhores arquiteturas, requisitos e designs emergem de equipes auto-organizadas.
+
+13. Reflexão e Ajuste: Em intervalos regulares, a equipe reflete sobre como se tornar mais eficaz e ajusta seu comportamento.
+
+---------------------------------------------------------------------------------
+
+*** Valores ***
+
+Os quatro valores fundamentais do Manifesto Ágil priorizam pessoas, funcionalidade e colaboração sobre processos rígidos e documentação. Criados em 2001, focam na adaptação rápida a mudanças para entregar valor de forma contínua: 
+
+- Indivíduos e interações mais que processos e ferramentas.
+- Software em funcionamento mais que documentação abrangente.
+- Colaboração com o cliente mais que negociação de contratos.
+- Responder a mudanças mais que seguir um plano. 
+
+Principais Pilares do Manifesto Ágil:
+
+- Pessoas em primeiro lugar: Valoriza a comunicação fluida e equipes auto-organizáveis em detrimento de processos burocráticos.
+- Entregas funcionais: O progresso é medido por software funcionando, não por relatórios de progresso ou documentação excessiva.
+- Parceria com o cliente: O cliente participa ativamente do desenvolvimento, focando no valor entregue em vez de contratos restritivos.
+- Flexibilidade: Capacidade de adaptar-se a mudanças no escopo, mesmo tardiamente, entendendo que o planejamento deve servir ao negócio, não travá-lo. 
+
+O objetivo é aumentar a produtividade e satisfação do cliente através de um ambiente colaborativo e flexível.
+
+
