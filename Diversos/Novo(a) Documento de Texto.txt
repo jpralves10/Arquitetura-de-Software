@@ -1,0 +1,35 @@
+*** Requisitos Funcionais e Não Funcionais ***
+
+Requisitos funcionais definem o que o sistema deve fazer (funcionalidades, ações, cadastros), focando no comportamento. Requisitos não funcionais definem como o sistema deve operar (qualidade, desempenho, segurança, usabilidade), estabelecendo restrições técnicas e atributos essenciais para a experiência do usuário. Ambos são cruciais para o desenvolvimento. 
+
+Requisitos Funcionais (Ações do Sistema)
+Descrevem os serviços que o sistema deve fornecer, as respostas a entradas e comportamentos específicos. 
+
+Exemplos:
+- "O sistema deve emitir relatórios de vendas mensais".
+- "O usuário poderá cadastrar, editar e excluir produtos".
+- "O sistema deve enviar um e-mail de confirmação após a compra".
+- "O software deve processar pagamentos via cartão de crédito". 
+
+Requisitos Não Funcionais (Atributos de Qualidade)
+São restrições impostas aos serviços oferecidos, definindo o comportamento do sistema como um todo. 
+
+Exemplos:
+- Desempenho: "O site deve carregar em menos de 2 segundos".
+- Segurança: "Os dados de usuário devem ser criptografados com padrão AES-256".
+- Disponibilidade: "O sistema deve estar online 99,9% do tempo".
+- Escalabilidade: "O sistema deve suportar até 1.000 usuários simultâneos".
+- Usabilidade: "O sistema deve ser intuitivo, exigindo no máximo 2 horas de treinamento". 
+
+Diferenças Principais:
+Característica 		Requisitos Funcionais		Requisitos Não Funcionais
+Foco			Ações/Funcionalidades		Atributos/Qualidade
+Pergunta		O que o sistema faz?		Como o sistema faz?
+Exemplo			Cadastrar usuário		O cadastro deve ser rápido (seg/ms)
+Mensurabilidade		Geralmente concreto		Frequentemente qualitativo
+
+A falta de requisitos funcionais torna o sistema incompleto, enquanto a ausência de requisitos não funcionais pode torná-lo inutilizável. 
+
+---------------------------------------------------------------------------------
+
+

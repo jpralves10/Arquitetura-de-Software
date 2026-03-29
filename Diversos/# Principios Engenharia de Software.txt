@@ -1,0 +1,39 @@
+A Engenharia de Software é a aplicação disciplinada, sistemática e quantificável de métodos, ferramentas e técnicas para desenvolver, operar e manter software com alta qualidade, custo controlado e prazos definidos. Seus pilares incluem a análise de requisitos, design, codificação, testes e manutenção. 
+
+Principais Fundamentos e Processos:
+- Engenharia de Requisitos: Processo de investigar, compreender, documentar e gerenciar os requisitos do cliente e do mercado.
+- Design e Arquitetura de Software: Estruturação dos componentes, interfaces e fluxo de dados para atender aos requisitos técnicos.
+- Modelos de Processo (Ciclo de Vida): Abordagens como Cascata, Espiral ou Ágil (Scrum, Kanban) que definem o fluxo de desenvolvimento.
+- Testes e Validação: Garantia de que o software funciona como esperado, verificando erros e conformidade.
+- Manutenção e Evolução: Atualizações e correções necessárias após a entrega para manter o software útil e seguro.
+- Gestão de Configuração e Versionamento: Controle de mudanças no código-fonte, usando ferramentas como Git.
+- Gerenciamento de Projetos: Planejamento, controle de custos, prazos e qualidade para garantir o sucesso do produto final. 
+
+Objetivos Principais:
+Qualidade: Criar sistemas confiáveis, seguros e eficientes.
+Produtividade: Aumentar a eficiência do desenvolvimento.
+Organização: Estruturar o processo de criação, evitando métodos amadores
+
+-------------------------------------------------------------------------------------------
+
+Princípios da engenharia de software como Alta Coesão (foco em uma única responsabilidade) e Baixo Acoplamento (baixa interdependência) visam criar sistemas modulares, fáceis de manter e reutilizar. Complementarmente, princípios como SOLID, DRY (não repetição) e KISS (simplicidade) garantem a qualidade, flexibilidade e legibilidade do código, prevenindo "dívidas técnicas". 
+
+Alta Coesão e Baixo Acoplamento
+- Alta Coesão: Refere-se a um módulo, classe ou componente realizar uma única tarefa ou ter um único propósito bem definido. Classes muito focadas são mais fáceis de entender, manter e testar.
+- Baixo Acoplamento: Define o grau de dependência entre módulos. Um baixo acoplamento significa que os módulos são independentes, permitindo que uma alteração em um componente não impacte os outros.
+Relação: O objetivo é maximizar a coesão e minimizar o acoplamento, tornando o código modular. 
+
+Outros Princípios Fundamentais da Engenharia de Software
+- SOLID: Cinco princípios de orientação a objetos que visam tornar o código mais compreensível, flexível e manutenível.
+-- SRP (Princípio da Responsabilidade Única): Uma classe deve ter um, e apenas um, motivo para mudar.
+-- OCP (Princípio Aberto/Fechado): Componentes devem estar abertos para extensão, mas fechados para modificação.
+- DRY (Don't Repeat Yourself - Não repita a si mesmo): Evitar a duplicação de código, pois a lógica repetida dificulta a manutenção.
+- KISS (Keep It Simple, Stupid - Mantenha a simplicidade): O design deve ser o mais simples possível para cumprir seu propósito, evitando complexidade desnecessária.
+- YAGNI (You Ain't Gonna Need It - Você não vai precisar disso): Não adicione funcionalidade até que seja necessário.
+- Encapsulamento: Esconder os detalhes internos de funcionamento de um objeto, expondo apenas o necessário, o que contribui para o baixo acoplamento. 
+
+Benefícios
+Manutenibilidade: Código fácil de alterar e consertar.
+Reutilização: Componentes podem ser usados em outros contextos.
+Testabilidade: Componentes isolados facilitam a criação de testes.
+

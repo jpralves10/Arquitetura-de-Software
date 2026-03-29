@@ -1,0 +1,380 @@
+*** Principais Conceitos de DDD ***
+
+Domain-Driven Design (DDD) é uma abordagem de modelagem de software focada em complexas regras de negócio, alinhando o código à realidade da empresa. Seus principais conceitos incluem a Linguagem Ubíqua (vocabulário comum), Bounded Contexts (contextos delimitados), e padrões táticos como Entidades, Value Objects e Agregados para organizar o domínio. 
+
+Principais conceitos detalhados:
+
+- Linguagem Ubíqua (Ubiquitous Language): Um vocabulário comum e compartilhado entre especialistas de negócio e desenvolvedores, usado tanto nas discussões quanto no código, garantindo que o software reflita o negócio.
+- Bounded Context (Contexto Delimitado): Define limites explícitos dentro dos quais um modelo de domínio específico é aplicável. Um conceito (ex: "Produto") pode ter significados diferentes em contextos distintos (ex: Vendas vs. Estoque).
+- Domínio (Domain): A área de conhecimento, regra de negócio ou atividade que o software se propõe a resolver.
+- Entidades (Entities): Objetos que possuem uma identidade única e persistente, distinguindo-se por suas propriedades ao longo do tempo (ex: Cliente, Pedido).
+- Value Objects (Objetos de Valor): Objetos imutáveis definidos apenas pelos seus atributos, não por identidade (ex: Endereço, Moeda).
+- Agregados (Aggregates): Agrupamentos de entidades e objetos de valor relacionados que são tratados como uma única unidade para mudança de dados, garantindo a consistência.
+- Serviços de Domínio (Domain Services): Operações de negócio importantes que não se encaixam naturalmente em uma entidade ou objeto de valor específico.
+- Repositórios (Repositories): Mecanismos para encapsular a lógica de persistência e simular uma coleção de agregados na memória.
+- Eventos de Domínio (Domain Events): Registram ocorrências significativas no negócio (ex: "PedidoConfirmado") para comunicação entre contextos. 
+
+Esses conceitos são divididos em estratégicos (para visão macro e fronteiras) e táticos (para implementação técnica do código)
+
+--- Linguagem Ubíqua ----
+1. Que está ou existe ao mesmo tempo em toda parte; onipresente.
+2. Que se difundiu extensamente; geral, universal.
+
+-----------------------------------------------------------------------------------
+
+*** Subdomínio e contexto delimitado é a mesma coisa? ***
+
+Não, subdomínio e contexto delimitado (bounded context) não são a mesma coisa, embora estejam intimamente relacionados no Domain-Driven Design (DDD). Subdomínios pertencem ao "espaço do problema" (negócio), enquanto contextos delimitados pertencem ao "espaço da solução" (código/modelagem), servindo como limites para um modelo de domínio.
+
+- Subdomínio (O que): É uma parte específica do domínio de negócio (ex: Vendas, Inventário, Pagamentos)
+
+- Contexto Delimitado (Como): É a fronteira técnica onde um modelo de software é válido. Define onde a linguagem ubíqua se aplica.
+
+- Relação: Geralmente, um contexto delimitado mapeia um subdomínio, mas um subdomínio pode conter múltiplos contextos, ou um contexto pode abranger subdomínios, embora o ideal seja 1:1
+
+-----------------------------------------------------------------------------------
+
+*** Modelo e contexto delimitado é a mesma coisa? ***
+
+Não, modelo e contexto delimitado (bounded context) não são a mesma coisa, mas estão intrinsecamente relacionados, especialmente no contexto do Domain-Driven Design (DDD). Eles representam conceitos diferentes dentro da modelagem de sistemas. 
+
+- Modelo de Domínio (O "O Quê"): É a representação abstrata e simplificada dos conceitos, regras de negócio e relacionamentos de uma parte específica do sistema. É o conjunto de classes, objetos e regras que resolvem um problema de negócio.
+- Contexto Delimitado (O "Onde"): É a fronteira, o limite físico ou lógico, dentro do qual um modelo de domínio específico é válido e consistente. Ele define onde uma determinada "linguagem ubíqua" (terminologia) se aplica. 
+
+A relação entre eles:
+- O Contexto Delimitado encapsula o Modelo: Um contexto delimitado é o contêiner que "delimita" (define as fronteiras) de um modelo, garantindo que ele não se torne complexo e caótico.
+- Mesmo termo, modelos diferentes: O mesmo termo de negócio (por exemplo, "Cliente") pode ter definições diferentes em contextos delimitados diferentes (ex: o "Cliente" no contexto de Vendas é diferente do "Cliente" no contexto de Suporte). 
+
+Em resumo, o modelo é o "conteúdo" (lógica de negócios), e o contexto delimitado é a "fronteira" que protege e organiza esse modelo.
+
+-----------------------------------------------------------------------------------
+
+- Linguagem Ubíqua: uma linguagem do domínio de negócio que todos entendam, seja eles PO ou desenvolvedores ou gestores, não importa, a linguagem utilizada deve ser comum para todos os agentes do domínio.
+
+- Os contextos delimitados são projetados. Escolher limites de modelos é uma decisão de design estratégico. É nesse momento em que decidimos como dividir o domínio de negócio em domínios menores e mais fáceis de administrar.
+
+- Cada contexto delimitado deve ser implementado como um projeto/serviço individual, o que significa que ele é implementado, desenvolvido e atualizado independentemente dos outros contextos delimitados. 
+
+- Microserviços podem ser ótimas formas de implementação de contexto delimitado (para projetos de médio a grande porte). Um monolito que representa um pequeno sistema, pode ser útil para representar um único contexto delimitado.
+
+- Podemos aproveitar os limites de modelo, contextos delimitados, para a coexistência pacifica das equipes. A divisão do trabalho entre equipes é outra decisão estratégica que pode ser tomada utilizando o padrão de contexto delimitado.
+
+- Um contexto delimitado deve ser implementado, desenvolvido e mantido por apenas uma equipe. Essa segregação elimina suposições implícitas que as equipes poderiam fazer sobre os modelos umas das outras. Em vez disso, elas têm que definir protocolos de comunicação para integrar explicitamente seus modelos e sistemas.
+
+- É importante notar que a relação entre equipes e contextos delimitados é unidirecional: um contexto delimitado deve ser de propriedade de apenas uma equipe. Entretanto, uma única equipe pode ter múltiplos contextos delimitados.
+
+- Os contextos delimitados não são tão evidentes quanto os domínios e os subdomínios de negócio, mas eles estão lá, assim como estão os modelos mentais dos especialistas de negócio.
+
+- Exemplo: no contexto delimitado da botânica, o tomate é uma fruta e, no contexto delimitado da culinária, é um legume. Em 1893, a Suprema Corte dos Estados Unidos tomou a decisão de classificar o tomate como um vegetal. Portanto, no contexto delimitado da tributação, o tomate é um legume.
+
+- Um modelo não deve copiar uma entidade real. Em vez disso, deve ter um propósito - um problema que deve resolver. Um modelo deve omitir a informação extra irrelevante para a tarefa em questão. Não há necessidade de construir um modelo complexo se múltiplos modelos mais simples podem resolver cada problema individual com eficácia.
+
+- *** Sempre que encontramos um conflito inerente aos modelos mentais dos especialistas de domínio, temos que dividir a linguagem ubíqua em múltiplos contextos delimitados.
+
+- Uma linguagem ubíqua deve ser consistente dentro do escopo de seu contexto delimitado. No entanto, nos contextos delimitados, os mesmos termos podem ter significados diferentes.
+
+- Enquanto os subdomínios são descobertos, os contextos delimitados são projetados. A divisão de um domínio em contextos delimitados é uma decisão de design estratégico.
+
+- Os contextos delimitados dividem um sistema em componentes físicos - microserviços, serviços, subsistemas e assim por diante. O ciclo de vida de cada contexto delimitado é separado do resto.
+
+- Cada contexto delimitado pode evoluir independentemente do resto do sistema. Entretanto, os contextos delimitados têm que trabalhar em conjunto para formar um sistema.
+
+- O contexto delimitado é o limite de um modelo e o modelo só é aplicável em seu contexto delimitado.
+
+- Os contextos delimitados são implementados em projetos/soluções independentes, o que permite que cada contexto delimitado tenha seu próprio ciclo de desenvolvimento.
+
+- Um contexto delimitado deve ser implementado por uma única equipe de desenvolvimento e, portanto, também é um limite de propriedade.
+
+- Em relação ao tamanho de um contexto delimitado: Não há um tamanho perfeito para o contexto delimitado em todos os projetos e casos. Diferentes fatores, como modelos, restrições da organização e exigências não funcionais, afetam o escopo ideal do contexto delimitado.
+
+-----------------------------------------------------------------------------------
+
+*** Integração de Contextos Delimitados ***
+
+- Contextos delimitados em si não são independentes. Os componentes precisam interagir uns com os outros para atingir os objetivos principais do sistema.
+
+- Embora eles possam se desenvolver independentemente, precisam se integrar uns com os outros. Como resultado, sempre haverá pontos de contato ente os contextos delimitados. Chamamos esses pontos de contratos.
+
+1 - Parceria: Os contextos delimitados são integrados de maneira específica.
+
+Exemplo: funciona como uma "cerca" jurídica, definindo exatamente o que está sendo acordado, quem está envolvido, quando começa/termina e quais recursos serão usados. Ele evita ambiguidades e impede que a parceria seja confundida com uma sociedade comercial tradicional (criação de nova pessoa jurídica).
+
+Contrato de parceria cliente-fornecedor define fronteiras claras sobre o que está incluído no acordo, protegendo os modelos de negócio internos de ambas as partes e focando na integração técnica e comercial.
+
+Objeto: Desenvolvimento, integração e manutenção do módulo de rastreamento "LogisticaRealTime" via API.
+Fronteiras: O fornecedor terá acesso apenas aos dados de pedidos (status, código de rastreio, endereço) e dados dos transportadores, excluindo dados financeiros dos clientes finais.
+
+Relação Cliente-Fornecedor (Customer/Supplier)
+
+Integração (Contrato Técnico):
+API Padrão: O fornecedor fornecerá uma especificação OpenAPI (Swagger) que será o "contrato" de dados.
+Conformidade: O cliente aceita adequar seus sistemas para consumir essa API, enquanto o fornecedor garante a estabilidade técnica (baixa latência)
+
+Cláusulas de Parceria:
+Inovação Compartilhada: O fornecedor participará das reuniões de planejamento de produto do cliente para sugerir melhorias no processo de logística.
+Riscos e Resultados: Caso a API reduza o tempo de entrega em 10%, o fornecedor receberá um bônus (success fee). Se houver inoperância por mais de 2h, haverá aplicação de multa (SLA)
+
+
+2 - Núcleo Compartilhado: Dois ou mais contextos delimitados são integrados, compartilhando um modelo sobreposto que pertence a todos os contextos delimitados participantes.
+
+Exemplo: Sistema de autenticação.
+
+
+3 - Conformista: O cliente se conforma com o modelo do provedor de serviço.
+
+Exemplo: ocorre quando um time de desenvolvimento (time A) utiliza o modelo de dados e a API de um sistema externo, fornecedor ou time legado (time B), sem ter poder para solicitar mudanças ou adaptar esse modelo às suas próprias necessidades.
+
+
+4 - Camada Anticorrupção (CA): O cliente traduz o modelo do provedor de serviço em um modelo que atende às necessidades do consumidor.
+
+Exemplo: integração entre um novo Microsserviço de E-commerce e um Sistema ERP Legado. 
+
+- Contexto Delimitado "Novo" (Downstream): Microsserviço de Pedidos que utiliza uma linguagem moderna, orientada a objetos (ex: Pedido, Item, Cliente) e estruturas JSON/REST.
+- Contexto Delimitado "Antigo" (Upstream): ERP Legado com banco de dados monolítico, nomenclatura complexa e formatos de comunicação antigos (ex: XML SOAP, arquivos CSV).
+- A Camada Anticorrupção (ACL): Um componente intermediário (ou microsserviço à parte) que recebe as chamadas do sistema moderno, traduz para o formato do legado, envia a solicitação, recebe a resposta do legado e traduz de volta para o modelo moderno.
+
+
+5 - Serviço de Host Aberto (OHS): O provedor de serviço implementa uma linguagem publicada - um modelo otimizado para as necessidades do cliente.
+
+Exemplo: funciona como um "escudo" para o fornecedor, garantindo uma interface pública estável (API, contrato de dados) enquanto sua implementação interna evolui. O objetivo é permitir que múltiplos clientes (Downstream) se integrem sem que mudanças internas no fornecedor (Upstream) quebrem as integrações. 
+
+Exemplo: Endpoints: /v3/track, /v3/quote, /v4/track, /v4/quote
+
+
+6 - Caminhos Separados: É mais barato duplicar uma funcionalidade específica do que colaborar e integrá-la.
+
+Exemplo:  ocorre quando dois contextos delimitados (Bounded Contexts) precisam resolver problemas de negócio similares, mas optam por não compartilhar código, modelo de dados ou lógica, visando independência total, agilidade ou simplicidade.
+
+O "Caminho Separado"
+Em vez de tentar criar um único "Cadastro de Produto" ou "Carrinho" que sirva para ambos (o que geraria alta complexidade), a empresa decide:
+No Contexto Vendas: O produto é simples (Preço, Foto, Descrição).
+No Contexto B2B: O produto é complexo (Preço por volume, SKU diferenciado, contrato de fornecimento).
+A equipe do B2B cria sua própria solução de produtos e o time de Vendas cria a sua. Nenhum dos times utiliza o código do outro.
+
+
+-----------------------------------------------------------------------------------
+
+*** Script de Transação no DDD ***
+
+Esse padrão organiza aos operações do sistema como scripts procedurais simples e diretos. Os procedimentos garantem que cada operação seja transacional - é bem-sucedida ou falha. O padrão do script transacional é melhor para os subdomínios de suporte, com uma lógica de negócio que se assemelha a operações ETL simples.
+
+Exemplo:
+
+public class LogVisit
+{
+	...
+	public void Execute(Guid userId, DateTime visitedOn)
+	{
+		try
+		{
+			_db.StartTransaction();
+
+			_db.Execute(@"UPDATE Users SET last_visit=@p1 WHERE user_id=@p2", visitedOn, userId);
+			_db.Execute(@"INSERT INTO VisitsLog(user_id, visit_date) VALUES(@p1, @p2)", userId, visitedOn);
+			_db.Commit();
+		} catch {
+			_db.Rollback();
+			throw;
+		}
+	}
+}
+
+
+*** Registro Ativo no DDD ***
+
+Quando a lógica de negócio é simples, mas opera em estruturas de dados complexas, é possível implementar esses dados como registros ativos. Um objeto de registro ativo é uma estrutura de dados que provê métodos simples de acesso a dados CRUD.
+
+Exemplo:
+
+public class CreateUser
+{
+	...
+	public void Execute(userDetails)
+	{
+		try
+		{
+			_db.StartTransaction();
+			
+			var user = new User();
+			user.Name = userDetails.Name;
+			user.Email = userDetails.Email;
+			user.Save();
+			_db.Commit();
+		} catch {
+			_db.Rollback();
+			throw;
+		}
+	}
+}
+
+
+-----------------------------------------------------------------------------------
+
+*** Modelo de Domínio ***
+
+*** Objetos de Valor no DDD ***
+
+No Domain-Driven Design (DDD), Value Objects (Objetos de Valor) são objetos imutáveis, sem identidade própria (sem ID), definidos apenas por seus atributos. Eles representam um conceito do domínio, garantindo validação e expressividade, como Endereco(rua, numero, cidade) ou Dinheiro(quantia, moeda). 
+
+Exemplos Comuns de Value Objects:
+- Endereço: Rua, Número, CEP, Cidade.
+- Dinheiro/Moeda: Valor (ex: 10.00) + Moeda (ex: BRL).
+- CPF/CNPJ: Um tipo composto apenas pelo número validado, sem ID.
+- Intervalo de Datas: DataInício e DataFim.
+- E-mail: Um objeto que valida o formato, encapsulando a string. 
+
+Características Principais:
+- Imutabilidade: Uma vez criado, não muda; se precisar alterar, cria-se um novo.
+- Igualdade por Valor: Dois objetos são iguais se todos os seus atributos forem iguais, independentemente de um ID.
+- Sem Identidade: Não têm ID único.
+
+
+*** Agregado no DDD ***
+
+Um agregado no DDD (Domain-Driven Design) é um conjunto de entidades e objetos de valor relacionados que são tratados como uma única unidade de consistência, contendo uma "raiz" (Aggregate Root) pela qual todas as operações passam. O exemplo clássico é o Pedido (Raiz), que encapsula seus ItensPedido e 
+
+Exemplo Prático (Estrutura de Pedido):
+- Raiz do Agregado: Pedido (possui um ID único, ex: PedidoID).
+- Membros do Agregado: ItemPedido (entidade) e Endereco (objeto de valor).
+- Regra de Negócio: Você nunca altera um ItemPedido diretamente. Você carrega o Pedido e chama pedido.adicionarItem(item). Isso garante que o valor total do pedido e o estoque sejam consistentes.
+
+// Exemplo Conceitual em C#
+public class Pedido { // Raiz do Agregado
+    public Guid Id { get; private set; }
+    private List<ItemPedido> _itens = new List<ItemPedido>(); // Membros
+    public decimal ValorTotal { get; private set; }
+
+    public void AdicionarItem(Produto produto, int quantidade) {
+        // Regra de negócio encapsulada na raiz
+        _itens.Add(new ItemPedido(produto, quantidade));
+        CalcularTotal();
+    }
+}
+
+Principais Regras: 
+- A raiz é o único membro que objetos externos podem manter referências.
+- A raiz garante a integridade dos dados internos.
+- O agregado é a unidade para persistência (salva-se o pedido inteiro, não cada item separadamente). 
+
+
+*** Serviços de Domínio no DDD ***
+
+Serviços de Domínio no DDD (Domain-Driven Design) são componentes da camada de domínio que encapsulam regras de negócio complexas envolvendo múltiplas entidades ou agregados, sem manter estado próprio (stateless). Eles agem quando a lógica não pertence a uma única entidade, como reajustes de preço, validações cruzadas ou processos de pagamento.
+
+Exemplos Comuns de Serviços de Domínio:
+- ProcessadorDePagamento: Orquestra a verificação de saldo em um Agregado Conta e a atualização em um Agregado Pedido.
+- TransferenciaBancariaService: Garante atomicidade entre duas contas, validando regras de transferência entre elas.
+- CalculadoraDeFrete: Calcula o custo baseado em dados de diferentes contextos (Cliente, Produto, Localização). 
+
+Exemplo Prático (C#):
+
+// Interface na camada de Domínio
+public interface IPagamentoService {
+    bool Processar(Pedido pedido, Pagamento pagamento);
+}
+
+// Implementação na camada de Domínio
+public class PagamentoService : IPagamentoService {
+    public bool Processar(Pedido pedido, Pagamento pagamento) {
+        // Regra de negócio: se o pedido foi pago e não é frete, aprova
+        if (pagamento.Valor >= pedido.Total && !pedido.FreteGratis) {
+            pedido.ConfirmarPagamento();
+            return true;
+        }
+        return false;
+    }
+}
+
+
+Quando usar:
+A regra de negócio envolve múltiplos objetos agregados.
+A operação é uma ação, não um objeto (ex: "Transferir" é verbo, não entidade).
+A lógica requer acesso a infraestrutura (validação externa), mas deve permanecer no domínio.
+
+Diferença entre Serviço de Domínio e Aplicação:
+Serviço de Domínio: Foca na lógica de negócio (como fazer).
+Serviço de Aplicação: Orquestra tarefas (busca dado, chama domínio, salva).
+
+Evite a "anemia" no seu modelo de domínio garantindo que os serviços de domínio não contenham lógica que poderia estar dentro de uma entidade.
+
+
+*** Eventos de Domínio no DDD ***
+
+Eventos de domínio no DDD (Domain-Driven Design) representam mudanças de estado significativas que já ocorreram no negócio (ex: PedidoFinalizado, ClienteCadastrado). Eles desacoplam agregados, permitindo que o sistema reaja a essas mudanças (efeitos colaterais) de forma assíncrona ou síncrona, focando em consistência eventual.
+
+Exemplo Prático (E-commerce):
+- Ação: O usuário clica em "Finalizar Pedido".
+- Domínio: A entidade Pedido muda seu estado para "Finalizado".
+- Evento de Domínio: PedidoFinalizadoEvent(pedidoId, clienteId, total).
+- Reações (Handlers):
+-- EnviarEmailConfirmacao: O serviço de e-mail envia uma mensagem ao cliente.
+-- AtualizarEstoque: O sistema de estoque reduz os itens comprados.
+-- EmitirNotaFiscal: O sistema financeiro inicia a geração da nota. 
+
+Estrutura de um Evento (Código):
+
+// O nome é sempre no passado
+public class PedidoFinalizadoEvent : IDomainEvent {
+    public Guid PedidoId { get; }
+    public DateTime DataOcorrencia { get; }
+    
+    public PedidoFinalizadoEvent(Guid pedidoId) {
+        PedidoId = pedidoId;
+        DataOcorrencia = DateTime.UtcNow;
+    }
+}
+
+Principais Benefícios:
+Desacoplamento: O Agregado Pedido não precisa conhecer os serviços de e-mail ou estoque.
+Auditoria: Os eventos podem ser salvos para rastrear o histórico de ações.
+Consistência Eventual: Ações secundárias ocorrem após a transação principal.
+
+-----------------------------------------------------------------------------------
+
+*** Eventos de Dominio e Event Sourcing ddd são a mesma coisa? ***
+
+Não, Eventos de Domínio (Domain Events) e Event Sourcing no contexto de DDD não são a mesma coisa, embora sejam conceitos complementares e frequentemente usados juntos. Eventos de Domínio representam mudanças importantes que ocorreram, enquanto Event Sourcing é a técnica de persistir todas essas mudanças para recriar o estado atual.
+
+Principais Diferenças:
+- Eventos de Domínio (Domain Events): É algo relevante que aconteceu no domínio da aplicação (ex: PedidoFinalizado). Eles focam na comunicação entre contextos ou partes do sistema e no que mudou.
+- Event Sourcing (Sourcing de Eventos): É um padrão de arquitetura para armazenar o estado de um objeto, onde, em vez de salvar o estado atual, registra-se todo o histórico de eventos que geraram o estado.
+- Relação: Event Sourcing usa os eventos de domínio (ou uma forma especializada deles) para reconstruir o estado de uma entidade, enquanto eventos de domínio podem ser usados sem Event Sourcing, apenas para notificações entre agregados. 
+
+Enquanto Eventos de Domínio são focados em "o que aconteceu" para notificação, o Event Sourcing é focado em "como persistir" o estado. 
+
+
+*** Event Sourcing Pattern no ddd ***
+
+O Event Sourcing (ES) é um padrão arquitetural onde as mudanças de estado em uma aplicação são armazenadas como uma sequência de eventos imutáveis, em vez de salvar apenas o estado atual. Embora frequentemente utilizado com Domain-Driven Design (DDD) para modelagem complexa, o Event Sourcing pode ser aplicado sem DDD, focando na persistência e auditoria de dados.
+
+Como funciona sem DDD
+Sem DDD, o Event Sourcing concentra-se no fluxo técnico de dados:
+1. Entrada de Comandos: Recebe uma ação (ex: CriarPedido).
+2. Geração de Evento: A aplicação valida a ação e gera um evento (ex: PedidoCriado).
+3. Persistência (Event Store): O evento é salvo em um banco de dados de eventos (Event Store) — uma tabela onde apenas inclusões (appends) são permitidas, sem exclusões ou modificações.
+4. Reconstrução de Estado: O estado atual de um objeto é recuperado realizando um "replay" (reexecução) de todos os eventos daquele objeto na ordem cronológica.
+
+Diferenças da Persistência Tradicional
+- Tradicional: Salva a entidade Pedido com estado [Status: Pago].
+- Event Sourcing: Salva PedidoCriado, ProdutoAdicionado, PagamentoConfirmado.
+
+Vantagens do Event Sourcing (Sem DDD)
+- Histórico Completo (Auditoria): Rastreabilidade total, pois cada alteração é imutável e registrada.
+- Consistência e Performance: Salvar eventos (appends) é geralmente mais rápido do que atualizar linhas em tabelas relacionais complexas.
+- Reconstrução Temporal: Possibilidade de recuperar o estado do sistema em qualquer ponto no tempo.
+
+Desafios
+- Curva de Aprendizado: É um paradigma diferente do CRUD tradicional.
+- Complexidade de Consulta: Para ler dados eficientemente, é altamente recomendável utilizar CQRS (Command Query Responsibility Segregation), separando o modelo de escrita (eventos) do modelo de leitura (view materializada).
+- Snapshots: Para entidades com muitos eventos, é necessário criar "snapshots" (fotos do estado) para evitar ler milhares de eventos ao carregar a entidade.
+
+Componentes Técnicos
+- Event Store: O banco de dados (ex: bancos relacionais como PostgreSQL, ou bancos especializados como EventStoreDB).
+- Eventos: Objetos imutáveis representando o passado.
+- Snapshots: Consolidação de estado para otimização. 
+
+Essa abordagem é ideal para cenários com alta necessidade de auditoria, sistemas financeiros ou cenários de microsserviços onde a consistência eventual é aceitável.
+
+-----------------------------------------------------------------------------------
+
+
