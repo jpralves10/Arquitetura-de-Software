@@ -1,0 +1,87 @@
+*** Strong Consistency vs Eventual Consistency ***
+
+- Modelos de consistência de dados em ambiente distribuídos
+
+Consistência Forte garante que leituras sempre retornem o dado mais recente imediatamente após uma escrita, sacrificando latência e disponibilidade (comum em SQL/transações bancárias). A Consistência Eventual prioriza a alta disponibilidade e performance, garantindo que as réplicas convergirão para o dado correto "eventualmente", comum em sistemas distribuídos (ex: NoSQL, redes sociais). 
+
+Principais Diferenças:
+1. Consistência Forte (Strong Consistency):
+- Comportamento: Após atualizar, todos os usuários veem o novo valor imediatamente.
+- Vantagem: Dados precisos e atualizados, ideal para transações financeiras.
+- Desvantagem: Maior latência, menor escalabilidade, risco de indisponibilidade se houver falhas de rede.
+- Uso: Bancos de dados relacionais (SQL), sistemas de reserva.
+
+2. Consistência Eventual (Eventual Consistency):
+- Comportamento: leituras podem retornar dados antigos temporariamente, mas todas as réplicas convergem com o tempo.
+- Vantagem: Alta disponibilidade, performance e baixa latência.
+- Desvantagem: Complexidade na aplicação para lidar com dados conflitantes ou obsoletos.
+- Uso: Sistemas distribuídos de grande escala (NoSQL, Amazon DynamoDB, Cassandra, serviços de DNS). 
+
+A escolha entre elas depende do Teorema CAP: consistência forte prefere 'C' (Consistency), enquanto a eventual prefere 'A' (Availability).
+
+Comparativo Rápido:
+Característica 		Consistência Forte		Consistência Eventual
+Garantia de Leitura	Sempre o dado mais recente	Pode ler dado antigo por um tempo
+Latência		Alta (mais lento)		Baixa (mais rápido)
+Disponibilidade		Menor (pode bloquear)		Alta (sempre responde)
+Modelo Teórico		Baseado em ACID			Baseado em BASE
+
+Dica de tradução: No Brasil, o termo "Eventualmente" às vezes é confundido com "talvez aconteça". No contexto de sistemas, Eventual Consistency significa "Consistência Posterior" ou "ao final de um tempo", garantindo que a sincronização vai acontecer.
+
+--------------------------------------------------------------------------
+
+*** Em Read Replica é strong consistency ou é possível configurar como eventual? ***
+
+Em uma configuração comum de Read Replica (réplica de leitura), o padrão é a Eventual Consistency (Consistência Eventual).
+
+Isso acontece devido ao atraso de replicação (replication lag): o banco de dados principal (Primary) grava o dado e depois envia essa atualização para as réplicas. Durante esses milissegundos (ou segundos), se você ler da réplica, poderá receber a versão antiga do dado.
+
+Aqui está o detalhamento de como isso funciona e como configurar:
+
+1. O Padrão: Eventual Consistency
+A maioria dos serviços gerenciados (como AWS RDS, Google Cloud SQL ou Azure SQL) utiliza replicação assíncrona por padrão para não travar a performance da escrita no banco principal.
+
+- Vantagem: A escrita no banco principal é rápida porque ele não espera as réplicas confirmarem o recebimento.
+- Risco: Se você acabou de atualizar seu perfil e der um "F5" imediato que caia em uma réplica, pode ver a informação antiga.
+
+2. É possível configurar como Strong Consistency?
+Sim, mas com custos de performance. Para alcançar algo próximo ou idêntico à Strong Consistency, você precisa mudar o método de replicação:
+
+- Replicação Síncrona: O banco principal só confirma a gravação para a aplicação depois que pelo menos uma réplica confirmar que recebeu e gravou o dado.
+Exemplo: No PostgreSQL ou MySQL, você pode configurar o synchronous_commit.
+- Sistemas Multi-AZ (Alta Disponibilidade): Muitas vezes, o nó secundário em outra zona de disponibilidade é síncrono para evitar perda de dados, mas ele não costuma ser usado para leitura (apenas para failover).
+- Soluções Nativamente Distribuídas: Bancos como Amazon Aurora ou Google Spanner utilizam protocolos de consenso (como Paxos ou Raft) para diminuir drasticamente o lag, chegando muito perto da consistência forte mesmo em réplicas.
+
+3. Como decidir?
+- Use Eventual (Assíncrona): Para relatórios, dashboards, feeds de redes sociais ou listagens de produtos. Onde um atraso de 1 segundo não quebra a experiência do usuário.
+- Use Strong (Síncrona/Primary): Para operações críticas (fechamento de pedido, alteração de saldo, login). Nesses casos, a boa prática é forçar a leitura no banco Principal (Writer) em vez de usar as réplicas.
+
+Você está enfrentando problemas de lag de replicação em algum banco de dados específico ou está planejando a arquitetura de um novo sistema?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

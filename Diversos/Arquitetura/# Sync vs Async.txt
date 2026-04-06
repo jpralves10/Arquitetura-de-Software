@@ -1,0 +1,134 @@
+*** Comunicação Async vs Sync ***
+
+Vantagens:
+- Tempo de resposta para usuário final
+- Integração com novos serviços é fácil
+- Escalabilidade independente e também sem "pressa"
+- Retentativas transparentes para usuário final
+- Bug sistêmico/arquitetônico não afeta a persistência da mensagem
+
+Desvantagens:
+- Observabilidade mais complexa
+- Nova tecnologia na sua stack de soluções
+- Implementação em ambientes em PROD é complexo e envolve diferentes times
+
+---------------------------------------------------------------------------
+
+*** API rest é sync ou async ***
+
+Uma API REST é, por padrão e em sua essência, síncrona. Isso significa que, quando um cliente faz uma requisição (como um GET ou POST), ele abre uma conexão HTTP e fica aguardando (bloqueado) até que o servidor processe o pedido e envie uma resposta imediata. 
+
+No entanto, é possível implementar comportamentos assíncronos dentro do modelo REST para lidar com processos demorados. 
+
+1. Modelo Síncrono (Padrão)
+- Como funciona: O cliente envia a solicitação e espera a resposta final para continuar sua execução.
+- Uso ideal: Operações rápidas (milissegundos), como buscar um perfil de usuário ou validar um login.
+- Vantagem: Simplicidade de implementação e fluxo linear. 
+
+2. Abordagem Assíncrona em REST
+Quando uma tarefa demora muito (ex: gerar um relatório pesado ou processar um vídeo), a API REST pode adotar um padrão assíncrono para não deixar o cliente esperando no "vácuo": 
+
+- Status 202 Accepted: O servidor recebe o pedido, responde imediatamente com um código 202 (Aceito) e libera o cliente.
+- Polling: O cliente pergunta periodicamente a um endpoint específico ("O meu relatório já está pronto?") até receber o resultado.
+- Webhooks (Callbacks): O servidor avisa o cliente através de uma URL pré-configurada assim que a tarefa termina. 
+
+Resumo Comparativo
+Característica 		API REST Síncrona			API REST Assíncrona
+Bloqueio		Cliente aguarda a resposta final	Cliente é liberado após o "recebido"
+Resposta		Retorna o dado solicitado		Retorna um status ou ID de rastreio
+Complexidade		Baixa					Alta (exige filas e gestão de estado)
+Exemplo			Consulta de saldo bancário		Processamento de transação de câmbio
+
+Dica técnica: No desenvolvimento moderno (Node.js, Python FastAPI), usamos as palavras-chave async e await no código do servidor para que ele gerencie melhor múltiplas requisições simultâneas sem travar, mas para o usuário final, a "conversa" da API REST continua parecendo síncrona se ele ficar esperando a barrinha de carregamento terminar.
+
+---------------------------------------------------------------------------
+
+*** poderia mostrar um pequeno exemplo de api async em java com spring-boot? ***
+
+Para implementar uma API assíncrona com Spring Boot, a forma mais comum e recomendada é utilizar a anotação @Async em conjunto com CompletableFuture. Isso permite que o servidor libere a thread de requisição do Tomcat/Jetty enquanto o processamento pesado ocorre em outra thread. 
+
+Aqui está um exemplo prático dividido em três partes:
+1. Habilitar o Suporte Assíncrono 
+Você precisa ativar o recurso na sua classe de configuração ou na classe principal da aplicação usando @EnableAsync.
+
+<!--
+@SpringBootApplication
+@EnableAsync // Passo obrigatório para habilitar o @Async
+public class MinhaAppApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MinhaAppApplication.class, args);
+    }
+}
+-->
+
+2. Criar o Serviço com @Async
+O método que realiza o trabalho pesado deve retornar um CompletableFuture. Note que ele deve estar em uma classe separada do Controller para que o proxy do Spring funcione corretamente.
+
+<!--
+@Service
+public class RelatorioService {
+
+    @Async
+    public CompletableFuture<String> gerarRelatorioPesado() {
+        try {
+            // Simula um processamento de 3 segundos
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        return CompletableFuture.completedFuture("Relatório concluído com sucesso!");
+    }
+}
+-->
+
+3. Criar o Controller
+O Spring MVC entende o retorno CompletableFuture e gerencia a resposta de forma não-bloqueante para o servidor.
+
+<!--
+@RestController
+@RequestMapping("/api")
+public class RelatorioController {
+
+    private final RelatorioService service;
+
+    public RelatorioController(RelatorioService service) {
+        this.service = service;
+    }
+
+    @GetMapping("/gerar")
+    public CompletableFuture<ResponseEntity<String>> gerar() {
+        return service.gerarRelatorioPesado()
+                .thenApply(resultado -> ResponseEntity.ok(resultado));
+    }
+}
+-->
+
+Por que usar isso?
+1. Escalabilidade: O servidor consegue processar muito mais requisições simultâneas, pois não "trava" uma thread de HTTP esperando o banco de dados ou uma API externa responder.
+2. Responsividade: No backend, as tarefas independentes podem rodar em paralelo. 
+
+Observação: Para aplicações que exigem alta concorrência extrema (milhares de conexões simultâneas), o Spring também oferece o Spring WebFlux, que é um framework inteiramente reativo e não-bloqueante. 
+
+Você pretende usar isso para processamentos longos ou para fazer múltiplas chamadas externas em paralelo?
+
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

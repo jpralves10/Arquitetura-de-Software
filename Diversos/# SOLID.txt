@@ -1,0 +1,92 @@
+Os princípios SOLID são cinco regras de design de código na orientação a objetos que visam tornar sistemas mais fáceis de manter, entender e estender. Eles foram popularizados por Robert C. Martin ("Uncle Bob"). 
+
+SOLID é um acrônimo para:
+
+1.Single Responsibility Principle (Princípio da Responsabilidade Única)
+2.Open/Closed Principle (Princípio Aberto/Fechado)
+3.Liskov Substitution Principle (Princípio da Substituição de Liskov)
+4.Interface Segregation Principle (Princípio da Segregação de Interface)
+5.Dependency Inversion Principle (Princípio da Inversão de Dependência) 
+
+1. S - Single Responsibility Principle (SRP) 
+- Conceito: Uma classe deve ter um, e apenas um, motivo para mudar. Ou seja, ela deve fazer apenas uma coisa.
+- Exemplo Ruim: Uma classe Pedido que calcula o total, salva no banco de dados e envia e-mail de confirmação.
+- Exemplo Bom:
+Classe Pedido: Apenas gerencia os itens.
+Classe PedidoRepository: Apenas salva no banco de dados.
+Classe EmailService: Apenas envia e-mail. 
+
+2. O - Open/Closed Principle (OCP)
+- Conceito: Entidades de software (classes, módulos) devem estar abertas para extensão, mas fechadas para modificação.
+- Exemplo Ruim: Uma classe CalculadoraDeBonus com um if para cada tipo de funcionário (CLT, PJ). Se entrar um terceiro tipo, você precisa modificar a classe.
+
+class Retangulo { public double largura, altura; }
+class Circulo { public double raio; }
+
+class CalculadoraArea {
+    public double calcularArea(Object forma) {
+        if (forma instanceof Retangulo) {
+            Retangulo r = (Retangulo) forma;
+            return r.largura * r.altura;
+        } else if (forma instanceof Circulo) {
+            Circulo c = (Circulo) forma;
+            return Math.PI * c.raio * c.raio;
+        }
+        // Violação: Preciso alterar aqui para adicionar um Triângulo
+        return 0;
+    }
+}
+
+
+- Exemplo Bom: Criar uma interface Funcionario com o método calcularBonus(). A CalculadoraDeBonus usa essa interface. Para adicionar um novo tipo de funcionário, basta criar uma nova classe que implementa Funcionario, sem mexer na CalculadoraDeBonus. 
+
+// Aberto para extensão
+interface Forma {
+    double calcularArea();
+}
+
+class Retangulo implements Forma {
+    private double largura, altura;
+    public Retangulo(double l, double a) { this.largura = l; this.altura = a; }
+    public double calcularArea() { return largura * altura; }
+}
+
+class Circulo implements Forma {
+    private double raio;
+    public Circulo(double r) { this.raio = r; }
+    public double calcularArea() { return Math.PI * raio * raio; }
+}
+
+// Fechado para modificação
+class CalculadoraArea {
+    public double calcular(Forma forma) {
+        return forma.calcularArea(); // Não muda mais, não importa a nova forma
+    }
+}
+
+
+
+
+3. L - Liskov Substitution Principle (LSP)
+- Conceito: Classes filhas (subclasses) devem poder substituir suas classes pais (superclasses) sem quebrar a aplicação.
+- Exemplo Ruim: Uma classe Avestruz herda de Ave. Se a classe Ave tem o método voar(), a Avestruz (que não voa) vai herdar um comportamento que não faz sentido, quebrando o sistema se algo esperar que todo Ave voe.
+- Exemplo Bom: Ter uma classe Ave e subclasses específicas, como AveQueVoa (Pato) e AveQueNaoVoa (Avestruz), garantindo que quem usa AveQueVoa espere apenas aves que voam. 
+
+4. I - Interface Segregation Principle (ISP) 
+- Conceito: Uma classe não deve ser forçada a implementar interfaces que não utiliza. É melhor ter várias interfaces específicas do que uma única interface genérica.
+- Exemplo Ruim: Uma interface IAve com os métodos comer(), voar() e cantar(). Uma classe Pinguim é obrigada a implementar voar(), mesmo que pinguins não voem.
+- Exemplo Bom: Dividir em IAve, IAveQueVoa (com voar()) e IAveQueCanta (com cantar()). Pinguim implementa apenas IAve e IAveQueCanta. 
+
+5. D - Dependency Inversion Principle (DIP)
+- Conceito: Dependa de abstrações (interfaces/classes abstratas), não de implementações concretas.
+- Exemplo Ruim: Uma classe Pedido cria internamente uma instância de MySQLDatabase. Se eu quiser mudar para PostgreSQL, terei que alterar a classe Pedido.
+- Exemplo Bom: A classe Pedido depende de uma interface IDatabase. A classe MySQLDatabase implementa IDatabase. O banco de dados é passado ("injetado") para o Pedido. 
+
+Resumo
+S: Uma coisa só.
+O: Adicionar, não mudar.
+L: Herança correta.
+I: Interfaces pequenas.
+D: Depender de interfaces.
+
+

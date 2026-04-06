@@ -1,0 +1,89 @@
+*** JDBC ***
+
+JDBC (Java Database Connectivity) é uma API Java padrão (pacotes java.sql e javax.sql) que permite a conexão e execução de instruções SQL em bancos de dados relacionais. Ela funciona como uma ponte, utilizando drivers específicos para enviar comandos SQL, gerenciar transações e processar resultados de diversas fontes de dados. 
+
+Principais Componentes e Características:
+- Driver Manager: Gerencia os drivers de banco de dados disponíveis para estabelecer a conexão.
+- Conexão (Connection): Interface para estabelecer e encerrar a comunicação com o banco.
+- Statements (Statement, PreparedStatement): Usados para enviar SQL, sendo o PreparedStatement recomendado para evitar injeção de SQL (SQL Injection).
+- ResultSet: Representa o conjunto de dados retornado por uma consulta.
+- Drivers (Tipo 4): A maioria dos drivers modernos é escrita em Java puro, garantindo portabilidade.
+Benefícios: Inclui suporte a transações e é a base para frameworks ORM como Hibernate e Spring Data JPA.
+- Boas Práticas: Recomenda-se o uso de try-with-resources para fechar conexões automaticamente e pools de conexões (ex: HikariCP) para desempenho. 
+
+A API JDBC é fundamental para aplicações Java que necessitam de interações diretas ou de alta performance com o banco de dados, sendo amplamente utilizada mesmo em aplicações modernas baseadas em JPA.
+
+-----------------------------------------------------------------------
+
+*** jpa usa jdbc ***
+
+Sim, a JPA (Java Persistence API) utiliza JDBC por baixo dos panos para se comunicar com bancos de dados relacionais. Enquanto o JDBC é uma API de baixo nível que exige SQL manual, a JPA é uma especificação de alto nível (ORM) que abstrai essa complexidade, convertendo objetos Java em SQL automaticamente, usando JDBC para executar os comandos. 
+
+- Relação: A JPA (via implementações como Hibernate) é construída sobre o JDBC.
+- Vantagens da JPA sobre JDBC: Reduz código repetitivo (boilerplate), gerencia conexões, e mapeia objetos (entidades) para tabelas, o que aumenta a produtividade.
+- Performance: Embora o JDBC puro possa ser mais rápido em operações simples, o JPA utiliza otimizações como cache de primeiro e segundo nível, igualando ou superando o desempenho em cenários complexos. 
+
+Em resumo, a JPA não substitui o JDBC, mas o gerencia para facilitar o desenvolvimento.
+
+-----------------------------------------------------------------------
+
+*** Transaction Management ***
+
+O gerenciamento de transações (Transaction Management) é um processo fundamental em Sistemas de Gerenciamento de Banco de Dados (SGBD) que garante a confiabilidade, integridade e consistência dos dados. Ele coordena operações (como ler, inserir, atualizar, excluir) agrupando-as em unidades lógicas de trabalho que devem ser executadas integralmente ou canceladas. 
+
+Principais Conceitos:
+- Atomicidade (Tudo ou Nada): A transação ou é totalmente finalizada (com sucesso) ou totalmente desfeita (em caso de falha), garantindo que dados parciais não fiquem corrompidos.
+
+- ACID (Propriedades): Segue as propriedades Atomicidade, Consistência, Isolamento e Durabilidade.
+
+- Comandos Principais:
+-- START TRANSACTION/BEGIN: Inicia o processo.
+-- COMMIT: Confirma permanentemente as alterações no banco de dados.
+-- ROLLBACK: Desfaz todas as alterações realizadas desde o início da transação se um erro ocorrer.
+
+- Aplicação: Crucial em sistemas financeiros (transferências) ou operações complexas onde múltiplas tabelas precisam ser atualizadas simultaneamente para garantir a integridade dos dados. 
+
+O gerenciador de transações supervisiona essas operações, sendo vital em ambientes com alta concorrência de usuários.
+
+-----------------------------------------------------------------------
+
+*** Qual protocolo o JDBC usa ? ***
+
+O JDBC (Java Database Connectivity) não utiliza um único protocolo universal, mas sim protocolos específicos do SGBD através de drivers Tipo 4 (diretos) que convertem chamadas Java para o protocolo nativo do banco de dados (ex: MySQL, PostgreSQL, Oracle) via TCP/IP. O formato de URL começa com jdbc:, seguido pelo subprotocolo do driver. 
+
+Detalhes Principais sobre os Protocolos JDBC:
+- Drivers Tipo 4 (Native-Protocol Pure Java): São os mais utilizados e recomendados. Eles se comunicam diretamente com o banco de dados usando o protocolo de rede nativo do fornecedor.
+- Protocolos de Banco: Por exemplo, o driver JDBC do MySQL usa o protocolo nativo do MySQL sobre TCP/IP, enquanto o do Oracle usa o protocolo Oracle Net.
+- Formato da URL: A conexão é estabelecida por uma string que define o protocolo, ex: jdbc:mysql://localhost:3306/db.
+- JDBC-Net (Tipo 3): Alternativamente, alguns drivers traduzem chamadas para um protocolo de rede intermediário, independente do banco, que depois é convertido pelo servidor. 
+
+A API JDBC atua como uma ponte padronizada, usando pacotes java.sql e javax.sql para interagir com esses drivers.
+
+-----------------------------------------------------------------------
+
+*** O que é transações ACID ***
+
+Transações ACID são um conjunto de quatro propriedades fundamentais (Atomicidade, Consistência, Isolamento, Durabilidade) que garantem a confiabilidade, integridade e consistência dos dados em um banco de dados, especialmente durante falhas ou acessos simultâneos. Elas asseguram que operações complexas sejam tratadas como uma única unidade de trabalho ("tudo ou nada"). Elas são cruciais para operações financeiras e sistemas que exigem alta precisão.
+
+Os 4 Princípios do ACID:
+- Atomicidade (Atomicity): A transação é tratada como uma unidade única. Ou todas as operações são concluídas com sucesso, ou, se uma falhar, todas são desfeitas (rollback).
+- Consistência (Consistency): Garante que o banco de dados passe de um estado válido para outro estado válido, respeitando regras, constraints e integridade referencial.
+- Isolamento (Isolation): Transações simultâneas não interferem umas nas outras. O resultado de transações paralelas deve ser o mesmo que se fossem executadas sequencialmente.
+- Durabilidade (Durability): Uma vez que a transação é confirmada (commit), os dados são gravados permanentemente, mesmo em caso de falha de energia ou travamento do sistema. 
+
+Por que usar ACID?
+- Integridade: Evita dados corrompidos ou inconsistentes.
+- Confiabilidade: Essencial para aplicações que exigem alta precisão, como sistemas bancários.
+- Gerenciamento de Falhas: O sistema recupera estados seguros automaticamente.
+
+Essas propriedades são cruciais em sistemas que exigem alta confiabilidade, como transações bancárias, compras online e sistemas financeiros, garantindo que não haja perda ou corrupção de informações.
+
+Bancos de dados relacionais, como PostgreSQL, MySQL e SQL Server, são exemplos clássicos que utilizam transações ACID para gerenciar operações.
+
+
+
+
+
+
+
+

@@ -1,0 +1,193 @@
+*** é possivel utilizar servidor de aplicação apache com microservice spring boot? ***
+
+Sim, é totalmente possível utilizar um servidor de aplicação Apache (especificamente o Apache Tomcat) com microsserviços Spring Boot. 
+Embora o Spring Boot seja famoso por usar um servidor embutido (embedded) — o que facilita o deploy como um arquivo .jar executável — ele também permite a empacotamento como .war para deploy em um servidor Tomcat externo.
+
+Aqui está como funciona:
+
+1. Como Funciona (Abordagem Tradicional vs. Moderna)
+- Padrão (Embedded): O Spring Boot já traz o Tomcat dentro do JAR. Você roda java -jar app.jar e ele inicia.
+- Externo (Apache Tomcat): Você configura seu projeto Spring Boot para gerar um arquivo .war e o implanta na pasta webapps de um Apache Tomcat instalado separadamente. 
+
+2. Passos para Deploy no Apache Tomcat
+Para usar um servidor Apache externo, você deve ajustar seu projeto:
+
+- 1. Alterar o Packaging: No seu pom.xml (Maven) ou build.gradle, altere o tipo de empacotamento de jar para war.
+- 2. Marcar Tomcat Embutido como "Provided": Isso garante que o Tomcat do Spring Boot não conflite com o Tomcat externo.
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-tomcat</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+- 3. Estender SpringBootServletInitializer: A sua classe principal da aplicação precisa estender essa classe para inicializar o contexto do Spring dentro do servidor externo.
+
+@SpringBootApplication
+public class MyApp extends SpringBootServletInitializer {
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(MyApp.class);
+    }
+    public static void main(String[] args) {
+        SpringApplication.run(MyApp.class, args);
+    }
+}
+
+4. Gerar o WAR: Use mvn clean package e copie o arquivo .war gerado na pasta target/ para o diretório webapps do Tomcat. 
+
+3. Vantagens e Desvantagens
+
+Abordagem 		Vantagens
+Tomcat Externo		Ideal para ambientes corporativos tradicionais; múltiplas apps no mesmo servidor.
+Embedded (Padrão)	Mais simples (Cloud Native); ideal para Docker/Kubernetes; isolamento total.
+
+
+Abordagem 		Desvantagens
+Tomcat Externo		Perde-se a portabilidade total; exige configuração do servidor.
+Embedded (Padrão)	Consumo de memória pode ser maior por instâncias.
+
+Quando usar o Apache Tomcat Externo?
+- Quando a política da empresa exige o uso de um servidor de aplicação gerenciado.
+- Quando você precisa hospedar múltiplos microsserviços/aplicações na mesma instância física do Tomcat para economizar recursos.
+- Em cenários de migração de aplicações legadas.
+
+Nota: Não confunda o Apache Tomcat (servidor de aplicação) com o Apache HTTP Server (servidor web), embora o Spring Boot possa ser colocado atrás do Apache HTTP Server usando-o como Proxy Reverso. 
+
+---------------------------------------------------------------
+
+*** como eu configuro a porta que um app.jar apache tomcat vai escutar? ***
+
+Configurar a porta em um arquivo app.jar que utiliza Apache Tomcat embutido (comum em aplicações Spring Boot) é simples e pode ser feito de várias maneiras, sendo a via linha de comando a mais comum para deploy.
+Aqui estão as formas mais utilizadas, em ordem de prioridade:
+
+1. Via Linha de Comando (Argumento ao iniciar)
+Esta é a forma mais flexível para alterar a porta sem precisar modificar o arquivo JAR, sendo ideal para deploy em contêineres ou servidores Linux.
+
+java -jar -Dserver.port=9090 seu-app.jar
+
+Substitua 9090 pela porta desejada e seu-app.jar pelo nome do seu arquivo.
+Alternativamente:
+
+java -jar seu-app.jar --server.port=9090
+
+2. Via Arquivo de Propriedades (application.properties ou yml)
+Se você estiver desenvolvendo ou empacotando a aplicação, adicione a configuração no arquivo de propriedades dentro do diretório src/main/resources. 
+
+No application.properties:
+
+server.port=9090
+
+No application.yml:
+
+server:
+  port: 9090
+
+
+3. Via Variável de Ambiente
+Útil em ambientes Docker/Kubernetes. O Spring Boot mapeia automaticamente propriedades com caracteres maiúsculos e sublinhados.
+
+export SERVER_PORT=9090
+java -jar seu-app.jar
+
+Dicas Importantes
+- Conflito de Porta: Se o Tomcat não iniciar, a porta 8080 (padrão) provavelmente está em uso. Use os comandos acima para alterar.
+- Verificar Porta em Uso (Linux): Use netstat -tulpn | grep :8080 para ver se algo já roda na porta.
+- Permissão: Portas abaixo de 1024 (ex: 80, 443) exigem permissão de root (sudo) no Linux. Recomenda-se usar portas altas (ex: 8080, 9090, 8443). 
+
+
+----------------------------------------------------------------------------
+
+*** servidor apache tomcat pode hospedar aplicações java enterprise? ***
+
+Sim, o servidor Apache Tomcat pode hospedar aplicações Java Enterprise (Jakarta EE), mas com uma distinção técnica importante: ele é um contêiner de Servlet/JSP (Web Profile) e não um servidor de aplicação Java EE "full-profile" (completo). 
+
+Aqui estão os detalhes técnicos:
+- O que ele suporta: O Tomcat é excelente para aplicações web modernas, incluindo tecnologias como Java Servlets, JSP (Jakarta Server Pages), JSTL, e JDBC.
+- O que ele não suporta nativamente: Ele não inclui, nativamente, componentes completos da especificação Jakarta EE (antiga Java EE) como EJB (Enterprise JavaBeans), JMS (Java Message Service) ou CDI (Contexts and Dependency Injection) completo.
+- A "Solução" (Spring/Microservices): Na prática, o Tomcat é o servidor padrão mais utilizado para hospedar aplicações Java desenvolvidas com Spring Boot. Se a sua aplicação Java Enterprise for construída com Spring Boot, ela provavelmente incluirá as funcionalidades necessárias (como JPA/JTA) embutidas na aplicação, tornando o Tomcat um hospedeiro perfeito.
+- Alternativas Completas: Se sua aplicação depende pesadamente de recursos nativos do Java EE (ex: EJB, JTA, JMS), servidores como Wildfly (anteriormente JBoss) ou Glassfish são mais indicados. 
+
+Em resumo: Para a grande maioria das aplicações web, Spring Boot ou Java web (Servlets/JSP), o Tomcat é uma opção leve, rápida e amplamente utilizada.
+
+--------------------------------------------------------------------------
+
+*** o que é EJB ? ***
+
+Enterprise JavaBeans (EJB) é uma arquitetura de componentes do lado do servidor para a plataforma Jakarta EE (anteriormente Java EE), utilizada para desenvolver aplicações corporativas robustas, distribuídas, transacionais e seguras. Eles simplificam o desenvolvimento ao gerenciar automaticamente serviços de infraestrutura, como ciclo de vida, segurança e transações, rodando dentro de um container EJB. 
+
+Principais Características e Benefícios:
+- Encapsulamento da Lógica de Negócio: Focam nas regras de negócio da aplicação.
+- Gestão de Transações: Gerenciam automaticamente o início, commit e rollback de transações.
+- Segurança: Oferecem autenticação e autorização.
+- Distribuição: Permitem o acesso a componentes remotos.
+- Escalabilidade e Portabilidade: São ideais para sistemas de missão crítica. 
+
+Tipos Principais de EJB:
+1. Stateless Session Bean (@Stateless): Não mantém estado entre chamadas, ideal para tarefas rápidas e alto volume.
+2. Stateful Session Bean (@Stateful): Mantém o estado da conversa com o cliente (sessão).
+3. Singleton Session Bean (@Singleton): Apenas uma instância por aplicação.
+4. Message-Driven Bean (@MessageDriven): Processa mensagens assíncronas (via JMS). 
+
+Como Funciona:
+Os EJBs funcionam baseados em anotações (nas versões 3.x+), o que reduziu a necessidade de arquivos XML configurados. Eles residem em um servidor de aplicação (como WildFly, Payara ou WebSphere), que provê o "contêiner" responsável por gerenciar esses componentes
+
+--------------------------------------------------------------------------
+
+*** o que exatamente um container ejb faz? ***
+
+Um container EJB (Enterprise JavaBean) é o ambiente de execução dentro de um servidor de aplicação Java EE/Jakarta EE que gerencia automaticamente o ciclo de vida, transações, segurança e concorrência dos componentes de regras de negócio (@Stateless, @Stateful, @Singleton, @MessageDriven). Ele age como um intermediário, permitindo que o desenvolvedor foque apenas na lógica de negócio enquanto o container gerencia a infraestrutura técnica. 
+
+Principais funções do container EJB:
+- Gerenciamento de Ciclo de Vida: Cria, inicializa, coloca em pool (para beans stateless), reutiliza e destrói instâncias de beans conforme necessário.
+- Gerenciamento de Transações: Inicia, confirma (commit) ou cancela (rollback) transações automaticamente, garantindo a integridade dos dados, geralmente via JTA (Java Transaction API).
+- Segurança: Autentica e autoriza o acesso aos métodos de negócio, protegendo componentes sensíveis.
+- Injeção de Dependência: Insere automaticamente recursos (como fontes de dados, outros EJBs ou JPA EntityManagers) dentro do bean.
+- Concorrência: Gerencia múltiplos acessos simultâneos a instâncias de beans, garantindo a integridade dos dados em cenários de alta carga.
+- Acesso Remoto/Local: Permite que os beans sejam chamados por clientes na mesma JVM (local) ou em máquinas diferentes (remoto), abstraindo a complexidade da rede. 
+
+Em resumo, o container EJB transforma um simples objeto Java (POJO) em um componente corporativo robusto, transacional e seguro
+
+--------------------------------------------------------------------------
+
+java gera um jar, e o python gera o que?
+
+Enquanto o Java compila o código para um arquivo .jar (Java Archive) que roda na Máquina Virtual Java (JVM), o Python gera, nativamente, arquivos de código fonte (.py) ou arquivos bytecode (.pyc), que são interpretados em tempo de execução. 
+
+No entanto, para distribuição e empacotamento, o Python utiliza outras formas:
+1. Formatos de Distribuição (Padrão)
+.whl (Wheel): É o formato padrão atual para instalar bibliotecas e pacotes Python, similar ao conceito de um "pacote" pronto para uso.
+.egg (Legacy): Um formato mais antigo, sendo substituído pelos Wheels. 
+
+2. Para Criar Executáveis (Windows/Linux/Mac) 
+- O Python não gera um binário nativo automaticamente. Para fazer isso (criar um .exe no Windows, por exemplo), usa-se ferramentas de terceiros que empacotam o interpretador Python junto com o seu script:
+- PyInstaller: A ferramenta mais comum para transformar .py em um executável único (--onefile).
+- Nuitka: Compila o código Python para código C, tornando-o um executável nativo.
+zipapp (.pyz): Uma forma nativa do Python de criar arquivos ZIP executáveis
+
+Resumo Comparativo
+Característica 		Java			Python
+Saída Padrão		.jar (Bytecode JVM)	.py (Fonte) ou .pyc (Bytecode)
+Distribuição		Maven/Gradle -> .jar	Pip/SetupTools -> .whl
+Executável		Sim (JVM)		Com ferramentas (PyInstaller/Nuitka)
+
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

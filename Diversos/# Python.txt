@@ -1,0 +1,64 @@
+*** java gerar um jar, e o python gerar o que? ***
+
+Enquanto o Java gera um arquivo .jar (Java Archive), que contém bytecode compilado para rodar na Máquina Virtual Java (JVM), o Python geralmente não gera um único arquivo compilado da mesma forma, pois é uma linguagem interpretada. 
+
+No entanto, o Python gera diferentes "artefatos" dependendo do objetivo:
+
+1. Para Distribuição e Execução (Equivalentes ao JAR)
+Para criar um executável único que não exija que o usuário instale o Python, utilizam-se ferramentas de terceiros: 
+
+- .exe (Windows): Gerado por ferramentas como PyInstaller, py2exe ou cx_Freeze. O arquivo contém o script Python, todas as dependências e o interpretador Python necessário.
+- Executáveis (Linux/macOS): Também gerados pelo PyInstaller.
+- .app (macOS): Gerado pelo py2app. 
+
+2. Para Distribuição de Bibliotecas (Empacotamento)
+Ao invés de um JAR, o Python usa pacotes instaláveis via pip: 
+
+- .whl (Wheel): É o formato padrão e recomendado atualmente para distribuição de bibliotecas Python.
+- .tar.gz (Source Distribution/sdist): Contém o código-fonte bruto.
+
+3. Artefatos de Compilação Interna (Automático)
+Quando você roda um script Python, ele gera automaticamente:
+
+- .pyc (Bytecode): Arquivos dentro de uma pasta __pycache__. O Python compila o código-fonte em bytecode para acelerar o carregamento na próxima execução (mas ainda precisa do interpretador para rodar).
+
+Resumo Comparativo
+Característica 		Java			Python
+Formato Principal	.jar (Bytecode)		.py (Código Fonte) / .whl (Pacote)
+Executável		.jar + JRE		.exe (via PyInstaller) + Interpretador
+Execução		JVM			Interpretador Python
+Dependência		Precisa de JVM		Precisa de Python instalado (ou app congelado)
+
+Em resumo: O Python gera pacotes Wheel (.whl) para bibliotecas ou arquivos .exe/.app (via PyInstaller) para aplicações desktop.
+
+-----------------------------------------------------------------------
+
+*** O python é possivel rodar em um servidor de aplicação com o apache tomcat? ***
+
+Sim, é possível rodar Python em um servidor de aplicação Apache Tomcat, mas não é a forma nativa ou mais comum de se fazer isso. O Tomcat é primariamente um container Servlet/JSP projetado para Java. 
+
+Para rodar Python no Tomcat, você precisa configurar o servidor para interpretar scripts Python via CGI (Common Gateway Interface). 
+
+Alternativas Mais Comuns (Melhores Práticas)
+
+Embora o Tomcat suporte CGI, o uso de Python com Tomcat via CGI é considerado lento para aplicações modernas, pois um novo processo Python é iniciado a cada requisição. 
+
+As abordagens mais comuns no mercado para Python Web incluem:
+- Nginx/Apache HTTP Server + Gunicorn/uWSGI: Esta é a forma padrão da indústria. O servidor web (Nginx/Apache) recebe a requisição e a passa para o servidor de aplicação WSGI (Gunicorn) que gerencia o Python.
+- Flask/Django integrado: Usar os servidores de desenvolvimento para testes ou contêineres Docker para produção. 
+
+Resumo
+Rodar Python no Tomcat é perfeitamente viável para scripts simples ou integração legada, mas para novas aplicações web em Python, o uso de servidores dedicados WSGI (como Gunicorn ou uWSGI) é mais performático e recomendado.
+
+
+
+
+
+
+
+
+
+
+
+
+

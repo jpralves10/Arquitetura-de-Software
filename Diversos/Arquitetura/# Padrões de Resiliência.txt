@@ -1,0 +1,183 @@
+*** Padrões de Resiliência de Software (Resilience Patterns) ***
+
+Os padrões de resiliência de software são técnicas arquiteturais e de design focadas em garantir que uma aplicação continue funcionando (mesmo que com funcionalidade reduzida) quando componentes falham, em vez de tentar evitar falhas a todo custo. 
+
+Aqui estão os principais padrões, focados especialmente em arquitetura de microsserviços e sistemas distribuídos: 
+
+1. Padrões de Controle de Latência e Falhas 
+
+- Timeout (Tempo Limite): Define um tempo máximo de espera para que uma operação seja concluída. Evita que recursos (como threads) fiquem presos aguardando serviços lentos.
+
+- Retry (Repetição/Tentar Novamente): Se uma chamada falhar (por um erro transitório, como falha de rede), o sistema tenta novamente. Deve ser usado com cautela (ex: exponential backoff) para não sobrecarregar o serviço com falha.
+
+- Circuit Breaker (Disjuntor): Impede que um serviço faça chamadas para outro serviço que está falhando repetidamente. Se a taxa de falha for alta, o circuito "abre" e falha rapidamente (fast-fail) sem chamar o serviço, permitindo que ele se recupere.
+
+- Fallback (Plano B): Define uma ação alternativa caso uma chamada de serviço falhe. Pode ser retornar um valor padrão, dados em cache, ou uma resposta simplificada. 
+
+2. Padrões de Isolamento e Capacidade
+
+- Bulkhead (Antepara, divisória): Isolamento de recursos. Similar a compartimentos em navios, separa o sistema em partes (ex: pools de threads diferentes) para que a falha em uma funcionalidade não derrube todo o sistema.
+
+- Backpressure (Contrapressão): Mecanismo onde um sistema sobrecarregado informa ao consumidor para reduzir a taxa de requisições, evitando o esgotamento de recursos (buffer overflow).
+
+- Rate Limiting / Throttling (Limite de Taxa): Restringe o número de requisições que um usuário ou serviço pode fazer em um intervalo de tempo para proteger o sistema contra sobrecarga. 
+
+3. Padrões de Consistência e Fluxo
+
+- Saga Pattern: Gerencia transações de longa duração em sistemas distribuídos. Se um passo falha, a saga executa transações compensatórias para reverter as alterações anteriores, garantindo a consistência.
+
+- Idempotência: Garante que a mesma operação, se repetida várias vezes (por um retry), produza o mesmo resultado final sem efeitos colaterais duplicados.
+
+- Circuit Breaker State Machine: Gerencia os estados (Fechado, Aberto, Semi-Aberto) para monitorar e controlar o tráfego com base na saúde do serviço. 
+
+Categorização Geral (Uwe Friedrichsen)
+Uwe Friedrichsen categoriza esses padrões em quatro grupos principais: 
+
+1. Loose Coupling (Acoplamento solto): Serviços dependem menos uns dos outros.
+2. Isolation (Isolamento): Padrões como Bulkhead.
+3. Latency Control (Controle de latência): Timeout, Retry, Circuit Breaker.
+4. Supervision (Supervisão): Monitoramento e gerenciamento. 
+
+Esses padrões são comumente implementados usando bibliotecas como Polly (.NET) ou Resilience4j (Java)
+
+--------------------------------------------------------------------------------------
+
+*** Throttling ? ***
+
+- Throttling: Limitação de velocidade / estrangulamento de tráfego
+
+O throttling (limitação) no API Gateway protege o backend controlando o volume de requisições, evitando sobrecarga e garantindo estabilidade. Ele define limites de taxa (requests por segundo - RPS) e intermitência (burst), devolvendo erros (Too Many Requests) ao exceder. Funciona com base em planos de uso, chaves de API e, frequentemente, usa o algoritmo token bucket para gerenciar o tráfego de forma inteligente. 
+
+Principais Conceitos de Throttling
+- O que é: Um controlador de tráfego que desacelera o processamento em vez de apenas bloquear, ideal para manter a performance consistente.
+- Motivos para usar: Aumentar a resiliência contra ataques DDoS, prevenir "poison requests" e gerenciar custos.
+- Diferença de Rate Limiting: Throttling geralmente desacelera o tráfego (suaviza), enquanto rate limiting costuma ser mais rígido no bloqueio. 
+
+Funcionamento no AWS API Gateway
+- Algoritmo Bucket de Tokens: O Gateway enche um "balde" com tokens; cada requisição consome um. A taxa de reabastecimento é o limite de RPS.
+- Limites de Conta: O API Gateway analisa a taxa e o pico de todas as APIs por região, limitando quando excedido.
+- Plano de Uso (Usage Plans): Permite configurar limites customizados por cliente (usando API Keys) ou por estágio da API (dev/prod).
+- Ajuste Dinâmico: Sistemas modernos podem ajustar o throttling baseados em métricas como latência ou carga de CPU. 
+
+Melhores Práticas
+- Monitore o Tráfego: Entenda o uso real antes de definir limites para não impactar usuários legítimos.
+- Limite por Stage: Configure limites gerais no estágio da API, além dos planos de uso.
+- Use API Keys: Identifique clientes específicos para aplicar regras de "throttling" personalizadas.
+Trate o Erro 429: Desenvolva a aplicação cliente para reintentar a requisição após um tempo (retry policy) ao receber o erro.
+
+---------------------------------------------------------------------------
+
+*** Rate Limiting vs Throttling ***
+
+* Rate Limiting: Limita o número de requisições que um usuário pode fazer a uma API dentro de um período específico. Pense nisso como um segurança de APIs, garantindo que cada cliente tenha sua vez e o sistema fique disponível. Analogia: funciona como um muro, bateu no limite, a porta fecha.
+
+- Cotas de Requisição
+- Limites de Janela Deslizante
+- Limites por IP e Usuário
+- Headers de Feedback
+
+Indicado: Tráfego com picos e intermitente? Use Rate Limiting para controle granular. Mas principalmente para segurança, evitando que somente um cliente use todos os recursos, e garantir um acesso justo para todo mundo.
+
+* Throttling: O Controle Adaptativo. Técnica que controla a taxa de requisições, desacelerando-as para prevenir a sobrecarga do sistema. Pense como um limite de velocidade dinâmico, desacelera o tráfego de dados para manter o fluxo estável. Analogia: funciona como um funil, a passagem fica mais estreita para controlar o fluxo, mas o fluxo nunca para, ainda que de forma lenta e gradual.
+
+- Ajuste Dinâmico de Taxa
+- Limites de Burst (Picos)
+- Acesso Prioritário
+- Mecanismo de Fila
+
+Indicado: Tráfego estável e constante, porém acima do esperado? Use Throttling para manter a performance. Aqui o foco é a saúde do sistema, gerenciando a carga para que ele nunca fique sobrecarregado e pare de responder.
+
+Característica		Rate Limiting		Throttling
+Objetivo		Prevenir abuso		Manter performance
+Mecanismo		Limites fixos		Ajuste dinâmico
+Impacto			Bloqueia		Desacelera
+Flexibilidade		Menos Flexível		Mais flexível
+
+---------------------------------------------------------------------------
+
+*** métrica que o throttling pode usar ***
+
+O throttling (estrangulamento de tráfego) pode ser acionado por diversas métricas, geralmente focadas em volume de requisições, tempo ou uso de infraestrutura. O objetivo é proteger o sistema contra sobrecarga. 
+
+As principais métricas utilizadas são:
+
+1. Métricas de Volume de Requisições (Rate Limiting)
+- Requisições por Segundo (RPS) ou Minuto (RPM): É a métrica mais comum. Limita quantas requisições um usuário, API Key ou IP pode fazer dentro de um intervalo de tempo.
+- Burst (Picos): Define o número máximo de requisições que podem ser processadas simultaneamente em um curto período, antes que o limite de taxa (rate) mais rígido entre em vigor.
+- Cota Total (Quota): Limita o número total de requisições em um período mais longo, como por dia, semana ou mês. 
+
+2. Métricas de Infraestrutura e Performance
+- Uso de CPU: Se a CPU do servidor atingir um nível alto (ex: 90%), o sistema pode acionar o throttling para reduzir a carga.
+- Uso de Memória: Similar à CPU, alta utilização de memória aciona o throttling para evitar travamentos.
+Tamanho da Fila de Requisições (Queue Length): Se o servidor não conseguir processar as requisições rápido o suficiente e a fila de espera crescer demais, o throttling é ativado.
+- Latência de Resposta: Se o tempo de resposta da API aumentar muito, o sistema pode limitar novas requisições para tentar estabilizar o tempo de resposta. 
+
+3. Métricas de Identificação (Escopo)
+O throttling é aplicado usando estas métricas associadas a um identificador:
+- API Key: Usado para aplicar limites específicos por cliente ou aplicativo.
+- Endereço IP: Usado para bloquear ou limitar ataques de negação de serviço (DDoS) ou tráfego malicioso vindo de uma única origem.
+- ID do Usuário: Limita o uso por conta de usuário autenticado. 
+
+Resumo dos gatilhos
+Quando essas métricas ultrapassam os limites definidos, o sistema geralmente retorna o erro HTTP 429 Too Many Requests.
+
+---------------------------------------------------------------------------
+
+*** métrica que o Rate Limiting pode usar ***
+
+O Rate Limiting (limitador de taxa) é um mecanismo de controle de tráfego que aciona bloqueios ou retardamentos com base em métricas predefinidas, geralmente medidas em um intervalo de tempo (segundos, minutos, horas ou dias). 
+
+As principais métricas e critérios utilizados incluem:
+
+1. Métricas de Volume de Requisições (Mais Comuns)
+- Requisições por Segundo (RPS): Limita quantas solicitações um cliente pode enviar em um único segundo.
+- Requisições por Minuto/Hora (RPM/RPH): Limita o volume em janelas de tempo maiores, ideal para limitar uso diário ou mensal de APIs.
+- Total de Conexões Simultâneas: Limita o número de conexões ativas que um único usuário ou IP pode manter ao mesmo tempo, evitando sobrecarga de recursos do servidor. 
+
+2. Métricas de Identificação do Cliente
+O limite pode ser atrelado a diferentes identificadores:
+- Endereço IP: A forma mais comum de bloquear ataques DDoS ou bots genéricos.
+- ID do Usuário/API Key: Limita o uso com base no usuário autenticado, permitindo planos de assinatura diferentes (ex: plano gratuito = 100 req/min, pago = 1000 req/min).
+- Região/Geolocalização: Limita tráfego vindo de áreas geográficas específicas que estão gerando abusos. 
+
+3. Métricas de Conteúdo/Recursos
+- Quantidade de Dados (Largura de Banda): Limita o volume total de bytes transferidos (upload/download) em vez de apenas o número de requisições.
+- Uso de CPU/Memória por Requisição: Rate limiters avançados podem bloquear usuários que enviam requisições "pesadas" que consomem muito processamento, mesmo que o volume de requisições seja baixo. 
+
+4. Métricas de Comportamento
+- Tentativas de Login Falhas: Acionado para evitar ataques de brute-force (ex: máximo de 5 tentativas de senha em 10 minutos).
+- Endpoints Sensíveis: Regras mais restritas para endpoints específicos, como finalização de compra ou recuperação de senha. 
+
+Quando essas métricas excedem o limite estabelecido, o sistema bloqueia as requisições adicionais, respondendo com o status code 429 (Too Many Requests).
+
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

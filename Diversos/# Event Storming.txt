@@ -1,0 +1,30 @@
+Event Storming é um workshop colaborativo e visual, criado por Alberto Brandolini, utilizado para mapear fluxos de negócios complexos e modelar sistemas de software, geralmente dentro do contexto de Domain-Driven Design (DDD). Reúne especialistas de negócio e técnicos para desenhar processos usando post-its, focando em eventos concretos para alinhar o entendimento e identificar problemas rapidamente. 
+
+Principais Características:
+- Colaborativo: Envolve especialistas no domínio (negócio) e desenvolvedores na mesma sala.
+- Visual e Prático: Utiliza post-its coloridos em uma grande parede para representar eventos, comandos, atores e regras.
+- Focado em Eventos: O foco inicial são os "Eventos de Domínio" (ações que já aconteceram), representados em post-its laranjas.
+- Rápido: Permite modelar fluxos complexos em horas, ao invés de semanas de documentação. 
+
+Principais Elementos (Post-its):
+- Laranja: Eventos de Domínio (ex: "Pedido Criado").
+- Azul: Comandos/Decisões (ex: "Criar Pedido").
+- Amarelo: Atores/Usuários.
+- Rosa: Políticas/Regras de Negócio (ex: "Enviar e-mail após pagamento").
+- Vermelho: Hotspots (riscos, dúvidas, impedimentos). 
+
+Tipos de Event Storming:
+1. Big Picture: Para entender todo o fluxo de negócios e identificar problemas.
+2. Processing (ou Process Modeling): Foca em refinar o fluxo com regras e detalhes.
+3. Software Design: Voltado para desenvolvedores, focado em agregar e estruturar código. 
+
+Benefícios:
+- Alinhamento rápido entre negócio e TI.
+- Identificação de gargalos e riscos cedo.
+- Facilita a adoção de DDD e Event Sourcing.
+- Redução de retrabalho por má compreensão do domínio. 
+
+O Event Storming é uma ferramenta essencial para equipes ágeis que buscam entender profundamente o domínio antes de escrever código.
+
+
+
