@@ -1,0 +1,92 @@
+---------------------------------------------------------------------------
+
+*** API Gateway Pattern ***
+
+Um API Gateway funciona como um "porteiro" ou ponto de entrada único para uma arquitetura de microsserviços, gerenciando, roteando e protegendo todas as chamadas de clientes para os serviços de backend. 
+
+Abaixo estão as principais vantagens de se utilizar um API Gateway, explicadas:
+1. Ponto de Entrada Único (Unified Entry Point) 
+O que é: Em vez de clientes (web, mobile) chamarem diretamente 10, 20 ou mais microsserviços diferentes, eles chamam apenas o API Gateway.
+Vantagem: Simplifica a comunicação, pois o cliente não precisa saber o endereço IP ou DNS de cada serviço interno. 
+
+2. Segurança Centralizada 
+O que é: O Gateway atua como a primeira linha de defesa, lidando com autenticação e autorização (como validação de tokens JWT) antes que a requisição chegue ao serviço.
+Vantagem: Evita que cada microsserviço tenha que implementar sua própria lógica de segurança, reduzindo a complexidade e garantindo políticas consistentes. 
+
+3. Roteamento de Requisições Inteligente
+O que é: Com base na URL, cabeçalhos ou dados da requisição, o Gateway direciona a chamada para o microsserviço correto.
+Vantagem: Permite que serviços sejam atualizados ou alterados sem que o cliente precise mudar o endpoint que consome. 
+
+4. Gestão de Tráfego e Limitação (Rate Limiting) 
+O que é: O Gateway pode limitar o número de chamadas que um cliente específico pode fazer por minuto ou segundo.
+Vantagem: Protege os serviços de backend contra sobrecargas, ataques de negação de serviço (DDoS) ou abusos, garantindo a disponibilidade do sistema. 
+
+5. Conversão e Transformação de Protocolo
+O que é: O Gateway pode traduzir protocolos. Por exemplo, converter uma requisição REST/HTTP externa em um protocolo interno mais leve, como gRPC ou mensagens assíncronas (Kafka/MQTT).
+Vantagem: Facilita a comunicação entre frontend e serviços com tecnologias distintas. 
+
+6. Caching de Respostas (Melhoria de Desempenho) 
+O que é: O Gateway pode armazenar em cache respostas de chamadas frequentes.
+Vantagem: Reduz a latência para o usuário final e diminui a carga nos serviços de backend, melhorando o desempenho geral do sistema. 
+
+7. Observabilidade: Logs e Monitoramento 
+O que é: Como todo o tráfego passa por ele, o Gateway centraliza a coleta de métricas, logs e monitoramento.
+Vantagem: Facilita a depuração de erros e a análise de desempenho do sistema distribuído. 
+
+8. Circuit Breaker (Resiliência)
+O que é: Se um serviço de backend estiver fora do ar ou muito lento, o Gateway pode parar de enviar requisições para ele (abrir o circuito).
+Vantagem: Evita que falhas em um serviço se propaguem e derrubem todo o sistema (efeito cascata)
+
+Resumo:
+- Gerencia Rota (ex. /v1/produtos/[put])
+- Validação de contratos (ex. campo nome e cpf em branco)
+- Agregação de serviços 
+- Balanceamento de carga (ex. 50% app.v1 e 50% app.v2)
+- Autenticação
+- Autorização
+- Rate Limiting (ex. max 1000 rpm)
+- Throttling	(ex. max 1000 rps)
+- Logging, tracing e error handlers
+- Header/Query String Transformation
+- Estratégias de Deployment
+- Integração com ferramentas de segurança
+- Não consome recurso do backend (ex. 4XX, DDoS)
+- Não precisa reinventar a roda (ex. Uso de certificado)
+- Cache de dados (ex. TTL = 20 min)
+- ...
+
+- Não precisa reinventar a roda (ex. Uso de certificado no API Gateway para conexões https. A aplicação não precisa lhe dar com esta burocracia)
+
+- Agregação de serviços (ex. recebe uma única solicitação de um cliente (como um app mobile ou frontend web) e, internamente, faz múltiplas chamadas para diferentes microsserviços, consolidando as respostas em um único retorno)
+
+Query String Transformation: A transformação de query string (cadeia de consulta) envolve manipular os parâmetros enviados na URL de uma página web, geralmente após um ponto de interrogação (?), para transferir dados entre cliente e servidor. Essa técnica é crucial em e-commerce para exibir detalhes de produtos específicos ou passar filtros de pesquisa.
+
+*** API gateway pode funcionar como um balanceador de carga ? ***
+
+Sim, um API Gateway pode funcionar como um balanceador de carga, distribuindo tráfego entre diferentes instâncias de serviços de backend (round-robin, etc.). No entanto, sua função principal é o roteamento inteligente de API (baseado em URLs/regras de negócio) e segurança, enquanto balanceadores de carga tradicionais operam focados na rede.
+
+Para cenários pequenos, o Gateway resolve sozinho; para escalabilidade robusta, a combinação de ambos é a melhor prática.
+
+---------------------------------------------------------------------------
+
+*** API Gateway com Kubernetes ***
+
+Sim, você pode e deve usar API Gateway com Kubernetes para gerenciar o tráfego de entrada, autenticação e roteamento de microsserviços. A forma mais moderna e recomendada pelo próprio Kubernetes é utilizar a Gateway API, uma evolução do Ingress, suportada por soluções como Istio e Envoy Gateway.
+
+Pontos principais sobre usar API Gateway no Kubernetes:
+
+- Gateway API (Nativo/Moderno): É uma interface que define recursos de rede (HTTPRoute, Gateway) para balanceamento de carga e roteamento, focada em ser expressiva e extensível.
+- Implementações (Controllers): Embora a especificação seja nativa, o Kubernetes precisa de um controlador (ex: Nginx Gateway API, Istio) para funcionar.
+- Alternativas de API Gateway: Além da Gateway API, podem ser usados controladores de API Gateway dedicados como Kong, que gerenciam funções avançadas como autenticação e limitação de taxa (rate limiting).
+- Vantagens: Melhor gerenciamento de tráfego L4-L7, suporte a múltiplos protocolos (HTTP, TLS, gRPC) e melhor separação de responsabilidades entre equipes de infraestrutura e aplicação.
+- Instalação: Geralmente requer a aplicação de CRDs (Custom Resource Definitions) no cluster. 
+
+Para começar, recomenda-se a instalação dos CRDs da Gateway API e a escolha de uma implementação (como o Nginx ou Istio) suportada pelo seu provedor de nuvem. 
+
+
+
+
+
+
+
+

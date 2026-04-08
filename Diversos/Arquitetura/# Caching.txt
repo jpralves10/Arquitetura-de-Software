@@ -1,0 +1,31 @@
+---------------------------------------------------------------------------
+
+*** Caching ***
+
+Vantagens:
+Reduz tempo de resposta e consumo de recurso mais eficiente
+Evita overhead de ações repetitivas e também caras para o DB
+Pode melhorar a eficiência de outras consultas na base de dados
+Aumenta escalabilidade, disponibilidade e reduz o single point o failure
+Não atende todos os casos, as vezes você requer "Strong consistency" 
+
+Desvantagens:
+Custo aumenta $$
+Arquitetura se torna mais "complexa" em quantidade de tecnologias
+Precisa gerenciar o TTL e Invalidação
+
+O overhead de ações repetitivas em um banco de dados (DB) refere-se ao consumo excessivo de recursos (CPU, memória, I/O de disco) causado pela execução constante de operações idênticas ou semelhantes, o que pode levar a um desempenho lento do sistema. 
+
+Principais Causas de Overhead Repetitivo:
+- Round-trips de Rede Excessivos: Múltiplas solicitações individuais entre a aplicação e o banco de dados (ex: múltiplos INSERTs ou UPDATEs em vez de um único comando em lote/bulk).
+- Queries Ineficientes e Repetidas: Executar a mesma consulta complexa várias vezes sem o uso de cache ou índices adequados, sobrecarregando o processamento.
+- Commit por Linha: Realizar commits individuais em vez de agrupá-los em transações maiores.
+- Manutenção de Índices: Embora essenciais, a remoção e criação excessiva de índices durante cargas intensas de dados pode gerar sobrecarga.
+- Replicação Síncrona: Sincronizar ações em tempo real entre bases de dados geograficamente distantes pode causar latência. 
+
+Como Minimizar o Overhead:
+- Operações Bulk (Em Lote): Utilize operações em massa para inserir ou atualizar registros, reduzindo a sobrecarga de rede e transações.
+- Views Materializadas: Para consultas repetitivas e analíticas, a visualização materializada pré-calcula resultados, acelerando a leitura.
+- Otimização de Índices: Mantenha apenas os índices necessários para consultas frequentes, removendo os que atrasam operações de escrita.
+- Ajuste Fino de Queries (Tuning): Monitore o uso da CPU para identificar consultas ineficientes e utilize normalização de dados para reduzir redundâncias.
+- Cache: Implemente camadas de cache para evitar que consultas repetitivas atinjam o banco de dados.

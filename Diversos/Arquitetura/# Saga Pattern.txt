@@ -1,0 +1,177 @@
+*** Saga Pattern ***
+
+O Saga Pattern (ou Padrão Saga) é uma abordagem arquitetural para gerenciar a consistência de dados em aplicações distribuídas e microsserviços, especialmente quando uma transação de negócios envolve múltiplos serviços e bancos de dados diferentes. 
+
+Em uma arquitetura de microsserviços, não é possível utilizar transações ACID tradicionais (que garantem atomicidade em um único banco de dados) quando um processo (como um pedido) precisa atualizar o serviço de Estoque, Pagamento e Envio, cada um com seu próprio banco. 
+
+Como Funciona o Saga Pattern
+1. Sequência de Transações Locais: O processo de negócio é quebrado em pequenas transações locais.
+2. Transação Global: Cada serviço executa sua transação no seu próprio banco de dados.
+3. Eventos/Mensagens: Após concluir sua parte, o serviço emite um evento ou mensagem (via Message Broker) para acionar o próximo serviço.
+4. Consistência Eventual: A consistência não é imediata, mas ao final de todas as transações, o sistema fica consistente.
+5. Transações Compensatórias: Se uma transação falhar (ex: falta de estoque), o Saga executa "ações compensatórias" — transações de rollback lógico para desfazer as alterações feitas pelos serviços anteriores. 
+
+Estratégias de Implementação
+Existem duas formas principais de coordenar uma Saga: 
+
+1. Coreografia (Choreography) 
+- Como funciona: Não há um controlador central. Cada serviço sabe o que fazer a seguir ao ouvir um evento do serviço anterior.
+- Vantagens: Desacoplamento, sem ponto único de falha.
+- Desvantagens: Pode ser difícil de entender o fluxo completo, risco de dependência cíclica. 
+
+2. Orquestração (Orchestration)
+- Como funciona: Existe um serviço central ("Orquestrador") que diz a cada participante qual transação local executar.
+- Vantagens: Fluxo de trabalho centralizado e fácil de monitorar.
+- Desvantagens: Risco de concentrar muita lógica no orquestrador.
+
+Vantagens e Desvantagens
+- Reduz complexidade
+- "Queueless" e "Topicless"
+- Observabilidade, trace e monitoração
+- Discovery de fluxo de negócio
+- Implementação nativa de retries, update em DBs, inserts em filas..
+- Single Point of Failure, uma vez que toda regra está no orquestrador
+- Para regras de negócios que envolvem muitas equipes, quem ficaria com o orquestrador? seria um time de orquestrador?
+
+Exemplo Prático: Pedido de E-commerce
+1. Serviço de Pedidos: Cria o pedido com status PENDENTE.
+2. Serviço de Pagamento: Processa o pagamento. Se falhar, emite evento de PAGAMENTO_FALHOU.
+3. Serviço de Estoque: Reserva os produtos.
+4. Serviço de Pedidos (Compensação): Recebe PAGAMENTO_FALHOU e muda o status do pedido para CANCELADO (Ação Compensatória)
+
+---------------------------------------------------------------------------
+
+*** choreography pattern in microservices ***
+
+O padrão de Coreografia (Choreography Pattern) em microsserviços é uma abordagem de comunicação assíncrona onde os serviços trabalham juntos sem um controlador central. Cada serviço sabe o que fazer quando recebe um evento e emite novos eventos para comunicar o resultado de suas ações, funcionando como um grupo de dança onde cada um conhece seus passos e reage aos outros. 
+
+Principais Características e Benefícios:
+- Desacoplamento: Como não há um maestro central (orquestrador), os serviços são independentes, facilitando a adição ou remoção de componentes sem interromper o fluxo.
+- Assincronismo: Geralmente baseada em eventos (usando Kafka, RabbitMQ, SQS), a comunicação melhora a resiliência.
+- Resiliência: Se um serviço falhar, ele não derruba todo o processo, permitindo que outros serviços continuem, e a recuperação pode ser tratada de forma distribuída.
+- Ideal para fluxos complexos: Funciona bem em processos de longa duração onde a coordenação síncrona seria lenta ou frágil. 
+
+Exemplo Prático (Saga Choreography):
+1. Serviço de Pedido: Cria um pedido e publica um evento PedidoCriado.
+2. Serviço de Estoque: Ouve PedidoCriado, reserva itens e publica EstoqueReservado.
+3. Serviço de Pagamento: Ouve EstoqueReservado, processa o pagamento e publica PagamentoAprovado.
+4. Falha: Se o pagamento falhar, o serviço de pagamento publica PagamentoFalhou, e o Serviço de Estoque ouve esse evento para reverter a reserva. 
+
+Diferença entre Coreografia e Orquestração:
+- Orquestração: Um controlador central (maestro) gerencia o fluxo de chamadas síncronas/assíncronas.
+- Coreografia: Serviços autônomos que conversam via eventos assíncronos. 
+
+Desafios:
+- Complexidade de Rastreamento: Monitorar o estado final de uma transação distribuída é mais difícil do que na orquestração.
+- Risco de Ciclos: Eventos mal planejados podem criar loops infinitos entre serviços. 
+
+Este padrão é muito utilizado na implementação do Padrão Saga para garantir a consistência de dados em sistemas distribuídos.
+
+Vantagens:
+- Autonomia completa, se tiver vários times envolvidos ninguém precisa ter a visão completa e só saber para onde mandar.
+- Escalabilidade, cada um tem sua autonomia (Não é algo do pattern, mas sim do async e Microserviço)
+- Não tem um único ponto de falha e o deployment tem um raio menor
+
+Desvantagem:
+- Cada serviço tem um punhado de regras de fluxo e não necessariamente de negócios
+- Cada microserviço conhece sua origem e destino, porém só.
+- Controle descentralizado e mais complexo de manter e fazer o Discovery
+- Observabilidade e investigação
+
+---------------------------------------------------------------------------
+
+*** Choreography vs Orchestration ***
+
+1. Choreography
+
+Comunicação: Filas, Tópicos e outras ferramentas
+Failure Handling: DLQ, Codificação, Codificação de Retry
+Consistência: Fácil identificar eventos falhos
+Custo: $
+Observabilidade: Codificar, importar libs,
+Complexidade: Maior
+Caso de usos: Geralmente processamentos mais curtos
+Manutenção: Mais simples quando diferentes equipes cuidam apenas a origem e destino da msg
+
+2. Orchestration
+
+Comunicação: Orquetra API
+Failure Handling: Retries Nativos, DLQ
+Consistência: Fácil identificar eventos falhos
+Custo: $$
+Observabilidade: Nativas ou com integrações
+Complexidade: Menor
+Caso de usos: Processamentos curtos e longos
+Manutenção: Se tem muitas equipes, é mais complexo a integração com todos
+
+---------------------------------------------------------------------------
+
+*** DLQ e Retry, o que são e como funcionam no padrão saga ***
+
+No contexto do Saga Pattern, o Retry (Reativação/Tentativa) e a DLQ (Dead Letter Queue - Fila de Mensagens Mortas) são mecanismos de resiliência essenciais para garantir que o sistema não perca dados e consiga se recuperar de falhas temporárias.
+
+Aqui está como cada um funciona dentro da coreografia ou orquestração:
+
+1. Retry (Estratégia de Reativação)
+O Retry é a primeira linha de defesa. Ele é usado quando ocorre uma falha transitória (ex: instabilidade na rede, timeout do banco de dados ou serviço momentaneamente fora do ar). 
+- Como funciona: Se o serviço A tenta enviar um comando para o serviço B e recebe um erro, ele não desiste imediatamente. Ele tenta novamente após alguns segundos.
+- Políticas comuns:
+-- Exponential Backoff: O tempo entre as tentativas aumenta (ex: 1s, 2s, 4s, 8s...) para não sobrecarregar o serviço que já está com problemas.
+-- Jitter: Adiciona um atraso aleatório para evitar que milhares de instâncias tentem o retry exatamente ao mesmo tempo (efeito manada).
+- No Saga: O orquestrador (ex: Temporal) ou o broker (ex: RabbitMQ/Kafka) gerencia essas tentativas antes de declarar que o passo da Saga falhou. 
+
+2. DLQ (Dead Letter Queue) 
+A DLQ é o "cemitério" ou "hospital" das mensagens. Quando um processo excede o número máximo de retries e continua falhando, a mensagem é movida para esta fila especial. 
+- Como funciona: Em vez de descartar a transação ou travar a fila principal, o sistema move a mensagem problemática para a DLQ para análise posterior.
+- Utilidade no Saga:
+-- Isolamento: Evita que uma mensagem "venenosa" (com erro de lógica, por exemplo) bloqueie o processamento de outros pedidos saudáveis.
+-- Intervenção Manual/Automática: Um desenvolvedor pode analisar o erro na DLQ, corrigir o bug ou os dados, e "reprocessar" a mensagem de volta para a fila original. 
+
+Como eles interagem no fluxo da Saga?
+Imagine uma Saga de Pagamento:
+1. Tentativa: O Orquestrador envia o comando ProcessarPagamento.
+2. Erro Temporário: O gateway de pagamento está fora do ar.
+3. Retry: O sistema tenta 3 vezes (com backoff). Se funcionar na 3ª, a Saga segue viagem.
+4. Falha Persistente: Após as 3 tentativas, o erro persiste.
+5. Decisão da Saga:
+-- Opção A (Compensação): O Orquestrador decide que o pagamento falhou definitivamente e inicia as Transações Compensatórias (ex: cancelar o pedido).
+-- Opção B (DLQ): Se for um erro técnico crítico (ex: erro de configuração), a mensagem vai para a DLQ. A Saga fica "parada" naquele estado até que alguém resolva o problema e reenvie a mensagem, permitindo que a Saga complete sem precisar cancelar tudo. 
+
+Resumo: O Retry tenta resolver problemas rápidos e automáticos; a DLQ lida com o que o sistema não conseguiu resolver sozinho, permitindo auditoria e correção manual.
+
+Você gostaria de saber como configurar uma política de retry específica em alguma ferramenta como RabbitMQ ou Kafka?
+
+---------------------------------------------------------------------------
+
+*** soluções mais atuais de orquestradores ***
+
+As soluções mais atuais de orquestradores para o Saga Pattern evoluíram de simples gerenciadores de estado para plataformas completas de Workflows Duráveis. Atualmente, o mercado é dominado por ferramentas que garantem que, se um serviço cair, o processo continue exatamente de onde parou.
+Aqui estão as principais soluções líderes no mercado em 2024-2026:
+
+1. Temporal.io (Líder em "Workflows como Código")
+O Temporal é atualmente considerado a solução mais moderna e robusta para orquestração de microsserviços. 
+
+- Diferencial: Em vez de usar arquivos JSON ou XML para definir o fluxo, você escreve o orquestrador em código puro (Java, Go, Python, TypeScript).
+- Vantagem: Possui uma API nativa para o Saga Pattern, facilitando a definição de transações compensatórias. Ele gerencia retries, timeouts e estado de forma automática e resiliente.
+- Uso Ideal: Sistemas críticos e escaláveis que exigem alta visibilidade e rastreabilidade total de cada etapa. 
+
+2. Camunda (BPMN e Orquestração Visual)
+O Camunda (especialmente a versão 8/Zeebe) é o favorito para empresas que precisam de visibilidade para áreas de negócio. 
+
+- Diferencial: Utiliza o padrão BPMN 2.0 (diagramas visuais) para orquestrar os serviços.
+- Vantagem: Facilita a comunicação entre desenvolvedores e gestores, pois o diagrama é, ao mesmo tempo, a documentação e a execução do processo.
+- Uso Ideal: Fluxos de negócio complexos onde a auditoria visual e a conformidade (compliance) são fundamentais. 
+
+3. Conductor (Originalmente da Netflix)
+O Conductor (agora mantido pela comunidade e pela Orkes) foi criado especificamente para microsserviços em escala. 
+
+- Diferencial: Baseado em definições JSON, permite orquestrar serviços escritos em diferentes linguagens sem um SDK pesado.
+- Vantagem: Excelente suporte para fluxos assíncronos massivos e desacoplamento total entre o orquestrador e os serviços.
+- Uso Ideal: Ecossistemas de microsserviços muito heterogêneos. 
+
+4. Soluções Nativas de Nuvem (Serverless)
+Se a sua infraestrutura já está em um provedor específico, as soluções nativas são as mais fáceis de adotar:
+
+- AWS Step Functions: Um orquestrador visual e serverless que permite criar Sagas facilmente integrando outros serviços como Lambda, SQS e DynamoDB.
+- Azure Durable Functions: Permite escrever workflows de estado em código (C#, Python, JS) dentro do ambiente Azure Functions.
+- Google Cloud Workflows: Focado em chamadas de API de baixa latência e integração serverless no GCP

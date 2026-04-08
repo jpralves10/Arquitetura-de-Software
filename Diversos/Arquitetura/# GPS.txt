@@ -1,0 +1,48 @@
+*** GPS ***
+
+O GPS (Sistema de Posicionamento Global) funciona através de uma rede de pelo menos 24 satélites que orbitam a Terra e enviam sinais de rádio constantes para receptores aqui embaixo, como o seu celular ou o GPS do carro. 
+
+O processo básico segue três etapas principais:
+1. Emissão do Sinal 
+Cada satélite possui relógios atômicos extremamente precisos. Eles transmitem continuamente um sinal que diz exatamente quem eles são, onde estão no espaço e que horas o sinal foi enviado. 
+
+2. Cálculo da Distância
+Seu dispositivo recebe esses sinais e calcula quanto tempo cada um levou para chegar. Como o sinal viaja na velocidade da luz, o receptor consegue determinar a distância exata entre você e cada satélite. 
+
+Curiosidade: Devido à alta velocidade e altitude, os engenheiros precisam aplicar a Teoria da Relatividade de Einstein para corrigir pequenas variações de tempo nos relógios dos satélites, garantindo que a localização não erre por quilômetros. 
+
+3. Trilateração (A "Mágica")
+Para descobrir sua posição exata, o dispositivo utiliza um princípio matemático chamado trilateração: 
+
+Com 1 satélite: O sistema sabe que você está em algum ponto de uma esfera ao redor dele.
+Com 2 satélites: Sua posição é reduzida a um círculo onde as duas esferas se cruzam.
+Com 3 satélites: A posição é limitada a dois pontos (latitude e longitude).
+Com 4 ou mais satélites: O sistema confirma sua localização precisa em 3D, incluindo a altitude e corrigindo erros de tempo do relógio do seu celular. 
+
+Componentes do Sistema
+O GPS não é feito só de satélites; ele depende de três segmentos: 
+
+Espacial: Os satélites em órbita (cerca de 20.200 km de altura).
+De Controle: Estações terrestres que monitoram os satélites para garantir que eles estejam no lugar certo e com a hora correta.
+Do Usuário: O seu smartphone ou receptor que capta e processa as informações. 
+
+Importante: O GPS não precisa de internet para funcionar. A internet é usada apenas para carregar os mapas ou baixar dados que aceleram a conexão inicial com os satélites. 
+
+Você gostaria de saber sobre as alternativas ao GPS, como o sistema europeu Galileo ou o russo GLONASS?
+
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

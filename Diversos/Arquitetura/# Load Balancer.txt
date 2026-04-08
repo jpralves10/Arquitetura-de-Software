@@ -1,0 +1,122 @@
+---------------------------------------------------------------------------
+
+*** Load Balancing ***
+
+As formas de comunicação e métodos de distribuição de carga no Load Balancing (balanceamento de carga) podem ser divididas entre algoritmos de direcionamento de tráfego e tipos de arquitetura/protocolos de rede. 
+
+Aqui estão as principais formas, métodos e componentes listados:
+
+1. Métodos/Algoritmos de Distribuição de Carga
+Essas são as "regras" que o balanceador usa para decidir para qual servidor enviar a requisição: 
+
+- Round Robin: Distribui as requisições em sequência (circular) entre os servidores. É ideal para quando os servidores têm capacidades iguais.
+- Round Robin Ponderado (Weighted Round Robin): Semelhante ao Round Robin, mas leva em conta o peso (capacidade) de cada servidor. Servidores mais potentes recebem mais tráfego.
+- Conexão Mínima (Least Connections): Direciona o tráfego para o servidor com o menor número de conexões ativas no momento.
+- Conexão Mínima Ponderada: Combina a lógica de conexões mínimas com a capacidade (peso) do servidor.
+- Menor Tempo de Resposta (Least Response Time): Envia a requisição para o servidor que responde mais rápido e tem menos conexões ativas.
+- Hash de IP (IP Hash): Usa o endereço IP do cliente para gerar uma chave única que determina qual servidor receberá a requisição. Isso garante que o mesmo cliente seja atendido pelo mesmo servidor (persistência).
+- Baseado em Recursos (Resource-based): O balanceador consulta um agente no servidor para avaliar a carga atual (uso de CPU, memória) antes de enviar a requisição. 
+
+2. Tipos de Load Balancers (Camadas de Comunicação)
+Os balanceadores operam em diferentes camadas do modelo OSI:
+
+- Application Load Balancer (Camada 7): Atua na camada de aplicação, entendendo protocolos como HTTP/HTTPS. Permite decisões baseadas no conteúdo da requisição (URLs, cabeçalhos).
+- Network Load Balancer (Camada 4): Atua na camada de transporte (TCP/UDP), direcionando o tráfego com base em endereços IP e portas, ideal para alto desempenho e baixa latência.
+- Gateway Load Balancer: Utilizado para implantar e gerenciar appliances virtuais de terceiros (como firewalls), atuando na camada de rede. 
+
+3. Componentes e Estruturas de Comunicação
+
+- Listeners (Ouvintes): Um processo que verifica solicitações de conexão dos clientes, configurado por protocolo e porta (ex: 80 para HTTP, 443 para HTTPS).
+- Backend Sets/Target Groups: Grupos de servidores de destino (instâncias EC2, IPs) para onde o tráfego é direcionado.
+- Health Checks (Verificação de Integridade): Comunicação ativa do balanceador com os servidores para verificar se estão operantes, removendo automaticamente servidores com defeito.
+DNS Round Robin: Uso do DNS para distribuir o tráfego entre diferentes endereços IP de balanceadores de carga. 
+
+Essas formas garantem alta disponibilidade, tolerância a falhas e desempenho, distribuindo o tráfego de forma otimizada, seja localmente ou em nuvem.
+
+Balanceadores de Carga L7:
+
+- Distribuição de carga
+- Possibilita a escalabilidade horizontal
+- Usado para redundância e alta disponibilidade (Diferente do TTL de DNS)
+- Reduz carga até servidor (se for um LB externo/gerenciado)
+- Controla afinidade de usuários (stickiness)
+- Monitorações e healtchecks de targets
+- Facilita deployment
+- Gerência certificado SSL na borda e não passa isso para aplicação
+
+---------------------------------------------------------------------------
+
+*** Nginx pode ser um proxy e load balancer ao mesmo tempo? ***
+
+Sim, o NGINX foi projetado para atuar como proxy reverso e balanceador de carga simultaneamente. Ele recebe as requisições dos clientes (proxy) e as distribui eficientemente entre múltiplos servidores upstream (balanceador), otimizando recursos, aumentando a escalabilidade e garantindo tolerância a falhas. 
+
+Como funciona a combinação:
+- Proxy Reverso: O NGINX recebe a requisição do cliente, oculta os servidores internos e encaminha o tráfego, melhorando a segurança e gerenciando SSL/TLS.
+- Load Balancer: Ao mesmo tempo, ele distribui essas requisições entre vários servidores backend (ex: rodando em portas diferentes ou máquinas distintas) usando algoritmos como Round Robin, least connections ou IP hash.
+- Configuração: Isso é feito definindo um bloco upstream para listar os servidores e usando proxy_pass no bloco location para direcionar o tráfego. 
+
+Essa funcionalidade combinada é essencial para aplicações web modernas, permitindo alta disponibilidade e desempenho.
+
+---------------------------------------------------------------------------
+
+*** Nginx consegue atuar na camada de aplicação do modelo OSI ? ***
+
+Sim, o Nginx atua com excelência na Camada 7 (Aplicação) do modelo OSI. 
+
+Diferente de um balanceador de carga que opera apenas na Camada 4 (Transporte) e só enxerga IPs e portas, o Nginx na Camada 7 consegue "ler" e entender o conteúdo das requisições. Isso permite que ele tome decisões muito mais inteligentes, como: 
+
+- Roteamento por URL: Enviar requisições de /api para um grupo de servidores e /estatico para outro.
+Inspeção de Headers e Cookies: Filtrar tráfego ou direcionar usuários específicos com base em informações do navegador ou sessões.
+- Terminação SSL/TLS: Descriptografar o tráfego no Nginx antes de passá-lo para os servidores internos, aliviando o processamento deles.
+- Manipulação de Conteúdo: Adicionar ou remover headers, comprimir respostas (Gzip) e realizar cache de páginas dinâmicas. 
+
+Nginx na Camada 4 vs. Camada 7
+Embora seja famoso na Camada 7 (usando o bloco http {}), o Nginx também pode operar na Camada 4 (usando o módulo stream {}) para protocolos como MySQL ou DNS, onde ele apenas repassa pacotes TCP/UDP sem olhar o conteúdo.
+
+Característica 	Camada 4 (Transporte)		Camada 7 (Aplicação)
+Visibilidade	IPs e Portas (TCP/UDP)		URLs, Headers, Cookies, JSON
+Performance	Mais rápido (menos CPU)		Ligeiramente mais lento (inspeção profunda)
+Uso comum	Bancos de dados, VoIP, Jogos	Sites, APIs, Microserviços
+
+---------------------------------------------------------------------------
+
+*** Antes dos load balancer gerenciar certificado SSL, a aplicação que tinha que gerenciar ? ***
+
+Exatamente. Antes que os Load Balancers (Balanceadores de Carga) modernos assumissem a responsabilidade pelo "SSL Termination" (encerramento SSL) ou offloading, a responsabilidade de gerenciar, instalar e renovar os certificados SSL/TLS recaía totalmente sobre a aplicação ou, mais comumente, sobre o servidor web/aplicação (como Apache, Nginx, IIS, Tomcat). 
+
+Aqui estão os detalhes de como funcionava esse processo e os desafios envolvidos:
+
+1. Onde ficava o Certificado (Configuração na Aplicação)
+O certificado (chave pública) e a chave privada eram armazenados diretamente no servidor que hospedava o site.
+ 
+- Apache/Nginx: Configurações como SSLCertificateFile e SSLCertificateKeyFile eram definidas no arquivo de configuração do servidor.
+- Tomcat/Java: Os certificados eram importados para um keystore (geralmente formato JKS ou PKCS12).
+- IIS (Windows): O certificado era instalado no Gerenciador de Serviços de Informações da Internet e vinculado ao site na porta 443. 
+
+2. Desafios da Gestão "In-App" (Antes do Offloading)
+- Complexidade de Escala: Se você tivesse 10 servidores web atrás de um balanceador simples (apenas L4, que não tratava SSL), precisava instalar o mesmo certificado em todos os 10 servidores.
+- Renovação Complicada: Quando o certificado vencia (geralmente anualmente), era necessário repetir o processo de renovação em cada máquina, aumentando o risco de erros humanos e tempo de inatividade.
+- Consumo de CPU: O processo de "aperto de mão" SSL (handshake) e criptografia consumia recursos de processamento do servidor de aplicação, deixando menos potência para processar regras de negócio.
+- Gerenciamento de Chaves Privadas: A chave privada ficava espalhada por diversos servidores, o que dificultava a auditoria de segurança.
+
+3. A Mudança para Load Balancer SSL (Offloading)
+Com o surgimento de Load Balancers avançados (como Application Load Balancers, Nginx, F5, HAProxy), o cenário mudou:
+
+- O certificado fica instalado apenas no Load Balancer.
+- O Load Balancer faz o tráfego HTTPS (porta 443) virar HTTP (porta 80) antes de enviar para o servidor de aplicação.
+- Isso libera a aplicação para focar apenas na lógica de negócio e simplifica a renovação (faz-se em um só lugar).
+
+Em resumo, a mudança tirou a carga criptográfica e de gestão de certificados do servidor de aplicação e a transferiu para a infraestrutura de rede, tornando a gestão de segurança mais centralizada e eficiente.
+
+
+
+
+
+
+
+
+
+
+
+
+

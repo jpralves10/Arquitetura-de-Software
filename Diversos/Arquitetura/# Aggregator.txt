@@ -1,0 +1,93 @@
+*** Aggregator Design Pattern ***
+
+O Aggregator Design Pattern (Padrão de Agregador), amplamente utilizado em arquiteturas de microsserviços, é uma solução para simplificar a comunicação entre serviços e o cliente. Ele atua como um coordenador que coleta respostas de vários serviços e as combina em uma única resposta unificada. 
+
+Aqui está uma explicação detalhada em português:
+
+1. O Problema
+Em uma arquitetura de microsserviços, uma única funcionalidade de negócio (ex: exibir a página de um produto) muitas vezes precisa de dados que estão espalhados por diferentes serviços: 
+- Serviço de Catálogo (detalhes do produto).
+- Serviço de Preços (valor atual).
+- Serviço de Estoque (disponibilidade).
+Se o cliente (aplicativo frontend ou mobile) chamar cada serviço individualmente, ele enfrentará alta latência e complexidade de código. 
+
+2. A Solução (Aggregator Pattern)
+O padrão Agregador cria um serviço intermediário (um Agregador) que:
+-- 1. Recebe a solicitação do cliente.
+-- 2. Envia solicitações para múltiplos microsserviços.
+-- 3. Aguarda as respostas de todos os serviços.
+-- 4. Processa, transforma e mescla os dados em um único objeto de resposta (coeso).
+-- 5. Envia essa resposta consolidada de volta ao cliente. 
+
+3. Vantagens e Benefícios
+- Redução da Latência do Cliente: O cliente faz apenas uma chamada em vez de várias.
+- Simplificação do Cliente: O frontend não precisa gerenciar múltiplos endpoints ou combinar dados.
+- Encapsulamento: A complexidade da estrutura de microsserviços fica oculta para o cliente.
+- Flexibilidade: Permite aplicar regras de negócio na agregação de dados. 
+
+4. Cenários de Uso
+- E-commerce: Agregação de detalhes do pedido, status de envio e informações de pagamento.
+- Dashboards: Coleta de métricas e gráficos de diferentes microsserviços para exibir em uma única tela.
+- APIs Gateway: Frequentemente, o próprio gateway de API atua como um agregador. 
+
+5. Tipos de Agregador
+O padrão pode ser implementado de duas formas principais: 
+- Agregador de Dados (Data Aggregator): Simplesmente reúne os dados de várias fontes e retorna.
+- Agregador de Compostos (Composite Aggregator): Executa regras de negócio complexas com os dados recebidos antes de retorná-los. 
+
+Nota sobre confusão de termos: Embora o termo "Aggregate" seja usado no contexto de banco de dados e DDD (Domain-Driven Design) para se referir a entidades relacionadas, o Aggregator Design Pattern em microsserviços foca especificamente na combinação de respostas de serviços.
+
+Vantagens e Desvantagens:
+
+- Reduz a complexidade para o front-end e gera uma abstração de tudo o que está por trás
+- Latência e tempo de resposta são menores
+- Reduz a necessidade de "Chattiness" e "communication overheas" entre clientes e microserviços
+- Segurança mais simples, só o agregador que fica exposto à acesso externo
+- Pode aplicar regras de negócio, caso você queira. Ex. Datas, horas...
+- Single point of Failure
+- Igual o SAGA Pattern, quem irá manter essa aplicação? será uma equipe de integração?
+- Devido ser mais um passo, você depende de duas equipes para entregar funcionalidades novas e ter agility 
+
+Nota: Chattiness (comunicação excessiva/prolixa) e Communication Overhead (sobrecarga de comunicação/custo indireto) são conceitos técnicos usados para descrever a eficiência de trocas de informações, tanto em sistemas de computação (redes, APIs) quanto em ambientes corporativos. Em resumo, chattiness é a causa, e overhead é o custo indesejado que ela gera. 
+
+------------------------------------------------------------------------
+
+*** Aggregator service é o mesmo que api gateway? ***
+
+Não, aggregator service e API Gateway não são a mesma coisa, embora frequentemente trabalhem juntos. Um API Gateway é o ponto de entrada único que roteia solicitações e gerencia a segurança, enquanto um Aggregator é um padrão de design que coleta dados de múltiplos microsserviços para retornar uma resposta unificada ao cliente. 
+
+Diferenças Principais:
+- API Gateway (Porteiro): Funciona como uma recepção, roteando chamadas, validando segurança (autenticação/autorização) e gerindo tráfego (rate limiting). Ele não processa os dados, apenas os encaminha.
+- Aggregator Service (Agregador): Funciona como um "tradutor" ou "combinador". Ele recebe uma solicitação, busca dados em diversos microsserviços, processa e agrega essas informações em uma única resposta.
+- Onde se encontram: O padrão Gateway Aggregation utiliza um API Gateway que realiza a agregação de dados antes de responder ao cliente, unindo a funcionalidade de roteamento com a de consolidação de dados. 
+
+Quando usar:
+- Use um API Gateway para centralizar segurança, roteamento e gerenciamento de APIs.
+- Use um Aggregator (ou backend for frontend - BFF) para reduzir o número de requisições de rede que um front-end (web/mobile) precisa fazer para exibir uma página com múltiplos dados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

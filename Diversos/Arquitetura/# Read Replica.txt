@@ -1,0 +1,43 @@
+---------------------------------------------------------------------------
+
+*** Read Replica da AWS ***
+
+O principal recurso da AWS para duplicação/replicação de uma instância do Amazon RDS (para leitura ou alta disponibilidade) é o Read Replica (Réplica de Leitura). 
+
+Aqui estão os detalhes sobre os tipos de "duplicação" no RDS:
+- Read Replicas (Réplicas de Leitura): Utilizadas para escalar a capacidade de leitura, criando cópias assíncronas apenas de leitura da instância primária. Podem ser criadas na mesma região ou entre regiões.
+
+- Multi-AZ (Implantação Multi-AZ): Utilizado para alta disponibilidade. O RDS cria automaticamente uma réplica síncrona em uma Zona de Disponibilidade diferente, mas ela não fica acessível para leitura, servindo apenas para failover (substituição automática se a primária falhar).
+
+- Snapshots/Restore: Para criar um clone completo (escrevível) de um banco de dados, utiliza-se a funcionalidade de "Take Snapshot" (Tirar Snapshot) e, em seguida, restaurar esse snapshot em uma nova instância. 
+
+Para a maioria dos casos de uso de "duplicação" operacional, o recurso correto é o Read Replica.
+
+---------------------------------------------------------------------------
+
+*** Read Replica da aws é o mesmo que o pattern cqrs? ***
+
+
+Não, uma Read Replica (Réplica de Leitura) da AWS não é o mesmo que o padrão (pattern) CQRS, embora as Read Replicas possam ser utilizadas para implementar uma parte da infraestrutura de um sistema que segue o padrão CQRS. 
+
+Aqui está a diferença fundamental entre eles:
+
+1. O que é Read Replica (AWS RDS/Aurora)
+- Conceito: É uma funcionalidade de infraestrutura. É uma cópia assíncrona somente leitura do seu banco de dados principal (Master).
+- Objetivo: Escalabilidade horizontal de leitura e alta disponibilidade. Você descarrega consultas pesadas do banco principal para as réplicas.
+- Dados: Os dados são geralmente uma cópia exata (estrutura e conteúdo) do banco principal, apenas com um pequeno atraso (lag) de replicação. 
+
+2. O que é o Padrão CQRS (Command Query Responsibility Segregation) 
+- Conceito: É um padrão de arquitetura de software (arquitetura de dados/aplicação). Ele separa completamente a responsabilidade de escrita (Command) da leitura (Query).
+- Objetivo: Permitir que as operações de leitura e escrita evoluam, escalem e sejam otimizadas independentemente.
+- Dados: As estruturas de dados podem ser completamente diferentes. O banco de escrita pode ser normalizado, enquanto o de leitura pode ser uma visão agregada ou desnormalizada (como um documento JSON no DynamoDB ou um modelo otimizado no ElasticSearch).
+
+Resumo das Diferenças
+Característica 		Read Replica (AWS)		CQRS Pattern
+Nível			Infraestrutura/Database		Arquitetura de Software/Design
+Estrutura de Dados	Idêntica à principal		Pode ser diferente/otimizada para leitura
+Propósito		Performance de leitura		Desacoplamento e otimização de leitura/escrita
+Complexidade		Baixa				Alta
+
+Por que a confusão?
+A confusão ocorre porque usar uma Read Replica é uma forma comum de colocar em prática o lado da "Query" do CQRS. No entanto, o CQRS vai além, propondo que a forma como você lê dados seja desenhada de modo diferente da forma como você os escreve, enquanto a Read Replica apenas copia a escrita para um lugar de leitura.

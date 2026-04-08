@@ -1,0 +1,29 @@
+---------------------------------------------------------------------------
+
+*** Single Tenant vs Multi-Tenant ***
+
+- Conceitos necessários para criar um design de arquitetura valido que tenha isolamento
+
+1. Single Tenant/Mono Locatário
+
+Vantagens:
+- Cliente tem recursos dedicados apenas para ele, nada é dividido e é completamente isolado
+- Não precisa se preocupar com Neighbor Noise
+- Personalização por cliente
+Desvantagem:
+- Manutenção mais demorada, porém mais seguro
+- Custo alto e vários controles são necessários, incluindo monitoramento e configuração personalizada
+
+2. Multi-Tenant/Multi Locatário
+
+Vantagens:
+- Recursos são compartilhados entre diferentes clientes e são isolados a nível de aplicação
+- Custo geralmente é mais eficiente
+Desvantagem:
+- Manutenção gera impacto em N clientes
+- Um cliente pode afetar outro cliente (Neighbor Noise)
+- Complexo escalar um único usuário, isolar acessos e gerar personalização
+
+
+
+

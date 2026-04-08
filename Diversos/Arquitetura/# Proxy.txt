@@ -1,0 +1,26 @@
+*** Proxy vs Proxy Reverso ***
+
+Proxy e Proxy Reverso são intermediários de rede, mas com funções opostas: o Proxy (Direto) protege e atua em nome de clientes (usuários) acessando a internet, enquanto o Proxy Reverso atua na frente de servidores, gerenciando e protegendo solicitações de entrada, equilibrando carga e aumentando a segurança. 
+
+Principais Diferenças:
+
+Proxy (Direto):
+- Posição: Fica entre os clientes internos e a internet.
+- Função: Mascara IPs internos, bloqueia conteúdo e faz cache para acelerar acessos dos usuários.
+- Uso: Segurança corporativa, navegação anônima.
+
+Proxy Reverso:
+- Posição: Fica na frente dos servidores web (lado do servidor).
+- Função: Recebe requisições da internet e as distribui entre vários servidores internos (balanceamento de carga).
+- Uso: Alta disponibilidade, proteção contra ataques (DDoS), descarregamento SSL, cache de conteúdo para reduzir carga no servidor.
+
+Resumo de Funcionalidades:
+Característica 		Proxy (Direto)			Proxy Reverso
+Localização		Cliente (antes da internet)	Servidor (após a internet)
+Protege...		O usuário/cliente		O servidor/aplicação
+Foco			Controle de saída		Segurança de entrada e carga
+Exemplo			Proxy corporativo		Nginx, Cloudflare
+
+Em suma, o proxy direto atende o cliente, e o proxy reverso atende o servidor.
+
+---------------------------------------------------------------------------

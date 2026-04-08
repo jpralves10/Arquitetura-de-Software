@@ -1,0 +1,113 @@
+*** Request Hedging Pattern ***
+
+O Request Hedging é um padrão de design em sistemas distribuídos usado para reduzir a latência e aumentar a confiabilidade. Em vez de esperar que uma única requisição retorne, o sistema envia a mesma requisição para múltiplos servidores e utiliza a resposta do que responder primeiro. 
+
+Como Funciona
+O padrão opera basicamente de duas formas:
+- Envio Simultâneo: O cliente dispara cópias idênticas da requisição para diferentes instâncias de back-end ao mesmo tempo e descarta as respostas excedentes assim que a primeira chega.
+- Envio com Atraso (Delayed Hedging): O cliente envia a primeira requisição e, se ela não retornar em um tempo pré-determinado (ex: o percentil P95 de latência), uma segunda "requisição de segurança" é disparada. 
+
+Por que usar?
+- Redução da "Tail Latency" (Latência de Cauda): Evita que o usuário final sofra com atrasos esporádicos (como um servidor momentaneamente lento ou com sobrecarga de rede).
+- Previsibilidade: Torna o tempo de resposta mais estável, já que as chances de múltiplos servidores estarem lentos simultaneamente são estatisticamente baixas. 
+
+Trade-offs (Prós e Contras)
+
+Vantagem: Menor Latência: O sistema sempre aproveita o caminho mais rápido disponível.	
+Desvantagem: Custo de Recursos: Gera mais carga de CPU, memória e rede, pois o trabalho é duplicado.
+
+Vantagem: Maior Disponibilidade: Se um servidor falhar silenciosamente, outro pode responder a tempo.	
+Desvantagem: Complexidade: Exige que as requisições sejam idempotentes (repetir a operação não deve causar efeitos colaterais duplicados no banco de dados).
+
+Plataformas como o gRPC oferecem suporte nativo a políticas de hedging configuráveis para otimizar a comunicação entre microsserviços. 
+
+Você gostaria de ver um exemplo de implementação desse padrão ou precisa de ajuda para configurar isso em alguma tecnologia específica?
+
+Vantagens de Desvantagens:
+
+- Melhora o tempo de resposta, exemplo p99
+- Maior resiliência
+- Adiciona complexidade baixa para o código
+- Melhora o Tail Latency
+- Precisa testar se vale a pena o custo de tal complexidade
+- Custo bem alto, você terá infra pelo menos duplicada
+- Lembrar de que as sessões que foram as primeiras precisam ser fechadas
+- Cuidado com overlap de configuração. Exemplo Retry storm
+
+* Nota: O termo overlap (sobreposição) tem significados diferentes dependendo do contexto, mas geralmente refere-se a duas atividades ou elementos que ocorrem ou ocupam o mesmo espaço/tempo simultaneamente
+
+* Nota: Uma Retry Storm (tempestade de reatentativas) é um efeito cascata destrutivo em sistemas computacionais. Ela ocorre quando um sistema já está instável ou lento, e os clientes (aplicativos ou usuários) começam a enviar reatentativas automáticas de forma agressiva, sobrecarregando-o ainda mais até causar um colapso total.
+Imagine um restaurante que está demorando para entregar os pratos. Se todos os clientes começarem a perguntar ao garçom "Cadê meu pedido?" a cada 30 segundos, o garçom perderá tanto tempo respondendo que a comida demorará ainda mais para sair. Isso é uma Retry Storm.
+
+-------------------------------------------------------------------------------
+
+*** Tail Latency ***
+
+Tail latency (ou latência de cauda) refere-se ao tempo de resposta experimentado pela pequena porcentagem de usuários ou solicitações que sofrem os maiores atrasos em um sistema. Enquanto a média mostra como o sistema funciona para a maioria, a tail latency foca nos "casos extremos" (outliers). 
+
+Por que o termo "Tail" (Cauda)?
+O nome vem da visualização estatística de uma distribuição de frequência. Em um gráfico, a maioria das requisições se agrupa em tempos baixos, mas existe uma "cauda longa" à direita que representa as requisições que demoraram muito mais que o normal. 
+
+Como ela é medida?
+Em vez de médias, usam-se percentis para entender a experiência do usuário: 
+
+P50 (Mediana): 50% das requisições são mais rápidas que este valor.
+P95: 95% das requisições são rápidas; 5% sofrem lentidão.
+P99: Representa a latência dos 1% mais lentos. É a métrica padrão para tail latency.
+P99.9: Foca no 0,1% das requisições, essencial para sistemas de altíssima escala. 
+
+Por que isso é importante?
+1. Experiência do Usuário: Se você tem 1.000 usuários por segundo e seu P99 é alto, 10 pessoas por segundo estão tendo uma experiência péssima, mesmo que a média pareça boa.
+2. Sistemas Distribuídos: Em arquiteturas de microserviços, uma única página pode depender de dezenas de chamadas internas. Se apenas uma dessas chamadas sofrer latência de cauda, a resposta final para o usuário será lenta.
+3. Computação Paralela (IA): Em modelos de IA, o processamento muitas vezes só avança quando todos os dados chegam. Um único pacote atrasado (tail latency) pode deixar GPUs ociosas esperando. 
+
+Causas comuns
+- Garbage Collection: Pausas automáticas em linguagens como Java ou C#.
+- Contenção de Recursos: Muitos processos tentando acessar o mesmo banco de dados ou disco ao mesmo tempo.
+- Network Jitter: Pequenas variações e congestionamentos na rede. 
+
+Você gostaria de saber quais as estratégias técnicas mais usadas para reduzir esse atraso em sistemas de larga escala?
+
+-------------------------------------------------------------------------------
+
+*** Ferramentas mais apropriadas que implementam este pattern? ***
+
+As ferramentas variam dependendo da camada da arquitetura (aplicação, proxy ou protocolo) em que você deseja implementar o Request Hedging. Abaixo estão as opções mais consolidadas: 
+
+1. Frameworks de Comunicação (Camada de Protocolo)
+Estes frameworks possuem suporte nativo ou extensões específicas para lidar com requisições redundantes.
+- gRPC: É uma das ferramentas mais populares com suporte nativo. O gRPC permite configurar políticas de hedging via Service Config, onde você define o número máximo de tentativas e o atraso entre elas.
+- Finagle (Twitter): Uma biblioteca extensível de RPC para a JVM que foi pioneira no uso de request hedging para domar a latência de cauda em larga escala. 
+
+2. Service Meshes e Proxies (Camada de Infraestrutura)
+Ideal se você não quiser alterar o código da aplicação. O proxy intercepta a requisição e gerencia o envio das cópias.
+- Envoy Proxy: Frequentemente usado como o "data plane" de service meshes, o Envoy suporta configurações de retry que podem ser adaptadas para comportamentos de hedging.
+- Istio: Como utiliza o Envoy, permite configurar políticas de resiliência. Embora o foco principal seja retries, é possível simular hedging através de configurações avançadas de timeout e instâncias duplicadas. 
+
+3. Bibliotecas de Resiliência (Camada de Aplicação)
+Se você precisa de controle granular dentro do seu código (Go, Java, .NET), estas bibliotecas são as mais indicadas:
+- Go:
+hedged-http: Uma substituição direta para o cliente HTTP padrão do Go que adiciona suporte a hedging.
+failsafe-go: Uma biblioteca de resiliência abrangente que inclui políticas de hedging configuráveis.
+- Java / JVM:
+Resilience4j: Embora seja mais famosa pelo Circuit Breaker, ela pode ser combinada com executores assíncronos para implementar lógica de hedging personalizada.
+- .NET:
+Microsoft.Extensions.Http.Resilience: O ecossistema moderno do .NET (usando a biblioteca Polly internamente) oferece estratégias para criar clientes HTTP resilientes que podem ser configurados para disparar requisições paralelas. 
+
+4. Implementações em Nuvem e Bancos de Dados
+Alguns serviços gerenciados já utilizam esse padrão internamente para garantir sua SLA:
+- Amazon DynamoDB: Utiliza hedging internamente para lidar com variações de latência entre nós de armazenamento distribuídos.
+- Google Zanzibar: O sistema de autorização do Google usa hedging para evitar que picos de demanda sobrecarreguem servidores específicos. 
+
+Você está buscando uma solução para ser aplicada em um Service Mesh já existente ou pretende implementar diretamente no código da aplicação?
+
+
+
+
+
+
+
+
+
+
+

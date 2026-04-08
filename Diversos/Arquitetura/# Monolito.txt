@@ -1,0 +1,61 @@
+---------------------------------------------------------------------------
+
+*** Monolito vs Monolito Modular ***
+
+O monolito tradicional é um único bloco de código, simples de iniciar, mas difícil de escalar e manter à medida que cresce. O monolito modular organiza esse mesmo bloco em módulos independentes e bem definidos, oferecendo escalabilidade de times e facilidade na refatoração, mantendo a simplicidade de um único deploy. 
+
+Monolito Tradicional
+- Vantagens: Desenvolvimento rápido inicial, fácil deploy (um artefato), transações ACID simples.
+- Desvantagens: Alto acoplamento, difícil escalabilidade individual de componentes, conflitos de código entre equipes grandes, baixa resiliência. 
+
+Monolito Modular
+- Vantagens: Organização lógica do código, times independentes podem trabalhar em módulos, refatoração facilitada, menor risco ao migrar para microsserviços.
+- Desvantagens: Ainda possui um deploy unificado (se um módulo quebrar, o sistema todo pode cair), escalabilidade limitada do conjunto. 
+
+Qual escolher? Use o monolito tradicional para MVPs e equipes pequenas. O monolito modular é ideal para sistemas que cresceram e precisam de organização sem a complexidade operacional dos microsserviços. 
+
+Aspecto				Monolito		Monolito Modular
+Deployment			Desvantagem		Vantagem
+Duplicação de Código		Menos			Mais		
+Logs, métricas e tracing	Tanto Faz		Tanto Faz
+Escalabilidade			Mais Difícil		Mais Fácil
+Testabilidade			Mais Fácil		Mais Difícil
+Manutenibilidade		Mais Difícil		Mais Fácil
+Comunicação			Barramento		Barramento/Rede
+Blast Ratios/Impacto		Impacto Maior		Impacto Menor
+Custo				$			$$
+Operação			Fácil			Difícil
+Segurança			Fácil			Um Pouco Mais Difícil
+
+---------------------------------------------------------------------------
+
+*** Monolito vs Microsserviços ***
+
+Monólitos são sistemas unificados e simples de desenvolver, ideais para projetos pequenos/iniciais. Microsserviços dividem a aplicação em serviços independentes, oferecendo alta escalabilidade, resiliência e flexibilidade tecnológica para sistemas complexos e grandes equipes, mas com custo e complexidade operacional elevados
+
+Principais Diferenças:
+- Estrutura: O monólito é uma única base de código e unidade implantável. Microsserviços são pequenos serviços independentes que se comunicam via APIs.
+- Escalabilidade: No monólito, escala-se a aplicação inteira. Nos microsserviços, cada serviço é escalado individualmente.
+- Desenvolvimento: Monólitos são mais fáceis de iniciar e testar. Microsserviços exigem maturidade em DevOps e CI/CD.
+- Tecnologia: Monólitos geralmente usam uma única stack tecnológica. Microsserviços permitem tecnologias variadas para diferentes serviços. 
+
+Quando escolher cada um:
+- Monolito: Projetos pequenos, MVPs (Produtos Mínimos Viáveis), equipes pequenas, necessidade de rápida entrega inicial.
+- Microsserviços: Aplicações complexas, grandes volumes de dados, necessidade de escalabilidade independente, equipes grandes e distribuídas.
+
+Tabela Comparativa Rápida
+Característica 		Monólito				Microsserviços
+Complexidade		Baixa inicial, Alta a longo prazo	Alta (distribuída)
+Deploy			Único, simples				Independente, complexo
+Banco de Dados		Compartilhado (único)			Isolado por serviço
+Falhas			Uma falha pode derrubar tudo		Maior resiliência (isolamento)
+Logs, métricas, tracing	Fácil					Complexo
+Escalabilidade		Difícl					Fácil
+Testabilidade		Fácil					Difícil
+Manutenibilidade	Relativo				Relativo
+Comunicação		Fácil					Complexo
+Custo			$					$$
+Operação		Fácil					Difícil e Complexo
+Segurança		Fácil					Difícil e Complexo
+
+Nota: Uma abordagem intermediária, o Monólito Modular, pode ser usada para organizar o código sem a complexidade de múltiplos serviços, mas ainda sim continua usando uma única base de dados para todos os módulos do projeto.

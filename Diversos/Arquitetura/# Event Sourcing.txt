@@ -1,0 +1,36 @@
+*** Event Sourcing ***
+
+Event Sourcing é um padrão arquitetural de software que altera a forma tradicional de persistência de dados. Em vez de armazenar apenas o estado atual de uma entidade (como o saldo final de uma conta bancária), o sistema registra toda a sequência de eventos imutáveis que levaram a esse estado. 
+
+Como Funciona
+Cada mudança no sistema é tratada como um evento atômico (ex: "Item Adicionado ao Carrinho", "Pagamento Aprovado") e gravada em um banco de dados especializado chamado Event Store. 
+
+- Fonte da Verdade: O Event Store é o log definitivo de tudo o que aconteceu.
+- Reconstrução de Estado: O estado atual de um objeto é obtido fazendo o "replay" (reprodução) de todos os seus eventos na ordem cronológica.
+- Snapshots: Para evitar lentidão ao reprocessar milhares de eventos, o sistema pode salvar "fotos" do estado em momentos específicos, recomeçando o replay a partir do último snapshot. 
+
+Principais Benefícios
+- Auditoria e Rastreabilidade: Como nenhum dado é excluído ou sobrescrito (apenas novos eventos são adicionados), você tem um histórico completo e imutável para conformidade ou depuração.
+- Viagem no Tempo: É possível reconstruir o estado do sistema em qualquer ponto exato do passado.
+- Flexibilidade de Dados: Você pode criar novos modelos de leitura (projeções) a partir do histórico de eventos sem perder informações que não eram consideradas importantes no início. 
+
+Relação com CQRS
+O Event Sourcing é frequentemente implementado junto ao CQRS (Command Query Responsibility Segregation). Enquanto o Event Sourcing foca na escrita (armazenando os fatos), o CQRS separa a leitura, criando visualizações otimizadas a partir desses eventos para que as consultas sejam rápidas e não precisem processar todo o histórico a cada busca. 
+
+Quando evitar
+Este padrão introduz uma curva de aprendizado alta e complexidade técnica significativa. Não é recomendado para sistemas CRUD simples, onde o histórico de alterações não agrega valor ao negócio ou onde a consistência eventual pode ser um problema. 
+
+Você gostaria de ver um exemplo prático de como um fluxo de eventos (como um pedido de compra) seria estruturado em código?
+
+Vantagens e Desvantagens:
+
+- Pode ser um facilitador para softwares altamente regularizados. Eventos são imutáveis
+- Você pode reconstruir qualquer estado. Possibilita query/consulta temporal
+- Você pode disponibilizar seus dados através de um broker e não uma base de dados.
+- Você pode reconstruir qualquer estado
+- Pode ser usado para Backup e Restore
+- A reconstrução de um objeto pode consumir muito recurso. Requer reply de todo timeline
+- Eventual Consistency/Async
+- Custo de armazenamento
+
+---------------------------------------------------------------------------

@@ -12,6 +12,12 @@ Blockchain (Criptografia, Algoritmos de Consenso (CFT, BFT), Aplicações Descen
 
 práticas de segurança em aplicações web, como prevenção contra SQL Injection, XSS e CSRF
 
+Building Automation: In-depth knowledge of BMS and common communication protocols (e.g., BACnet, ModBus, KNX) is a significant plus.
+
+sistemas batch (Spring batch, Spring Dataflow);
+
+Conheciento de ferramentas de observability (Dynatrace, Grafana, Prometheus, ELK);
+
 ------------------------------------------------------------------------------------
 
 Requisitos Obrigatório:
