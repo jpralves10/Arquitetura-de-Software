@@ -7,11 +7,11 @@ Esses protocolos são a base do funcionamento de tecnologias como Blockchain e s
 Principais Tipos de Protocolos
 Os protocolos podem ser classificados em dois grupos principais: 
 
-- Baseados em Prova (Proof-based): Exigem que os participantes demonstrem o uso de recursos ou esforço para validar transações.
+- Baseados em PROVA (Proof-based): Exigem que os participantes demonstrem o uso de recursos ou esforço para validar transações.
 -- Proof of Work (PoW): Utilizado pelo Bitcoin, onde mineradores competem para resolver problemas matemáticos complexos.
 -- Proof of Stake (PoS): Utilizado pelo Ethereum, onde validadores bloqueiam ("travam") criptomoedas como garantia para participar do processo.
 
-- Baseados em Votação (Voting-based): Exigem a troca de mensagens entre os nós para decidir qual informação será confirmada.
+- Baseados em VOTAÇÃO (Voting-based): Exigem a troca de mensagens entre os nós para decidir qual informação será confirmada.
 -- Paxos e Raft: Frequentemente usados em sistemas distribuídos tradicionais, como o Kubernetes (via etcd), para garantir a consistência de dados em clusters. 
 
 Funções Fundamentais
