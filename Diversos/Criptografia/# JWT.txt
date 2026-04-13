@@ -1,0 +1,46 @@
+*** o que impede um jwt ser usado por outra pessoa ***
+
+O que impede, fundamentalmente, que um JSON Web Token (JWT) seja usado por outra pessoa é a assinatura digital do token, que garante a integridade e autenticidade da informação. Se o token for alterado (por exemplo, para mudar o ID do usuário), a assinatura se torna inválida, e o servidor rejeitará a requisição. 
+
+No entanto, o JWT em si não é criptografado por padrão, apenas codificado, o que significa que, se alguém roubar o token, poderá ler o conteúdo e, potencialmente, usá-lo. 
+
+Aqui estão os mecanismos que protegem contra o uso indevido:
+
+- Verificação de Assinatura (O mais importante): O servidor gera o JWT usando uma chave secreta no backend. Ao receber o token de volta, o servidor verifica se a assinatura corresponde aos dados (header + payload) e à chave secreta. Sem essa chave, um invasor não pode criar ou alterar um token válido.
+- Tempo de Expiração Curto (exp claim): JWTs devem ter um tempo de vida curto (ex: 5 a 15 minutos). Isso limita a "janela de oportunidade" de um atacante que roubou o token.
+- Uso de HTTPS (Transport Layer Security): Impede ataques de "homem-no-meio" (man-in-the-middle) onde o token é interceptado durante a transmissão entre o navegador e o servidor.
+- Armazenamento Seguro (HttpOnly Cookies): Armazenar o token em um cookie HttpOnly e Secure impede que scripts maliciosos (XSS - Cross-Site Scripting) roubem o token.
+- Validações Adicionais: Sistemas mais rigorosos verificam se o IP do usuário ou o User-Agent (navegador) no momento do uso do token é o mesmo que estava ativo quando o token foi gerado. 
+
+O que fazer em caso de roubo (sequestro)?
+Como JWTs são stateless (sem estado no servidor), eles são difíceis de revogar. A melhor prática é implementar Refresh Tokens com uma lista de bloqueio (blacklist) para invalidar o token roubado antes que ele expire
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

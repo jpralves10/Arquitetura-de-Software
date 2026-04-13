@@ -1,0 +1,43 @@
+*** mapeamento de processo as is to be ***
+
+O mapeamento de processos AS IS (situação atual) e TO BE (situação futura) é uma metodologia de gestão para melhorar processos internos. O "AS IS" mapeia o fluxo atual com key users para identificar gargalos, enquanto o "TO BE" redesenha o processo ideal, visando otimização, eficiência e melhores resultados com suporte de ferramentas BPM. 
+
+Principais Diferenças e Etapas
+- AS IS (O que é): Retrata fielmente como o processo funciona hoje, incluindo ineficiências e retrabalhos. Foco na coleta de informações reais com quem executa a tarefa.
+- Análise de Gargalos: Entre o AS IS e o TO BE, realiza-se uma análise crítica para identificar pontos fracos e desperdícios.
+- TO BE (O que será): Projeta o processo futuro desejado. Foco no redesenho para eliminar problemas, automatizar e aumentar a eficiência, alinhando aos objetivos estratégicos. 
+
+Benefícios do Mapeamento
+- Maior compreensão: Visualização clara de todas as etapas.
+- Padronização: Uniformiza a execução de tarefas.
+- Aumento de produtividade: Redução de tempo e custos com otimização.
+- Melhoria de desempenho: Tomada de decisão baseada em dados reais. 
+
+Como Implementar (AS IS/TO BE)
+1. Entrevistas/Observação: Levantar o processo atual (AS IS) com os executores..
+2. Modelagem AS IS: Desenhar o fluxo atual (ex: usando BPMN).
+3. Análise Crítica: Identificar ineficiências e oportunidades de melhoria.
+4. Redesenho TO BE: Desenhar o novo fluxo, aplicando melhorias.
+5. Simulação e Implementação: Testar o novo processo antes de implementá-lo. 
+
+A utilização de ferramentas de BPM (Business Process Management) é recomendada para automatizar, simular e monitorar os processos, facilitando a transição do estado atual para o futuro. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

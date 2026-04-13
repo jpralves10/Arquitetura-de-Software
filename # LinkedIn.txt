@@ -1,0 +1,59 @@
+:::Principais Conhecimentos:::
+
+:::Arquiteturais:::
+
+• Arquiteturas Monolíticas, Microsserviços, Containers, Serverless, Event-Driven
+• Hexagonal, Clean Architecture, SOLID, Design Patterns
+• TDD, DDD (Linguagem Ubíqua, Contexto Delimitado, Integração, Modelo de Domínio)
+• Protocolos de Consenso
+• Estratégias de Deployment
+
+:::Linguagens e Frameworks:::
+
+• Java, Python, NodeJs, JavaScript, Typescript 
+• Spring Boot, Spring Security, Spring Data e JPA, Quarkus
+• Angular, React
+
+:::Integração (Middleware):::
+
+• RESTful, WebSocket
+• RabbitMQ, Kafka
+
+:::Infraestrutura:::
+
+• AWS (Storage, SNS, SQS, EC2, ECS/EKS, Lambda, ELB, Database, API Gateway, Route 53, VPC, etc..)
+• Docker, Kubernates, ArgoCD, OpenShift
+• Jenkins, SonarQube, Git
+
+:::Database:::
+
+• MySQL, PostgreSQL, DB2, MongoDB, DynamoDB
+• Redis, Memcached
+
+:::(SRE) Site Reliability Engineer:::
+
+• Resilience Patterns, Saga Patterns, Aggregator Patterns, Request Hedging Pattern
+
+• Sidecar Pattern, Adapter Pattern, Ambassador Pattern, Service Mesh
+• Service Registry, Service Discovery, Load Shedding Pattern
+• Circuit Breaker Pattern, Retry Pattern, DLQ, Rate Limiting, Throttling
+• Bulkhead/Isolation Pattern, Backend for Frontend (BFF)
+• Strangler Fig Pattern, Feature Flag/Feature Toggle, Anti-corruption Layer
+
+• Polyglot Persistence Pattern, Database-Per-Service Pattern, Sharad-Database-Per-Service Pattern,
+• (CDC) Change-Data-Capture Pattern, Transactional Outbox Pattern, Cache Aside Pattern
+• Materialized Views, Sharding Pattern, Consistent Hashing, Shuffle Sharding, CQRS+ES
+
+• In-Place Deployment, Immutable Deployment, Agent/Agentless, Big Bang Deployment
+• Rolling Updates, Blue-Green Deployment, Canary Release Deployment
+• Shadow Deployment
+
+:::Bons Conhecimentos em:::
+
+• Scrum, Kanban
+• OAuth, JWT, OpenID
+• Linux (Ubuntu, Lubuntu, Debian)
+• Criptografia (Simétrica (AES), Assimétrica (RSA/ECC), Híbrida, Hash, Assinatura, SSL/TLS)
+
+
+

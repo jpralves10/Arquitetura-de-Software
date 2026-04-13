@@ -1,0 +1,24 @@
+A criptografia assimétrica baseia-se fundamentalmente em um par de chaves (2 chaves): a pública e a privada. 
+
+No entanto, em cenários práticos de comunicação segura (como HTTPS/SSL), utiliza-se um mecanismo combinado que envolve uma chave compartilhada, mas a estrutura da criptografia assimétrica em si é binária.
+Aqui está a explicação detalhada:
+
+1. Par de Chaves (O núcleo da Criptografia Assimétrica) 
+- Chave Pública: Pode ser distribuída abertamente para qualquer pessoa. É usada para cifrar os dados (ou verificar assinaturas digitais).
+- Chave Privada: Deve ser mantida em segredo absoluto pelo dono. É usada para decifrar os dados (ou criar assinaturas digitais).
+- Relação: O que é cifrado com a chave pública só pode ser decifrado com a chave privada correspondente, e vice-versa. 
+
+2. A "Chave Compartilhada" (Chave de Sessão ou Híbrida)
+Em protocolos de comunicação segura, a criptografia assimétrica é usada para trocar uma chave simétrica (chave de sessão) de forma segura. 
+
+- A criptografia assimétrica é lenta para grandes volumes de dados.
+- Por isso, o emissor gera uma chave temporária ("compartilhada" ou chave simétrica) e a envia criptografada com a chave pública do receptor.
+- O receptor usa sua chave privada para obter essa chave temporária. A partir daí, ambos usam essa chave compartilhada (simétrica) para criptografar o restante da conversa. 
+
+Resumo das Funções
+Chave 			Acessibilidade		Função Principal
+Pública			Aberta			Criptografar/Verificar assinatura
+Privada			Secreta			Descriptografar/Assinar
+Compartilhada/Sessão	Apenas entre as partes	Criptografia rápida da conversa (uso simétrico)
+
+Portanto, a criptografia assimétrica (ou de chave pública) utiliza duas chaves distintas, mas pode funcionar junto com uma chave compartilhada para otimizar a velocidade da comunicação. 

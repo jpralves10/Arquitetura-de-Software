@@ -18,6 +18,33 @@ sistemas batch (Spring batch, Spring Dataflow);
 
 Conheciento de ferramentas de observability (Dynatrace, Grafana, Prometheus, ELK);
 
+Análise de Make or Buy
+
+Conhecimento em DDD ou C4Model
+
+Behavior Driven Development (BDD)
+
+GraphQL, gRPC
+
+mapeamento de processos AS IS (situação atual) e TO BE (situação futura) 
+
+ferramentas de automação de processos e infraestrutura, como Ansible, Puppet, ou Chef.
+
+Kubernetes
+Containers e runtimes modernos
+Ingress Controllers
+Service Mesh
+Helm / Kustomize
+Terraform Cloud (IaC)
+GitOps (gitHub/ gitLab/Jenkins/ Spinnaker) ou ferramentas equivalentes
+SRE (DataDog / Prometheus / Grafana / OpenTelemetry / ELK ou equivalentes)
+Secret management (Google Secret Manager/ Cyberark) e configuration patterns
+Registries e gestão de imagens (Artifact Register)
+Serviços cloud relacionados a runtime e plataforma.
+Plataformas GCP
+NGINEX
+Anthos Service Mesh
+
 ------------------------------------------------------------------------------------
 
 Requisitos Obrigatório:

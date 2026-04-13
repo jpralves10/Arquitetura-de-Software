@@ -1,0 +1,9 @@
+Um SRE (Site Reliability Engineer ou Engenheiro de Confiabilidade de Site) utiliza práticas de engenharia de software para automatizar operações de TI, garantindo a alta disponibilidade, performance e escalabilidade de sistemas em produção. Eles equilibram o tempo entre responder a incidentes e desenvolver melhorias para reduzir o trabalho manual. 
+
+Principais Responsabilidades de um SRE:
+- Monitoramento e Observabilidade: Configurar ferramentas para monitorar a saúde do sistema (latência, tráfego, erros e saturação).
+- Gestão de Incidentes: Responder a emergências, resolver falhas e realizar análises de causa raiz (post-mortems).
+- Automação (IaC): Reduzir tarefas manuais e repetitivas criando scripts e ferramentas de automação usando Terraform ou Ansible.
+- Gestão de Mudanças: Planejar implantações (deploys) seguras para evitar indisponibilidades.
+- Definição de SLOs/SLIs: Estabelecer acordos de nível de serviço e orçamentos de erro (error budgets) para equilibrar confiabilidade e velocidade de inovação
+

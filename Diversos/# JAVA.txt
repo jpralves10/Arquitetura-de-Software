@@ -1,0 +1,58 @@
+*** Java ***
+
+*** Existe o java enterprise e o java não enterprise? ***
+
+Sim, existem diferentes edições da plataforma Java, sendo as principais o Java Enterprise Edition (Java EE/Jakarta EE) e o Java Standard Edition (Java SE), que é frequentemente referida como o "Java não enterprise". 
+
+A diferença principal está no foco e no conjunto de ferramentas que cada uma oferece:
+1. Java Enterprise Edition (Java EE / Jakarta EE) 
+Foco: Aplicações de grande porte, sistemas corporativos, aplicações web complexas e serviços distribuídos.
+Características: É baseado no Java SE, mas adiciona bibliotecas e especificações extras para lidar com transações, segurança, persistência de banco de dados (JPA), mensageria e web services (Servlets, JSF, EJB).
+Ambiente: Exige um servidor de aplicação (como WildFly, GlassFish, Payara) para rodar.
+Nota: O Java EE evoluiu e agora é chamado de Jakarta EE. 
+
+2. Java Standard Edition (Java SE)
+Foco: O "núcleo" do Java. Usado para desenvolver aplicações desktop, ferramentas de linha de comando e aplicações simples.
+Características: Contém as bibliotecas básicas (java.lang, java.io, java.util, etc.).
+Ambiente: Roda na Java Virtual Machine (JVM) padrão, sem precisar de um servidor de aplicação complexo. 
+
+Em resumo:
+Java SE (Não Enterprise): O básico. Ótimo para aprender e aplicações desktop.
+Java EE/Jakarta EE (Enterprise): O básico + ferramentas corporativas. Ótimo para sistemas web robustos de bancos e empresas. 
+
+Observação: Existe também o Java Micro Edition (Java ME) para dispositivos embarcados e o JavaFX para interfaces gráficas avançadas.
+
+-------------------------------------------------------------------------------------
+
+*** Microserviço java com spring-boot é standard ou enterprise? ***
+
+Essa é uma pergunta muito comum e a resposta é: depende de como você define "Enterprise".
+Tecnicamente, o Spring Boot roda sobre o Java Standard Edition (Java SE). No entanto, ele é usado para criar aplicações de nível empresarial (Enterprise), servindo como a principal alternativa ao antigo Java EE (atual Jakarta EE). 
+
+Aqui está a explicação detalhada:
+
+1. Tecnicamente é Java SE (Standard) 
+Diferente das aplicações "Enterprise" tradicionais de antigamente, o Spring Boot não precisa de um Servidor de Aplicações pesado (como o JBoss ou GlassFish) para rodar. 
+
+- Independência: Ele gera um arquivo .jar que você executa diretamente com um comando simples (java -jar).
+- Servidor Embutido: Ele já traz um servidor leve (como o Tomcat ou Jetty) "dentro" dele. 
+
+2. Funcionalmente é Enterprise
+Embora use o Java SE como base, o Spring Boot é um framework Enterprise por causa do que ele oferece: 
+
+- Recursos Robustos: Ele resolve problemas complexos de grandes empresas, como segurança (Spring Security), conexão com bancos de dados (Spring Data) e mensageria.
+- Híbrido de especificações: O Spring Boot "pega emprestado" várias partes do mundo Enterprise (Jakarta EE), como as anotações do JPA/Hibernate para bancos de dados ou a API de Servlets para web. 
+
+3. Spring Boot vs. Jakarta EE
+No mercado atual, o Spring Boot é o padrão "de fato" para microsserviços. 
+
+- Spring Boot: Foco em produtividade, configuração automática e agilidade (Cloud Native).
+- Jakarta EE: Foco em padronização rigorosa e estabilidade de longo prazo para sistemas legados ou monolíticos gigantes. 
+
+Resumo: Um microsserviço com Spring Boot é uma aplicação que roda no Java Standard, mas que entrega todas as capacidades de um sistema Enterprise de forma muito mais leve e moderna
+
+
+
+
+
+
