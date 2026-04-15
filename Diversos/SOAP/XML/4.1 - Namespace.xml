@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<empresa xmlns="http://www.treinaweb.com.br/namespace/empresa"
+        xmlns:d="http://www.treinaweb.com.br/namespace/dependentes">
+    <funcionarios>
+        <funcionario id="001">
+            <nome>Carlos Santos</nome>
+            <cargo>Gerente de Produção</cargo>
+            <d:dependentes>
+                <d:dependente d:numero="001">
+                    <d:nome>Suzana Santos</d:nome>
+                    <d:parentesco>Conjuge</d:parentesco>
+                </d:dependente>
+                <d:dependente d:numero="002">
+                    <d:nome>Rafael Santos</d:nome>
+                    <d:parentesco>Filho</d:parentesco>
+                </d:dependente>
+            </d:dependentes>
+        </funcionario>
+        <funcionario id="002">
+            <nome>Felipe Silva</nome>
+            <cargo>Auxiliar de Produção</cargo>
+            <d:dependentes>
+                <d:dependente d:numero="001">
+                    <d:nome>Carla Silva</d:nome>
+                    <d:parentesco>Conjuge</d:parentesco>
+                </d:dependente>
+            </d:dependentes>
+        </funcionario>
+    </funcionarios>
+</empresa>

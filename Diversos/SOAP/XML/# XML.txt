@@ -1,0 +1,1736 @@
+XML significa Extensible Markup Language, seu uso e desenvolvimento tem seguindo o caminho comum nos softwares. Ele foi criado há mais de dez anos, e originalmente era utilizado por poucas pessoas, mas com o tempo, começou a chamar a atenção dos desenvolvedores e se tornou um padrão para a troca de dados entre sistemas.
+
+Com o surgimento de ferramentas mais sofisticadas para processar e gerenciar XML, ele é utilizado até em casos onde a sua existência não é notada. Mesmo com as falhas e o surgimento de novas alternativas, o XML possui um lugar permanente nos sistemas que é difícil imaginar qualquer aplicação de troca de dados que não possa utilizá-lo. Por isso é essencial que qualquer desenvolvedor compreenda completamente os seus conceitos, o que iremos fazer nesse curso.
+
+---------------------------------------------------------------------------
+
+O que é XML?
+Extensible Markup Language (XML) é uma linguagem de marcação de dados (meta-markup language) que provê um formato para descrever dados estruturados. Isso facilita declarações mais precisas do conteúdo e resultados mais significativos de busca através de múltiplas plataformas. O XML também vai permitir o surgimento de uma nova geração de aplicações de manipulação e visualização de dados via internet.
+
+O XML permite a definição de um número infinito de tags. Enquanto no HTML, as tags podem ser usadas para definir a formatação de caracteres e parágrafos, o XML provê um sistema para criar tags para dados estruturados.
+
+Um elemento XML pode ter dados declarados como sendo preços de venda, taxas de preço, um título de livro, a quantidade de chuva, ou qualquer outro tipo de elemento de dado. Como as tags XML são adotadas por intranets de organizações, e também via Internet, haverá uma correspondente habilidade em manipular e procurar por dados independentemente das aplicações onde os quais são encontrados. Uma vez que o dado foi encontrado, ele pode ser distribuído pela rede e apresentado em um browser, como o Google Chrome, de várias formas possíveis, ou então esse dado pode ser transferido para outras aplicações para processamento futuro e visualização.
+
+---------------------------------------------------------------------------
+
+O que é uma linguagem de marcação?
+Os primeiros desenvolvedores de aplicativos para edição de texto (e não só esses aplicativos) tinham um grande problema à frente: inserir informações de controle do documento, que é nativamente texto, sendo que só dispunham de letras e números para executar tal tarefa. Para ter uma ideia do que são informações de controle, basta associá-las, por exemplo, a uma quebra de página, recuo do cabeçote de impressão, tamanho da fonte, dentre outras. A dificuldade nesse caso é que um documento de texto utiliza todo o universo de letras, números e símbolos existentes no computador. Dessa forma, não resta nenhum caractere específico para assumir tal função.
+
+Logo, como fazer para executar tal tarefa? A ideia surgiu pela utilização de uma combinação de símbolos, denominados de "marcas", em que a aplicação, ao encontrá-los, executaria uma função pré-definida. Por exemplo, os documentos no formato RTF utilizam a combinação de símbolos { e } para indicar o início e o fim, respectivamente, de uma determinada funcionalidade.
+
+Obviamente, algumas convenções de definição de marcas, como as do RTF, não eram assim tão legíveis por seres humanos. Então foi necessário criar algo novo. A maioria dos desenvolvedores concordou que a marcação, o ato que cerca o texto era o melhor caminho, mas ainda havida muito a ser decidido. As suas principais questões foram:
+
+Como o metadado pode ser diferenciado do texto básico?
+Qual metadado é permitido?
+Por exemplo, alguns documentos necessitam da capacidade de marcar o texto como negrito ou itálico, enquanto outros estão mais preocupados com o autor do documento, quando foi criado, se foi modificado posteriormente. Para lidar com esse problema foi lançada uma definição chamada Standard Generalized Markup Language, comumente abreviada como SGML.
+
+Podemos dizer que a SGML é uma linguagem pai das linguagens de marcação reais, como o Hyper Text Markup Language, mais conhecido como HTML. Ou seja: a SGML não é uma linguagem “real”, em vez disso, ela define como uma linguagem de marcação deve ser definida, permitindo criar uma linguagem de marcação e defini-la utilizando uma sintaxe padrão de tal forma que qualquer aplicação SGML possa ler o documento e lidar com ele sem nenhum erro.
+
+Caso já conheça o HTML, sabe que nele as marcações (também chamadas de tags) são envolvidas pelos símbolos < e >, assim separando o metadado do texto básico. A cada marca é atribuída uma função e o navegador é o responsável por interpretar e definir a sua forma de apresentação. Logo, <b>Teste</b><br />, em HTML, representa o texto em negrito com o salto de linha.
+
+---------------------------------------------------------------------------
+
+Nascimento do XML
+Mesmo que a SGML fosse bem pensada e capaz de definir muitos tipos diferentes de marcação, sofria uma grande falha: era muito complicado. Toda a flexibilidade veio com um custo, e ainda existiam relativamente poucas aplicações que podiam ler uma definição SGML de uma linguagem de marcação e utilizá-la para processar documentos corretamente. O conceito estava correto, mas precisa ser mais simples. Como esse objetivo em mente, um pequeno grupo começou a trabalhar em um subconjunto do SGML conhecido como Extensible Markup Language (XML). O primeiro projeto do trabalho foi publicado em 1996 e, dois anos depois, o W3C publicou uma revisão revisada em 10 de fevereiro de 1998.
+
+O XML, portanto, é um subconjunto derivado da SGML, enquanto o XML é uma aplicação da SGML. O XML não dita o formato geral de um arquivo ou que metadados podem ser adicionados, ele apenas especifica algumas regras. Isso significa que ele mantém várias das regras de flexibilidade da SGML sem ter a maior parte da complexidade. Por exemplo, suponha que você tenha um arquivo com uma lista de usuários:
+
+Carlos Silva
+Maria Santos
+Rafael Cavalhieri
+
+Esse arquivo não possui nenhum metadado, a única razão que sabemos que se trata de uma lista de usuários é o nosso próprio conhecimento e a experiência de como os nomes são apresentados. Agora olhe como essa informação pode aparecer em um documento XML:
+
+<usuariosAplicacao>
+   <usuario nome="Carlos Silva" />
+   <usuario nome="Maria Santos" />
+   <usuario nome="Rafael Cavalhieri" />
+</usuariosAplicacao>
+
+Obs.: não se preocupe veremos as suas características com calma à frente.
+
+Imediatamente os dados ficam mais claros, apesar de que a aplicação continuará a saber o que é usuário ou nome. Mas utilizando XML, em vez da versão em texto simples, é muito mais fácil mapear esses itens na aplicação, para que possam ser manuseados corretamente.
+
+Veremos mais sobre isso a frente, mas para já irmos acostumando com a nomenclatura, no exemplo acima temos duas características importantes do XML, que são os elementos e os atributos. Os elementos são usuariosAplicacao e usuário; e o atributo é o nome.
+
+---------------------------------------------------------------------------
+
+Principais Características do XML
+As principais características do XML são:
+ 
+Simplicidade
+Extensibilidade
+Interoperabilidade
+Abertura
+Experiência
+
+---------------------------------------------------------------------------
+
+Objetivos e usos do XML
+Como e para quê foi criado o XML e uma breve descrição de seus usos.
+
+O XML foi criado para cumprir vários objetivos:
+
+Que fosse idêntico na hora de servir, receber e processar a informação do HTML, para aproveitar toda a tecnologia implantada para este último;
+Que fosse formal e conciso, desde o ponto de vista dos dados até a maneira de salvá-los;
+Que fosse extensível, para que possa ser utilizado em todos os campos do conhecimento;
+Que fosse fácil de ler e editar;
+Que fosse fácil de implantar, programar e aplicar aos distintos sistemas.
+Usa-se XML para uma infinidade de trabalhos. Veja algumas vantagens do XML em alguns campos práticos:
+
+- Comunicação de dados: Se a informação se transfere em XML, qualquer aplicação poderia escrever um documento de texto "simples" com os dados em formato XML e outra aplicação receber esta informação e trabalhar com ela;
+- Migração de dados: Para mover os dados de uma base de dados para outra, seria muito simples se as duas trabalhassem em formato XML;
+- Conteúdo web: Embora muitos acreditem que o XHTML (versão XML do HTML) não pegou e que foi substituído pelo HTML5, ele ainda é muito utilizado na internet. Fora que há uma grande quantidade de dados que são armazenados como XML simples e são utilizados para enviar dados para os usuários se necessário.
+
+---------------------------------------------------------------------------
+
+Tecnologias XML
+Para utilizar o XML nos campos práticos citados no tópico anterior é possível utilizar uma série de tecnologias, normas e padrões relacionados, sendo que as mais utilizadas são listadas a seguir.
+
+Analisadores XML
+Antes de fazer qualquer coisa em um documento XML é necessário que ele seja analisado (ou processado). Isto é feito dividindo as suas partes com algum tipo de modelo. Embora os arquivos XML sejam simplesmente texto não é recomendado que as suas informações sejam obtidas utilizando métodos tradicionais de manipulação de texto. Mesmo que o XML seja flexível é necessário que o código utilizado para a sua manipulação seja confiável.
+
+O Document Object Model
+Uma vez que o analisador XML fez o seu trabalho, é produzida uma representação do XML na memória. Essa representação (modelo) expõe propriedades e métodos que nos permite extrair informações ou modificar o XML. Por exemplo, podemos ter métodos como “createElement” para a criação de novos elementos do documento, ou propriedades como “documentElement” que nos retorna o elemento raiz do documento (por exemplo, usuariosAplicacao no exemplo do tópico anterior).
+
+Um dos primeiros modelos utilizados foi o DOM (Documento Object Model). Esse modelo é um padrão associado ao XML, mas não se aplica apenas a ele, como também a documentos HTML. Na sua essência, o DOM é uma representação em “árvore” de um documento XML. É possível começar na raiz da árvore e ir movendo para seus diferentes ramos, e extrair ou inserir dados nele.
+
+DTDs e XML Schemas
+Tanto os DTDs quando os XML Schemas servem para descrever as definições de um documento XML, sua estrutura, e que dados são admitidos. Elas podem ser utilizadas para testar se um documento é de um modelo pré-estabelecido, em um processo conhecido como validação. Os DTDs são um padrão antigo, existem desde o SGML. Eles estão sendo gradualmente substituídos pelos XML Schemas, mas ainda estão em uso, principalmente com o (X)HTML.
+
+Em geral XML Schemas disponibilizam mais funcionalidades que os DTDs, pois eles possuem a vantagem de serem escritos em XML. Enquanto o DTD utiliza um formato completamente diferente, o que dificulta o seu uso.
+
+Namespaces XML
+Os Namespaces XML foram adicionados a sua especificação depois da definição inicial. Por isso, eles possuem a reputação de serem complexos e mal implementados. Basicamente, namespaces servem como um modo de agrupar o XML. Por exemplo, se um ou dois formatos diferentes precisam ser usados juntos, os nomes dos elementos podem ser agrupados juntos em um namespace, o que garante que não haverá confusão sobre o que os elementos representam.
+
+Veremos todas essas tecnologias ao longo do curso.
+
+---------------------------------------------------------------------------
+
+Ferramentas para trabalhar com XML
+Podemos trabalhar com o XML em qualquer editor de texto, desde que suas regras (que veremos a frente) sejam respeitadas. Mas para facilitar a sua criação, existem ótimas ferramentas que nos auxiliam na criação de um arquivo XML. Dentre essas ferramentas as recomendadas são:
+
+- XMLWriter: Ferramenta proprietária, mas disponibiliza uma versão grátis com menos recursos. Pode ser baixada em: http://www.xmlwriter.net/
+- Oxygen XML Editor: Ferramenta proprietária, mas bem completa e disponibiliza uma versão Trial de 30 dias. Pode ser baixada em: http://www.oxygenxml.com/
+- XMLSpy: Ferramenta proprietária, que disponibiliza uma versão Trial de 30 dias. Pode ser baixada em: http://www.altova.com/xmlspy.html
+- XMLmind: Ferramenta proprietária, mas disponibiliza uma versão grátis com os mesmos recursos, só que sem suporte. Pode ser baixada em: http://www.xmlmind.com/xmleditor/
+- NotePad++: Ferramenta gratuita de código aberto. Pode ser baixada em http://notepad-plus-plus.org/
+- Visual Studio Code: Ferramenta gratuita disponibilizada pela Microsoft. Pode ser baixada em: https://code.visualstudio.com/
+
+Durante o curso, será utilizado o Visual Studio Code, mas você pode optar por qualquer outra da listagem acima, ou a que se sentir mais confortável. Mas uma dica: não deixe de usar um editor com suporte para XML, pois ajuda bastante no discernimento de tags e etc.
+
+---------------------------------------------------------------------------
+
+Sintaxe XML
+Como foi dito antes, a estrutura do XML possui regras que devemos seguir para que o arquivo criado esteja bem formatado, caso uma dessas regras não forem seguidas o arquivo não será validado, em consequência, não poderá ser lido pelo sistema.
+
+Essa estrutura possui:
+
+- Prólogo: introdução ao documento para qualquer aplicação que vá processá-lo; pode também servir de informação a alguém que vá utilizá-lo. Que contém: declaração XML (de versão, encode); comentários; instruções de processamento; Document Type Declaration, interna ou externa;
+- Corpo do Documento: que contém os elementos (as tags);
+- Epílogo: Pode conter comentários ou instruções de processamento.
+Veremos em detalhes esses pontos à frente.
+
+---------------------------------------------------------------------------
+
+Prólogo XML
+A primeira parte do documento é o prólogo. Como ele é opcional, é provável que não o veja em todos os documentos, mas se ele existir sempre deve ser a primeira parte do documento. O prólogo começa com uma declaração XML, que na sua forma mais simples é:
+
+<?xml version="1.0"?>
+
+Essa declaração possui apenas um pedaço de informação, que é o número da versão utilizada pelo documento XML. Acima é utilizada a versão 1.0, fora essa atualmente a única outra opção é 1.1. É raro ver essa declaração apenas com essa informação, normalmente ela é informada com a codificação utilizada no documento:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+Nesse caso é especificado o uso da codificação UTF-8, uma variante do Unicode. Existe uma série de codificações Unicode que podem ser utilizadas nos documentos XML (que você pode ver aqui: http://www.w3.org/International/getting-started/characters ), mas a codificação recomendada e mais utilizada é a UTF-8.
+
+Após definir a codificação do documento, podemos finalizar essa declaração determinando se o documento é considerado autônomo (standalone):
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+Esse atributo aplica-se apenas em documentos que especificam um DTD (que veremos mais à frente). Em documentos XML “normais”, esse atributo é definido como yes, ou nem é especificado (o que ocorre na maioria dos casos).
+
+Às vezes, há ainda alguns elementos adicionais no prólogo. Essas partes opcionais incluem comentários e instruções de processamento. Mesmo as instruções de processamento necessitam vir antes dos comentários, os veremos apenas mais à frente, os comentários são explicados a seguir.
+
+Comentários
+Os comentários são geralmente destinados a outros desenvolvedores (ou usuários que forem ler o documento), porque eles não são considerados dados reais do documento. Eles são iniciados com o comando <!-- e finalizados por -->, além de serem adicionados antes dos elementos, conforme o código abaixo:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Meu comentário-->
+
+Todo conteúdo entre essas marcas de comentário é ignorado pelo processador XML. Como esse conteúdo será ignorado pelo processador XML, só há motivos em adicioná-los se o documento for lido por um desenvolvedor (ou usuário). Se o documento for lido apenas por um computador não há necessidade de adicionar comentários nele.
+
+Agora que o prólogo está concluído temos que adicionar os elementos do arquivo.
+
+---------------------------------------------------------------------------
+
+Sintaxe XML - Elementos
+Os elementos são os blocos de construção básicos de um documento XML, e todo documento tem um único elemento, que é o elemento raiz. Todos os elementos são definidos de duas formas. A mais simples é quando o elemento é iniciado com uma marca de início, que é o sinal de menor (<), seguido pelo nome do elemento, como treinaweb, e finalizado com o sinal de maior (>). Assim teremos a tag <treinaweb>. Para fechar esse elemento, é necessário o sinal de menor, mais uma barra e o nome do elemento (que precisa ser exatamente igual à tag de abertura do elemento), finalizando com o sinal de maior. Assim a tag de fechamento do elemento <treinaweb> será </treinaweb>. Pode adicionar espaço após o nome da tag, assim: <treinaweb >, mas não antes, no caso < treinaweb>. No documento ficará assim:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Meu comentário-->
+<treinaweb></treinaweb>
+
+Também existe uma sintaxe alternativa para definir um elemento. Ela é utilizada quando não há nenhum conteúdo dentro do elemento:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Meu comentário-->
+<treinaweb />
+
+Nomes dos elementos
+Existem várias formas válidas de nomear um elemento em XML, sendo que as mais comuns são com as palavras:
+
+Separadas por capitalização, incluindo a primeira. Por exemplo: <MeuElemento />;
+Subsequentes separadas por capitalização. Por exemplo: <meuElemento />;
+Separadas por underline (_). Por exemplo: <meu_elemento />;
+Separadas por traço (-). Por exemplo: <meu-elemento />.
+Só que em conjunto com as formas válidas, temos que seguir algumas regras específicas para nomear os elementos:
+
+Um nome do elemento pode começar com underline ou uma letra (maiúscula ou minúscula) válida na tabela de caracteres Unicode. Ou seja: caracteres especiais e acentos não são aceitos;
+Os caracteres subsequentes também podem ser um traço ou número;
+Os nomes são case sensitive, então a tag de início e fim devem ser exatamente iguais;
+Os nomes não podem conter espaços;
+Os nomes não podem ser iniciados com XML, seja em letras maiúsculas ou minúsculas, porque esses elementos são reservados.
+Obs.: Mesmo que alguns processadores permitam que algumas das regras acima sejam quebradas, elas sempre devem ser seguidas para garantir a compatibilidade do documento.
+
+Elemento raiz
+Após o prólogo, temos que definir o elemento (ou nó) raiz do documento. Todos os documentos XML devem possuir um e somente um elemento raiz. Todo conteúdo restante do documento irá dentro do elemento raiz, para formar uma árvore hierárquica.
+
+No nosso documento:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Meu comentário-->
+<treinaweb></treinaweb>
+
+O elemento <treinaweb> é o nosso elemento raiz. Elementos presentes nesse nó, por exemplo:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Meu comentário-->
+<treinaweb>
+  <aluno></aluno>
+</treinaweb>
+
+São chamados de elementos filhos, ou nós (filhos). Um elemento filho pode ter outros elementos filhos:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Meu comentário-->
+<treinaweb>
+  <aluno>
+  <nome>Tiago</nome>
+  <treinamento>XML</treinamento>
+  <email>aluno1@treinaweb.com.br</email>
+  </aluno>
+</treinaweb>
+
+Não existe um limite de quantos filhos um elemento filho pode ter.
+
+---------------------------------------------------------------------------
+
+Sintaxe XML - Atributos
+Os elementos são um dos dois principais blocos de construção básicos de um documento XML, outro importante ponto são os atributos. Eles são informações opcionais dos elementos.
+
+Os atributos são pares nome-valor separados pelo caractere "=", que estão associados ao elemento que foram definidos. Por exemplo:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<livro Ing="Português" valor="R$60,00">
+   <titulo>XML</titulo>
+   <autor>TreinaWEB e-Learning</autor>
+</livro>
+
+Repare no elemento:
+
+<livro Ing="Português" valor="R$60,00">
+
+Nele temos os atributos Ing e valor, respectivamente os com valores “Português” e “R$60,00”.
+
+Assim como os elementos, a nomeação dos atributos também tem algumas regras:
+
+No nome do atributo e seu valor devem ser separados pelo sinal de igual;
+O nome do atributo segue as mesmas regras da nomeação dos elementos;
+O valor do atributo deve estar entre aspas simples ou duplas, mas o mais comum é o uso de aspas duplas. Sendo que o conteúdo desse valor quase não tem limitação, ou seja, pode ter qualquer caractere válido na codificação utilizada no documento. A exceção são os caracteres reservados que serão explicados mais à frente;
+Sempre deve haver uma parte valor, mesmo que seja apenas conteúdo vazio (ou seja, não pode ter algo assim: <option selected> como é em HTML);
+Os nomes dos atributos devem ser únicos por elemento;
+As aspas utilizadas como delimitador do valor do atributo não podem ser utilizadas como parte do conteúdo desse valor.
+
+---------------------------------------------------------------------------
+
+Caracteres reservados
+Como dito, existem caracteres que, por serem reservados, não podem ser utilizados em documentos XML, nem no conteúdo dos elementos e atributos. Mas o XML oferece substitutos para quando for necessário utilizá-los. Tais substitutos começam por “&” e terminam por “;” (referência à entidade), como demonstra a tabela abaixo com os caracteres reservados e suas referências:
+
+< | &lt;
+
+> | &gt;
+
+' | &apos;
+
+& | &amp;
+
+" | &quot;
+
+Por exemplo, o documento abaixo:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<livro lang="English">
+  <valor moeda="US$">99.99</valor>
+  <titulo>History & Design: "An Anthology"</titulo>
+</livro>
+
+Está errado por ter o conteúdo:
+
+<titulo>History & Design: "An Anthology"</titulo>
+
+No caso eles devem ser substituídos por suas referências, com isso o documento ficará da seguinte forma:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<livro lang="English">
+  <valor moeda="US$">99.99</valor>
+  <titulo>History &amp; Design: &quot;An Anthology&quot;</titulo>
+</livro>
+
+---------------------------------------------------------------------------
+
+Instruções de processamento
+Outro bloco de declaração comum em um documento XML é a instrução de processamento. Essas instruções de processamento são indicadas dentro dos elementos <? ?>. Vimos um exemplo disso em quase todos os nossos códigos XML.
+
+No início do nosso documento temos instrução:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+
+Essa é uma instrução de processamento que indica ao analisador XML que o conteúdo do documento é um XML. Nele é indicada a versão utilizada no XML, para que o analisador saiba quais regras o documento precisa seguir, e a codificação utilizada.
+
+Ao longo do curso, veremos outras instruções de processamento.
+
+---------------------------------------------------------------------------
+
+Seção CDATA
+Mais um bloco de declaração de um documento é conhecido como seção CDATA.
+
+As seções CDATA são seções de um documento XML que podem conter texto, caracteres reservados (por exemplo, <) e caracteres espaços em branco. Os caracteres contidos nas seções CDATA são excluídos da interpretação do analisador XML.
+
+Um uso comum das seções CDATA é o código de criação de scripts (Javascript ou VBScript) que frequentemente contêm os caracteres (&, <, >, e “).
+
+Por exemplo:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<treinaweb>
+<livro nome="JavaScript" edicao="1">
+    <descricao>
+            JavaScript é uma linguagem de programação ...
+    </descricao>
+    <exemplo>
+        <![CDATA[
+                <script>
+                    bananas = 6;
+                    if (bananas == 6) {
+                    alert("É verdade. Temos meia dúzia de bananas")
+                    }
+                </script>
+        ]]>
+    </exemplo>
+</livro>
+</treinaweb>
+
+Note a seção CDATA começa com <![CDATA[ e termina com ]]>. Como é possível notar na seção CDATA do documento acima:
+
+<![CDATA[
+        <script>
+            bananas = 6;
+            if (bananas == 6) {
+                alert("É verdade. Temos meia dúzia de bananas")
+            }
+        </script>
+]]>
+
+Tudo que estiver dentro dessa tag é considerado texto, e não será interpretado pelo analisador.
+
+Um uso comum do CDATA é em XHTML, a versão XML do HTML. Como nele, o JavaScript não pode ter caracteres reservados, então a sessão CDATA é utilizada para inserir o conteúdo JavaScript dentro dele. Por exemplo:
+
+<script type="text/javascript">
+//<![CDATA[
+function validarTransferencia(valorAtual, valorTransferido)
+{
+  if (valorAtual > 0 && valorTransferido < valorAtual)
+  {
+    return true;
+  }
+  alert("Saldo insuficiente para transferir o valor requerido.");
+  return false;
+}
+//]]>
+</script>
+
+Como o texto está em uma seção CDATA, o JavaScript pode ser escrito na sua forma padrão, caso contrário, o if, que contém o && e o sinal <, deveriam ter sido escritos da seguinte forma:
+
+if (valorAtual &gt; 0 &amp;&amp; valorTransferido &lt; valorAtual)
+
+O que faria o código não ser interpretado pelo analisador JavaScript.
+
+Outro ponto importante do código acima, é que o início e o final da seção CDATA está com as barras de comentário do JavaScript:
+
+//<![CDATA[
+//]]>
+
+Isso evita que navegadores antigos tenham problema com esse estilo de programação.
+
+---------------------------------------------------------------------------
+
+Namespaces XML
+Com a visibilidade futura de aplicações XML, onde um único documento pode conter elementos e atributos que são definidos para serem usados por múltiplos softwares, foram criados os Namespaces.
+
+Um XML Namespace é uma coleção de nomes identificados por uma referência URI, usada em documentos XML como tipos de elementos e atributo de nomes. O XML Namespace difere dos "Namespace" convencionalmente usados em disciplinas de computação em que a versão XML tem uma estrutura interna e não é matematicamente falando, um conjunto.
+
+XML Namespaces provêm de um método de evitar conflitos de elementos em documentos XML.
+
+Desde que nomes de elementos em XML não são fixados, muito frequentemente um nome irá conflitar com outro, ocorrendo dois tipos diferentes de documentos com a mesma descrição de nomes para dois tipos diferentes de elementos.
+
+Os namespaces permitem dar um contexto para os nomes dos elementos e atributos;
+Por exemplo, o elemento <texto> pode ser usado tanto em uma carta quanto em um livro. Se uma carta for incluída ao livro haverá confusão, pois teríamos uma marcação para dois significados.
+Solução: texto no namespace "carta" e texto no namespace "livro"
+
+Os namespaces são, “ao pé da letra", espaços de nomes. Ou seja, você poderá atribuir um nome para um elemento, criando assim o seu próprio elemento.
+
+---------------------------------------------------------------------------
+
+Porque realmente necessitamos de Namespace?
+Para um exemplo concreto do porque é necessário utilizar o namespace, suponha o seguinte cenário: Os dados dos funcionários de uma empresa são armazenados em um XML, e nele é necessário adicionar uma breve biografia do funcionário. O documento básico é algo como o código abaixo:
+
+<empregados>
+  <empregado id="001">
+  <nome>José Silva</nome>
+  <dataNascimento>04/12/1962</dataNascimento>
+  <dataContratacao>30/03/2005</dataContratacao>
+  <cargo>Analista de Sistemas</cargo>
+  <biografia><!-- biografia aqui --></biografia>
+  </empregado>
+  <!-- outros empregados -->
+</empregados>
+
+Esse documento não utiliza namespace e está formatado corretamente. Agora digamos que se deseja adicionar a biografia utilizando tags. Esse é o momento perfeito para utilizar namespace, porque se ela não for utilizada pode ocorrer um problema como o abaixo:
+
+<empregados>
+  <empregado id="001">
+    <nome>José Silva</nome>
+    <dataNascimento>04/12/1962</dataNascimento>
+    <dataContratacao>30/03/2005</dataContratacao>
+    <cargo>Analista de Sistemas</cargo>
+    <biografia>
+      <nome>Biografia do José Silva</nome>
+      <conteudo>O José Silva nasceu em 04/12/1962 na cidade de Ji-paraná em Rondônia. Aos 7 anos sua família foi para São Paulo [...]</conteudo>
+    </biografia>
+  </empregado>
+  <!-- outros empregados -->
+</empregados>
+
+Note que o documento possui duas tags <nome>. Para um ser humano isso não tem problema, mas para um computador que processar esse documento, ele pode se confundir com as tags e pegar a informação errada.
+
+Mesmo que o documento seja lido por um sistema específico, que saiba exatamente o que cada tag é não podemos esquecer que um dos principais princípios do XML é o compartilhamento de dados entre sistemas e organizações. Assim, mesmo que o documento seja utilizado apenas para uso interno da organização, em algum momento será necessário o uso dos namespaces.
+
+---------------------------------------------------------------------------
+
+URLs, URNs e URIs
+Antes de criarmos um namespace precisamos entender a diferença entre URL, URN e URI.
+
+A URL (Uniform Resource Locator) indica a localização de um recurso. Como estamos acostumados, uma URL é como o caminho: https://www.treinaweb.com.br/curso/xml-e-xslt
+
+A URN (Uniform Resource Name) é um modo de definir algo único. Em uma analogia com o mundo real seria, por exemplo, o CPF ou RG, que são utilizados para identificar uma pessoa. O seu formato é:
+
+urn:cpf:1234567890.
+
+Ou seja, no seu formato é definido o nome do identificador utilizado, no caso do exemplo, o identificador é o CPF.
+
+A URI (Uniform Resource Identifier) é a sequência de identificação de algo. Ela pode ter o formato de uma URN ou uma URL. E como veremos no próximo tópico na criação de um namespace. Diferente de uma URL, para uma URI ser válida não é necessário que a sequência de identificação realmente exista. Ou seja, ao utilizar uma URL como URI o caminho da URL não precisa necessariamente existir, basta ele ser único.
+
+---------------------------------------------------------------------------
+
+Exemplo Namespace:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<empresa xmlns="http://www.treinaweb.com.br/namespace/empresa"
+        xmlns:d="http://www.treinaweb.com.br/namespace/dependentes">
+    <funcionarios>
+        <funcionario id="001">
+            <nome>Carlos Santos</nome>
+            <cargo>Gerente de Produção</cargo>
+            <d:dependentes>
+                <d:dependente d:numero="001">
+                    <d:nome>Suzana Santos</d:nome>
+                    <d:parentesco>Conjuge</d:parentesco>
+                </d:dependente>
+                <d:dependente d:numero="002">
+                    <d:nome>Rafael Santos</d:nome>
+                    <d:parentesco>Filho</d:parentesco>
+                </d:dependente>
+            </d:dependentes>
+        </funcionario>
+        <funcionario id="002">
+            <nome>Felipe Silva</nome>
+            <cargo>Auxiliar de Produção</cargo>
+            <d:dependentes>
+                <d:dependente d:numero="001">
+                    <d:nome>Carla Silva</d:nome>
+                    <d:parentesco>Conjuge</d:parentesco>
+                </d:dependente>
+            </d:dependentes>
+        </funcionario>
+    </funcionarios>
+</empresa>
+
+---------------------------------------------------------------------------
+
+DTD (Document Type Definition)
+Quando o vocabulário de elementos de um documento XML para determinado fim são considerados em conjunto, podemos supor como esses elementos e atributos se relacionam para cobrir determinado assunto. De um modo geral, isso é como utilizar o XML para uma linguagem específica, como XMLTV (para listagens de programação de TV) ou X3D (para gráficos 3D). Mas, para fins de validação, a natureza de uma linguagem XML pode ser muito mais específica. E Document Type Definition (DTD) é uma forma de descrever precisamente a “forma” da linguagem.
+
+Para exemplificar esse ponto podemos fazer uma analogia com os idiomas. Cada idioma possui suas regras de gramática que definem as palavras válidas do idioma em questão. O DTD define as palavras validas para um determinado assunto. Felizmente o XML é consideravelmente mais simples do que um idioma, já que as gramáticas do XML são expressas visando o processamento de um computador.
+
+Obs.: Para ler as especificações do XML com DTD será necessário utilizar um analisador.
+
+---------------------------------------------------------------------------
+
+Declaração de um DTD
+O DTD define um conjunto de regras que definem a estrutura do documento, indicando os elementos que podem ser usados e onde podem ser aplicados. Assim, ao se construir um documento XML de acordo com sua DTD diz-se que ele é um documento válido.
+
+Segundo a definição do DTD no padrão SGML, ele apenas estrutura a lógica de um documento, não sendo fornecida nenhuma informação sobre a semântica da apresentação do documento. Ou seja, ele define apenas os elementos e atributos e não o conteúdo deles.
+
+Deste modo, para um laboratório, por exemplo, é dada a estrutura de seu departamento, instituto, área de pesquisa, mas nada é definido a respeito do formato de apresentação das informações, ou qual a fonte de caracteres utilizada.
+
+Ele pode ser definido como um subconjunto interno de um documento XML ou como um subconjunto externo (um arquivo com extensão .dtd). Em ambos os casos a configuração do documento não mudará muito. E ele é composto de três partes básicas:
+
+Declarações de elementos;
+Declarações de atributos;
+Declarações de entidade.
+Veremos cada uma dessas declarações a seguir.
+
+---------------------------------------------------------------------------
+
+Declarações de elementos
+Ao utilizar o DTD para definir o conteúdo de um documento XML, é necessário declarar cada elemento que aparecerá nesse documento. Além disso, o DTD pode incluir declarações de elementos opcionais: elementos que podem ou não aparecer no documento XML.
+
+A declaração de elemento é composta de três partes básicas:
+
+A declaração ELEMENT;
+O nome do elemento;
+O modelo de conteúdo do elemento.
+Por exemplo:
+
+<!ELEMENT capitulo(titulo,secao)>
+
+A declaração ELEMENT é utilizada para indicar ao analisador que estamos prestes a definir um elemento. Após essa declaração temos o nome do elemento e entre parênteses o modelo desse elemento, ou seja, os elementos filhos desse elemento.
+
+Um elemento pode ter seu modelo, elementos filhos, texto, uma combinação de elementos filhos e texto, ou ele pode ser vazio.
+
+Quando se é especificado que ele conterá elementos filhos:
+
+<!ELEMENT contato(nome, localizacao, telefone, descricao)>
+
+Note que cada elemento filho é separado por vírgula. Cada um desses elementos deve ter sua própria definição dentro do DTD. Assim, no exemplo anterior, é necessário incluir declarações para os elementos <nome>, <localizacao>, <telefone> e <descricao> para completar o DTD. O analisador precisa saber dessas informações para que saiba lidar com cada elemento encontrado. Mas podemos colocar a declaração desses elementos em qualquer ordem que quisermos.
+
+Acima é indicado que o elemento <contato>, deve ter exatamente quatro elementos filhos (<nome>, <localizacao>, <telefone>, <descricao>) e que eles devem aparecer nessa ordem. Ao utilizar esse tipo de declaração, o analisador irá acusar erro em três cenários:
+
+Se estiver faltando um dos elementos da sequência;
+Se o elemento pai (o <contato> no exemplo acima) tiver mais elementos;
+Se os elementos estiverem em outra ordem.
+Suponha que se quer permitir um elemento ou outro, mas não ambos. Nesse caso, não podemos utilizar a forma de sequência. Para esses casos, temos os conectores de escolha (|). Por exemplo:
+
+<!ELEMENT localizacao (endereco | GPS)>
+
+Essa declaração permite que o elemento <localizacao> contenha um elemento <endereco> ou <GPS>. Se o elemento <localizacao> estiver vazio ou tiver mais do que um desses elementos, o analisador irá gerar um erro.
+
+Note que o pipe (|) funciona como um OU exclusivo, ou seja, ele permite que apenas um dos elementos seja válido.
+
+É possível combinar as duas declarações, (em sequência e de escolha), basta colocar um novo parêntese com umas das duas opções. Por exemplo:
+
+<!ELEMENT localizacao (endereco | (latitude, longitude))>
+
+Conteúdo do elemento
+O DTD não faz distinção do tipo de conteúdo de um elemento. Assim se ele possuir qualquer conteúdo que seja diferente de elementos filhos, nos parênteses deve ser definido a palavra-chave #PCDATA, conforme o código abaixo:
+
+<!ELEMENT titulo(#PCDATA)>
+
+Desta forma, o elemento <titulo> pode conter texto da seguinte forma:
+
+<titulo>Treinaweb Cursos</titulo>
+
+Mas se ele não for possuir nenhum conteúdo, a quebra de linha (<br />) na linguagem HTML, pode-se utilizar a palavra-chave EMPTY após a declaração do nome do elemento:
+
+<!ELEMENT br EMPTY>
+
+Lembre-se que isso requer que o elemento seja sempre vazio. Se o elemento pode conter ou não conteúdo, a palavra-chave EMPTY não deve ser utilizada.
+
+E finalmente, a última opção é para declarar um elemento que pode conter qualquer tipo de informação, utilizando a palavra-chave ANY. Por exemplo:
+
+<!ELEMENT titulo ANY>
+
+Essa declaração indica que o elemento <titulo> pode ter texto (PCDATA) e/ou quaisquer elementos declarados dentro do DTD, em qualquer ordem e quantas vezes for necessário. No entanto, a palavra-chave ANY não permite incluir elementos que não foram declarados no DTD.
+
+---------------------------------------------------------------------------
+
+Controle
+Pode-se também realizar um controle de quantidade para os elementos, usando os símbolos "?" , "+" ou "*". Dependendo do caso pode-se ter:
+
+?: Indica que o elemento é opcional sem repetição, ou seja, consta que o elemento não pode se repetir. Exemplo:
+
+<!ELEMENT aluno(nome,sobrenome?)>
+
++: Indica que o elemento é requerido e com repetição, ou seja, o elemento é necessário no documento e pode se repetir quantas vezes for necessário. Exemplo:
+
+<!ELEMENT aluno(treinamento+)>
+
+*: indica que o elemento é opcional e com repetição. Por exemplo:
+
+<!ELEMENT aluno(treinamento*)>
+
+---------------------------------------------------------------------------
+
+Declarando Atributos
+A declaração de atributos é semelhante à declaração de elementos em vários pontos, exceto em um. Em vez de declarar uma lista de elementos filhos permitidos para um elemento, declaramos uma linha de atributos permitidos a esse elemento. E para fazer isso, utilizamos as declarações chamadas de ATTLIST, como no exemplo abaixo:
+
+<!ELEMENT alunos (aluno*)>
+<!ATTLIST alunos curso CDATA#IMPLIED>
+
+Nesse exemplo, inicialmente declaramos o elemento <alunos>. Em seguida o ATTLIST declara apenas um atributo, curso, para o elemento <alunos>.
+
+A declaração ATTLIST consiste de três partes:
+
+- A palavra-chave ATTLIST;
+- O nome do elemento associado;
+- Uma lista de atributos.
+
+Voltando ao exemplo anterior, nele temos a palavra-chave ATTLIST, seguida pelo nome do elemento associado, <alunos>. Cada lista de atributo possui três pedaços de informação:
+
+- O nome do atributo;
+- O tipo do atributo;
+- A declaração de valor do atributo.
+
+No nosso exemplo, o nome do atributo é curso. Esse atributo pode conter texto (caracteres), pois a palavra-chave CDATA é utilizada como tipo do atributo. E por fim, a declaração indica que o atributo não tem valor padrão, e que esse atributo não é obrigatório, pois foi utilizada a palavra-chave #IMPLIED.
+
+A terceira parte do atributo é conhecida como declaração de valor, e informa ao analisador XML, como ele deve lidar com o valor do atributo.
+
+Vamos ver cada um desses pontos por partes.
+
+Nome do atributo
+Além das regras básicas de nomenclatura do XML, também é necessário garantir que não se tenha nomes duplicados dentro da lista de atributos de determinado elemento. Para declarar um nome de atributo, basta digitar o nome exatamente como aparece no documento XML, incluíndo qualquer prefixo do namespace.
+
+Tipo do atributo
+Ao declarar os atributos, temos que especificar como o processador deve manipular os dados que aparecem no valor. Dentro das declarações dos elementos, podemos especificar que um elemento contém texto, mas não podemos especificar a forma que o analisador irá tratar esse valor texto. Os tipos de valores disponíveis para a declaração do atributo são:
+
+- CDATA: Indica que o valor do atributo é caracteres, o tipo padrão. Note que essa palavra-chave é diferente de PCDATA. Ao contrário do PCDATA, dentro do CDATA, o analisador pode ignorar certos caracteres reservados;
+- ID: Indica que o valor do atributo é um identificador único para o elemento;
+- IDREF: Indica que o valor do atributo é uma referência a um identificador único (ID) de um elemento;
+- IDREFS: Indica que o valor do atributo é uma lista de valores IDREF, separados por espaços em branco;
+- ENTITY: Indica que o valor do atributo é uma referência a uma entidade externa;
+- ENTITIES: Indica que o valor do atributo é uma lista de valores ENTITY, separados por espaços em branco;
+- NMTOKEN: Indica que o valor do atributo é um nome simbólico;
+- NMTOKENS: Indica que o valor do atributo é uma lista de valores NMTOKEN, separados por espaços em branco;
+- Lista enumerada: Além de utilizar os tipos padrão, é possível definir uma lista enumerada de valores possíveis para o atributo.
+
+Declaração do valor do atributo
+Dentro de cada declaração de atributo é possível especificar como o valor será exibido no documento. É permitido que especifique que o atributo seja:
+
+Um valor padrão: Informa um valor padrão, de lista de valores que o atributo pode possuir. Por exemplo:
+
+<!ATTLIST telefone tipo (Casa | Trabalho | Celular | Fax) "Casa">
+
+Um valor fixo: Informa um valor fixo, que não mudará. Esse valor é informado após a palavra-chave #FIXED. Por exemplo:
+
+<!ATTLIST treinaweb versao CDATA #FIXED "1.0">
+
+Obrigatório: Informa que a utilização do atributo é obrigatória no documento XML. Isso é feito utilizado à palavra-chave #REQUIRED, após o nome do atributo. Por exemplo:
+
+<!ATTLIST telefone tipo (Casa | Trabalho | Celular | Fax) #REQUIRED>
+
+Implícito (opcional): Essa é a forma mais comum. Ele informa que o atributo não é obrigatório, não sendo necessário a sua implementação no documento. Isso é feito utilizando a palavra-chave #IMPLIED, por exemplo:
+
+<!ATTLIST treinaweb codigo IDREFS #IMPLIED>
+
+---------------------------------------------------------------------------
+
+eclarações do DTD
+Após definir o arquivo DTD, é necessário indicar no XML que este arquivo existe. Para fazer isso, podemos utilizar dois tipos de relação:
+
+Declaração interna: quando se declara o DTD no próprio arquivo XML, onde estão os elementos e não em um arquivo separado.
+
+Sintaxe:
+
+<!DOCTYPE elemento-raiz[declaração-dos-elementos]>
+
+Um exemplo de DTD Simples:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE saudacao[
+<!ELEMENT saudacao (#PCDATA)>
+]>
+
+<saudacao>
+  Olá pessoal, tudo bem?
+</saudacao>
+
+Declaração Externa: quando se declara o DTD em um arquivo e referencia a localização dele no disco, no arquivo XML.
+
+Sintaxe:
+
+<!DOCTYPE elemento-raiz SYSTEM "localização_DTD_no_disco">
+
+Um exemplo de DTD Simples:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE saudacao SYSTEM "saudacao.dtd">
+
+<saudacao>
+  Olá pessoal, tudo bem?
+</saudacao>
+
+Declaração Externa "publica": quando se declara o DTD em um arquivo e referencia a url dele no arquivo XML.
+
+Sintaxe:
+
+<!DOCTYPE elemento-raiz PUBLIC "nome_do_DTD" "url_do_DTD">
+
+Onde nome-do-dtd deve seguir o padrão:
+
+"prefix//dono_do_DTD//descrição_do_DTD//identificação_ISO 639_do_idioma"
+
+Um exemplo de DTD Simples:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE saudacao PUBLIC "-//Treinaweb//DTD de Exemplo//PT"  "https://www.treinaweb.com.br/DTD/saudacao.dtd">
+
+<saudacao>
+  Olá pessoal, tudo bem?
+</saudacao>
+
+---------------------------------------------------------------------------
+
+XML Schema
+XML Schema é uma alternativa ao DTD baseada em XML. Ele é um esquema XML que descreve a estrutura de um documento XML.
+
+A linguagem XML Schema também é chamada de XML Schema Definition (XSD).
+
+Quais as vantagens de um XML Schema sobre um DTD?
+Além de exercer as mesmas funções que um DTD, no que diz respeito à definição da estrutura dos dados de um documento XML, o XSD oferece, dentre uma série de vantagens, as seguintes:
+
+Controle preciso sobre o número de ocorrências de elementos - É possível definir o número mínimo e máximo de ocorrências de um elemento, o que permite, por exemplo, definir a ocorrência de no mínimo 2 elementos <parte> em um processo, sem um limite máximo de ocorrências.
+Regras mais restritas quanto ao conteúdo de elementos - A utilização de expressões regulares permite definir "máscaras" que validam o formato do conteúdo antes mesmo deste ser enviado ao seu destino. Esse mecanismo de tipagem forte adiciona um nível de validação sobre os dados, sendo intercambiados.
+O propósito de um XML Schema é definir os blocos de construção permitidos em um documento XML, como um DTD.
+
+Um XML Schema:
+
+Define elementos que podem aparecer em um documento;
+Define atributos que podem aparecer em um documento;
+Define quais elementos são elementos filhos;
+Define a ordem dos elementos filhos;
+Define o número de elementos filhos;
+Define se um elemento é vazio ou se pode incluir texto;
+Define tipos de dados para elementos e atributos;
+Define valores padrão e fixos para elementos e atributos.
+XML Schemas são sucessores das DTDs
+Acredita-se que os XML Schemas vão ser usados na maioria das aplicações Web no lugar de DTDs. Aqui estão algumas razões:
+
+XML Schemas são extensíveis para adições futuras;
+XML Schemas são mais ricos e úteis que DTDs;
+XML Schemas são escritos em XML;
+XML Schemas suportam tipos de dados;
+XML Schemas suportam namespaces.
+XML Schema é uma Recomendação do W3C
+XML Schema foi originalmente proposto pela Microsoft, mas se tornou uma recomendação oficial do W3C, em Maio de 2001. A especificação ficou estável e foi revisada pelos membros do W3C.
+
+XML Schema tem suporte a tipos de dados
+Uma das grandes vantagens de XML Schemas é o suporte a tipos de dados:
+
+É mais fácil descrever conteúdo de documentos permissíveis;
+É mais fácil validar os dados;
+É mais fácil trabalhar com dados de um banco de dados;
+É mais fácil definir restrições aos dados;
+É mais fácil definir padrões/formatos de dados;
+É mais fácil converter dados entre diferentes tipos.
+XML Schemas usa sintaxe XML
+Outra grande força do XML Schema é ser escrito em XML.
+
+Por isso:
+
+Não precisa aprender outra linguagem;
+Pode usar seu editor XML para editar seus arquivos XML Schema;
+Pode usar seu parser XML para verificar seus arquivos XML Schema;
+Pode manipular seu XML Schema com XML DOM;
+Pode usar seu XML Schema com XSLT.
+XML Schemas são extensíveis
+XML Schemas são extensíveis, assim como o XML, porque eles são escritos em XML.
+
+Com uma definição extensível você pode:
+
+Reutilizar seu Schema em outros Schemas;
+Criar seus próprios tipos de dados derivados dos tipos padrões;
+Referenciar múltiplos esquemas em um mesmo documento.
+
+---------------------------------------------------------------------------
+
+Declaração <schema>
+O elemento <schema> é o elemento raiz de todo XML Schema. Ele pode conter alguns atributos conforme a sintaxe abaixo:
+
+<schema targetNamespace="URI"
+attributeFormDefault="qualified ou unqualified"
+elementFormDefault="qualified ou unqualified"
+version="número da versão">
+
+Onde:
+
+targetNamespace: Indica qual namespace pertence os elementos e atributos definidos no esquema;
+attributeFormDefault: Define que os atributos do documento XML que usar esse esquema, devem ser qualificados pelo namespace (qualified), ou não (unqualified). O padrão é não qualificar;
+elementFormDefault: Define que os elementos do documento XML que usar esse esquema, devem ser qualificados pelo namespace (qualified), ou não (unqualified). O padrão é não qualificar;
+version: Versão do documento.
+Outro ponto muito importante dessa declaração é o namespace http://www.w3.org/2001/XMLSchema , como em:
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+Isso nos permite indicar que o elemento <schema> faz parte do vocabulário XML Schema. A declaração desse namespace com o prefixo xs é uma recomendação da W3C, para garantir que todos os esquemas estejam padronizados. Mas o atributo xmlns pode ser utilizado para definir um namespace exclusivo do documento:
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.treinaweb.com.br/namespace/schema"
+xmlns="http://www.treinaweb.com.br/namespace/schema">
+
+Obs: Assim como os documentos XML, um documento XML Schema é case sensitive.
+
+---------------------------------------------------------------------------
+
+Declaração de elementos simples
+Um elemento simples é um elemento XML que contém apenas texto. Ele não pode conter outros elementos ou atributos.
+
+Entretanto, a restrição "apenas texto" é pouco clara. O texto pode ser de diferentes tipos. Pode ser um dos tipos inclusos na definição de XML Schema (boolean, string, date, etc.), ou um tipo personalizado que você mesmo pode definir.
+
+A sintaxe para definir um elemento simples é:
+
+<xs:element name="nome" type="tipo" />
+
+Por exemplo, os elementos XML abaixo:
+
+<nome>João da Silva</nome>
+<idade>20</idade>
+<datanasci>1986-12-10</datanasci>
+
+Podemos declará-los da seguinte forma:
+
+<xs:element name="nome" type="xs:string"/>
+<xs:element name="idade" type="xs:integer"/>
+<xs:element name="datanasci" type="xs:date"/>
+
+Note que acima estamos utilizando os tipos de dados xs:string, xs:integer e xs:date, para indicar que os elementos, são respectivamente, dos tipos: texto (caractere), inteiro e data. Além desses, o XML Schema possui vários tipos de dados próprios. Sendo que os mais comuns e mais usados são:
+
+xs:string;
+xs:decimal;
+xs:integer;
+xs:boolean;
+xs:date;
+xs:time.
+Obs: Lembrando que o xs à frente do nome é do prefixo do namespace.
+
+Valor padrão e valor fixo
+Elementos simples podem ter um conjunto de valores padrão OU um conjunto de valores fixos.
+
+Um valor padrão é automaticamente atribuído ao elemento quando nenhum outro valor é especificado. No exemplo seguinte, o valor padrão é "xml":
+
+<xs:element name="treinamento" type="xs:string" default="XML"/>
+
+Um valor fixo também é atribuído automaticamente ao elemento. Você não pode especificar outro valor. No exemplo a seguir, o valor fixo é "ajax":
+
+<xs:element name="treinamento" type="xs:string" fixed="Ajax"/>
+
+Veremos um exemplo completo do XML Schema à frente.
+
+---------------------------------------------------------------------------
+
+Declaração de atributos
+Todos os atributos são declarados como tipos simples. Apenas os elementos complexos (que veremos a frente) têm atributos.
+
+O que é um atributo?
+Elementos simples não podem ter atributos. Se um elemento tem atributos, ele é considerado do tipo complexo. Mas atributos são declarados como tipos simples. Isso significa que um elemento com atributos sempre tem uma definição do tipo complexo.
+
+Definindo um atributo
+A sintaxe para definir um atributo é:
+
+<xs:attribute name="nome" type="tipo" />
+
+Note que a declaração de um atributo é quase igual a declaração de um elemento simples. A diferença é que no início utiliza-se “attribute" no lugar de “element”.
+
+Por exemplo, o atributo do elemento abaixo:
+
+<filme idioma="EN">Resident Evil Extinction</filme>
+
+É declarado da seguinte forma:
+
+<xs:attribute name="idioma" type="xs:string"/>
+
+Os atributos também podem ter valores padrão ou valores fixos especificados. Como sabemos um valor padrão é atribuído automaticamente ao atributo quando nenhum outro valor é especificado. Isso é especificado na declaração utilizando o atributo default, como no exemplo abaixo, onde o valor padrão é "PT-BR":
+
+<xs:attribute name="idioma" type="xs:string" default="PT-BR"/>
+
+Já um valor fixo é atribuído automaticamente ao atributo, não permitindo que outro valor seja especificado. Um valor fixo é definido no atributo fixed, como no exemplo abaixo, onde o valor fixo é "EN":
+
+<xs:attribute name="idioma" type="xs:string" fixed="EN"/>
+
+Por padrão, todos os atributos são opcionais, mas podemos especificar explicitamente que um atributo é opcional, utilizando o atributo "use", onde é informado se ele é optional:
+
+<xs:attribute name="idioma" type="xs:string" use="optional"/>
+
+Ou obrigatório (required):
+
+<xs:attribute name="idioma" type="xs:string" use="required"/>
+
+Quando o atributo é obrigatório, ele deverá ser utilizado no elemento senão o analisador acusará erro.
+
+---------------------------------------------------------------------------
+
+Restrições de conteúdo
+Quando um elemento ou um atributo XML tem um tipo definido, isso cria uma restrição ao conteúdo dele. Se um elemento XML é do tipo "xs:integer" e contém uma string como, por exemplo, "TreinaWeb Cursos", o elemento não será validado.
+
+Além dessas restrições de tipos, podemos adicionar nossas próprias restrições aos elementos e atributos XML, utilizando a tag <restriction>.
+
+Qualquer tipo de restrição em elementos XML definidas no XML Schema são chamadas de facets. E existem 12 facets disponíveis, que são listados abaixo:
+
+enumeration: Define uma lista de valores válidos;
+fractionDigits: Especifica o número máximo de casas decimais permitidas. Deve ser igual ou maior que zero;
+length: Especifica o número exato de caracteres ou itens permitidos. Deve ser igual ou maior que zero;
+maxExclusive: Especifica o valor máximo para valores numéricos (o valor inserido deve ser menor que este valor);
+maxInclusive: Especifica o valor máximo para valores numéricos (o valor inserido deve ser menor ou igual a este valor);
+maxLength: Especifica o número máximo de caracteres ou itens permitidos. Deve ser igual ou maior que zero;
+minExclusive: Especifica o valor mínimo para valores numéricos (o valor inserido deve ser maior que este valor);
+minInclusive: Especifica o valor mínimo para valores numéricos (o valor inserido deve ser maior ou igual que este valor);
+minLength: Especifica o número mínimo de caracteres ou itens permitidos. Deve ser igual ou maior que zero;
+pattern: Define a sequência exata de caracteres permitidos;
+totalDigits: Especifica o número exato de dígitos permitidos. Deve ser maior que zero;
+whiteSpace: Especifica como caracteres vazios (tabs, espaços e retornos do mouse) são tratados.
+Nos próximos tópicos conheceremos as restrições mais utilizadas.
+
+Restrições em valores
+As restrições de valores são definidas detalhando o tipo do elemento utilizando a tag <xs:simpleType>. Conforme o código abaixo:
+
+<xs:element name="dia">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="31"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Note que dentro do elemento dia:
+
+<xs:element name="dia">
+
+É detalhada a restrição do seu tipo:
+
+<xs:simpleType>
+
+Que no caso é inteiro:
+
+<xs:restriction base="xs:integer">
+
+A restrição é que o elemento não pode ter um valor menor que 1:
+
+<xs:minInclusive value="1"/>
+
+E maior que 31:
+
+<xs:maxInclusive value="31"/>
+
+---------------------------------------------------------------------------
+
+Restrições em conjuntos de valores
+Além de limitar o conteúdo de um elemento em um limite de valores válidos, podemos limita-los a um conjunto de valores aceitáveis. Qualquer valor fora dos possíveis o elemento não será validado.
+
+Para especificar um conjunto de valores também é utilizado o <xs:simpleType>, com a diferença que dentro da restrição é utilizado enumeradores para especificar os valores válidos, conforme o exemplo abaixo:
+
+<xs:element name="treinamentos">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PHP"/>
+            <xs:enumeration value="AJAX"/>
+            <xs:enumeration value="XML"/>
+            <xs:enumeration value="C#"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Note o conjunto de valores válidos:
+
+<xs:enumeration value="PHP"/>
+<xs:enumeration value="AJAX"/>
+<xs:enumeration value="XML"/>
+<xs:enumeration value="C#"/>
+
+Desta forma, os valores permitidos são: PHP, Ajax, XML e C#.
+
+Restrições em séries de valores
+Anteriormente definimos os valores válidos dentro dos elementos, ou especificando um limite e um conjunto de valores válidos, mas também podemos definir uma série de números ou letras, utilizando a restrição pattern.
+
+Por exemplo, no exemplo abaixo:
+
+<xs:element name="letras">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+É definida a restrição:
+
+<xs:pattern value="[A-Z]"/>
+
+Onde o elemento é limitado apenas as letras maiúsculas de A a Z. Aqui é importante notar que o elemento está limitado apenas a UMA letra maiúscula de A a Z. Se for adicionado mais de uma letra ou se ela for minúscula o analisador não validará o elemento.
+
+Atente-se que os colchetes indicam uma letra. Se fosse definida a restrição:
+
+<xs:element name="letras">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[abcd]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Note a restrição:
+
+<xs:pattern value="[abcd]"/>
+
+Nela, o elemento estará limitado a UMA letra das seguintes: a, b, c, d.
+
+Para definir mais letras ao elemento, elas são especificadas em mais colchetes:
+
+<xs:element name="letras">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][A-Z][A-Z][A-Z][A-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Repare a restrição:
+
+<xs:pattern value="[A-Z][A-Z][A-Z][A-Z][A-Z]"/>
+
+Como temos cinco conjuntos de valores em cinco colchetes, então esse elemento estará limitado a 5 valores onde cada um pode contar letras de A Z. Se for informando mais de 5 valores ou em um dos valores tiver números ou letras minúsculas o elemento não será validado.
+
+Só aceitar letras maiúsculas pode ser muito restritivo, para esses casos, podemos definir a restrição da seguinte forma:
+
+<xs:element name="letras">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z][a-zA-Z][a-zA-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Note a restrição:
+
+<xs:pattern value="[a-zA-Z][a-zA-Z][a-zA-Z]"/>
+
+Ela está limitando o elemento a 3 letras, sendo que cada um pode conter letras maiúsculas ou minúsculas de A a Z.
+
+Mas esse tipo de restrição não se limita a letras, ela pode ser utilizada para delimitar campos numéricos:
+
+<xs:element name="numeros">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-9][0-9][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Onde o elemento numeros:
+
+<xs:element name="numeros">
+
+Está limitado a:
+
+<xs:restriction base="xs:integer">
+    <xs:pattern value="[0-9][0-9][0-9]"/>
+</xs:restriction>
+
+Ou seja, ele está limitado a três dígitos, onde cada dígito deve estar entre 0 e 9.
+
+Caso entenda um pouco de expressão regular, notou que essa restrição a utiliza para delimitar a série de valores. Por utilizar expressão regular, nesse padrão podemos definir uma expressão que será utilizada na restrição do elemento. Por exemplo:
+
+<xs:element name="letras">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([a-z])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Onde a restrição:
+
+<xs:pattern value="([a-z])*"/>
+
+Define que o campo pode zero ou mais ocorrências de letras minúsculas de a a z. Desta forma, não estamos limitados à quantidade de caracteres no campo, apenas à forma que eles devem ser informados.
+
+Qualquer expressão regular válida é aceita nessa restrição, desta forma podemos criar restrições customizadas e complexas.
+
+---------------------------------------------------------------------------
+
+Restrições de comprimento
+Também podemos limitar o comprimento de um elemento utilizando as restrições de comprimento: length, maxLength e minLength; que respectivamente, restringe o tamanho do campo, o tamanho máximo e o tamanho mínimo.
+
+Por exemplo, no elemento abaixo:
+
+<xs:element name="senha">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:length value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Ele está limitado:
+
+<xs:length value="8"/>
+
+A oito caracteres. Se o campo tiver mais ou menos caracteres, ele não será validado.
+
+Se fosse aplicado um limite inferior e superior ficaria da seguinte forma:
+
+<xs:element name="senha">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="6"/>
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Agora o elemento deve ter no mínimo 6 caracteres:
+
+<xs:minLength value="6"/>
+
+E no máximo 10:
+
+<xs:maxLength value="10"/>
+
+Qualquer quantidade fora desse intervalo invalidará o elemento.
+
+Restrições Customizadas
+Utilizando a restrição pattern é possível definir restrição utilizando expressão regular, por exemplo:
+
+<xs:element name="email">
+
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9\\._-]+@[A-Za-z]+\\.[A-Za-z]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:element>
+
+Elementos XSD (XML Schema) complexos
+Quando um elemento pode conter atributos ou outros elementos, ele é considerado um elemento complexo, e por isso temos que declará-lo especificando tais informações dentro de um elemento <complexType>.
+
+Por exemplo, o elemento abaixo:
+
+<filme id="878"/>
+
+Que é vazio, mas possui um atributo é considerado um elemento complexo. E como tal ele deve ser declarado no XML Schema da seguinte forma:
+
+<xs:element name="filme">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="id" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+Note que dentro do elemento <complexType> é adicionado um elemento <simpleContent>:
+
+<xs:simpleContent>
+  <xs:extension base="xs:string">
+    <xs:attribute name="id" type="xs:integer"/>
+  </xs:extension>
+</xs:simpleContent>
+
+Para indicar que esse elemento não possui elementos filhos, mas pode conter texto:
+
+<xs:extension base="xs:string">
+
+E que ele irá possuir um atributo id do tipo inteiro:
+
+<xs:attribute name="id" type="xs:integer"/>
+
+Desta forma, mesmo se o elemento possuir algum texto como abaixo:
+
+<filme id="878">Resident Evil</filme>
+
+Ele será valido.
+
+Mas normalmente um elemento complexo não terá apenas um atributo como no exemplo. Ele será apresentado contendo outros elementos. Para esses casos, temos que utilizar os indicadores de ordem:
+
+<sequence>: Os elementos devem aparecer na ordem dada;
+<choice>: Apenas um dos elementos da lista pode aparecer;
+<all>: Os elementos podem aparecer em qualquer ordem, sendo que cada elemento filho pode aparecer zero ou uma vez.
+Por exemplo, se no elemento abaixo:
+
+<recado>
+    <de>João</de>
+    <para>Amanda</para>
+    <mensagem tipo="texto">Shopping, hoje 10:30</mensagem>
+</recado>
+
+Os elementos filhos precisarem ser sequenciais, utilizamos o indicador <sequence> da seguinte forma:
+
+<xs:element name="recado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="de" type="xs:string" />
+        <xs:element name="para" type="xs:string" />
+        <xs:element name="mensagem">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="tipo" type="xs:string"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+Note que declaramos o elemento <recado>:
+
+<xs:element name="recado">
+
+E que esse elemento possuirá a seguinte sequência de elementos:
+
+<xs:sequence>
+  <xs:element name="de" type="xs:string" />
+  <xs:element name="para" type="xs:string" />
+  <xs:element name="mensagem">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="tipo" type="xs:string"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:sequence>
+
+Note que o elemento <mensagem>:
+
+<mensagem tipo="texto">Shopping, hoje 10:30</mensagem>
+
+Possui um atributo, então isso deve ser declarado dentro dele:
+
+<xs:simpleContent>
+  <xs:extension base="xs:string">
+    <xs:attribute name="tipo" type="xs:string"/>
+  </xs:extension>
+</xs:simpleContent>
+
+Já o indicador <choice> é utilizado quando apenas um elemento da lista pode existir. Por exemplo, repare no XML abaixo:
+
+<pessoa>
+    <nome>João</nome>
+</pessoa>
+<pessoa>
+    <apelido>Aninha</apelido>
+</pessoa>
+
+Note que o elemento <pessoa> pode ter o elemento <nome> ou o elemento <apelido>, nunca os dois. Desta forma, o indicador <choice> pode ser utilizado como no exemplo abaixo:
+
+<xs:elemento name="pessoa">
+  <xs:complexType>
+    <xs:choice>
+      <xs:elemento name="nome" type="xs:string"/>
+      <xs:elemento name="apelido" type="xs:string"/>
+   </xs:choice>
+  </xs:complexType>
+</xs:element>
+
+Note que para o elemento <pessoa>:
+
+<xs:elemento name="pessoa">
+
+Pode ser utilizado o elemento <nome>:
+
+<xs:elemento name="nome" type="xs:string"/>
+
+Ou <apelido>:
+
+<xs:elemento name="apelido" type="xs:string"/>
+
+O último indicador, <all> indica que os elementos filhos podem aparecer em qualquer ordem, mas eles estão limitados a uma vez. Ou seja: os elementos filhos presentes no indicador <all>, podem não ser utilizados na declaração do elemento XML, se aparecem pode ser em qualquer ordem, mas são limitados a uma única aparição. Por exemplo, na declaração abaixo:
+
+<xs:element name="nome">
+  <xs:complexType>
+    <xs:all>
+      <xs:element name="primeiroNome" type="xs:string"/>
+      <xs:element name="nomeMeio" type="xs:string"/>
+      <xs:element name="ultimoNome" type="xs:string"/>
+    </xs:all>
+    <xs:attribute name="titulo" type="xs:string"/>
+  </xs:complexType>
+</xs:element>
+
+Temos o elemento <nome>
+
+<xs:element name="nome">
+
+Que possui três elementos:
+
+<xs:element name="primeiroNome" type="xs:string"/>
+<xs:element name="nomeMeio" type="xs:string"/>
+<xs:element name="ultimoNome" type="xs:string"/>
+
+E um atributo:
+
+<xs:attribute name="titulo" type="xs:string"/>
+
+Esse elemento <nome>, pode ser definido da seguinte forma:
+
+<nome titulo="Sra.">
+    <primeiroNome>Ana</primeiroNome>
+  <ultimoNome>Silva</ultimoNome>
+  <nomeMeio>Aparecida</nomeMeio>
+</nome>
+
+Que estará correto. Mesmo que um elemento estiver faltando:
+
+<nome titulo="Sr.">
+    <primeiroNome>Carlos</primeiroNome>
+  <ultimoNome>Santos</ultimoNome>
+</nome>
+
+Estará correto. Mas se existir dois elementos iguais:
+
+<nome titulo="Sr.">
+    <primeiroNome>Carlos</primeiroNome>
+  <ultimoNome>Santos</ultimoNome>
+  <ultimoNome>Pereira</ultimoNome>
+</nome>
+
+O elemento não será validado, porque o indicador <all> limita os elementos em no máximo 1, a não ser que sejam utilizados os indicadores de ocorrência.
+
+---------------------------------------------------------------------------
+
+Indicadores de ocorrência
+Vimos no tópico anterior que o indicador <all> limita os elementos em no máximo 1, mas e os outros indicadores? Da forma que forma utilizados os elementos são obrigatórios e limitados em 1, mas isso pode ser alterado utilizando os indicadores de ocorrência:
+
+maxOccurs: especifica o número máximo de vezes que o elemento ocorre;
+minOccurs: especifica o número mínimo de vezes que o elemento ocorre.
+Diferente dos indicadores que vimos no tópico anterior, esses indicadores são atributos do elemento. Por exemplo, do documento XML abaixo:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<pessoas>
+
+  <pessoa>
+    <nome>José da Silva</nome>
+    <nome_filho>Filho1</nome_filho>
+  </pessoa>
+
+  <pessoa>
+    <nome>Maria da Silva</nome>
+    <nome_filho>Filho1</nome_filho>
+    <nome_filho>Filho2</nome_filho>
+    <nome_filho>Filho3</nome_filho>
+   <nome_filho>Filho4</nome_filho>
+  </pessoa>
+
+  <pessoa>
+    <nome>Ricardo da Silva</nome>
+  </pessoa>
+
+</pessoas>
+
+Pode ser declarado da seguinte forma:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+
+  <xs:elemento name="pessoas">
+    <xs:complexType>
+    <xs:sequence>
+        <xs:elemento name="pessoa" maxOccurs="unbounded">
+          <xs:complexType>
+          <xs:sequence>
+            <xs:elemento name="nome" type="xs:string"/>
+            <xs:elemento name="nome_filho" type="xs:string"
+                 minOccurs="0" maxOccurs="5"/>
+          </xs:sequence>
+        </xs:complexType>
+     </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+
+  </xs:schema>
+
+Note a declaração do elemento <pessoa>:
+
+<xs:elemento name="pessoa" maxOccurs="unbounded">
+
+Nela é definido que esse exemplo pode aparecer uma infinidade de vezes (unbounded), ou seja, esse elemento não tem limite superior de elementos. Como o indicador minOccurs não foi utilizado, indica que esse elemento possui um limite inferior de 1, ou seja, que deve existir ao menos um elemento dele.
+
+Já para o elemento <nome_filho>:
+
+<xs:elemento name="nome_filho" type="xs:string" minOccurs="0" maxOccurs="5"/>
+
+É definido um limite superior:
+
+maxOccurs="5"
+
+E um limite inferior:
+
+minOccurs="0"
+
+Ou seja, esse elemento pode não aparecer dentro do <pessoa>, mas se aparecer, está limitado a cinco elementos.
+
+Se existir mais que cinco elementos <nome_filho>, o elemento <pessoa> que os contiver não será validado.
+
+---------------------------------------------------------------------------
+
+Declaração local e global
+Existem duas formas de declarar os elementos, com declaração local e global. Antes de vermos sobre elas, precisamos entender a diferença entre as duas:
+
+Declarações globais são declarações que aparecem como filhos diretos do elemento <schema>. Declarações de elementos globais podem ser reutilizadas em todo esquema;
+Declarações locais não são filhos diretos do elemento <schema> e só podem ser utilizados no seu contexto especifico.
+Por exemplo, no XML Schema abaixo:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+
+  <xs:elemento name="pessoas">
+    <xs:complexType>
+    <xs:sequence>
+        <xs:elemento name="pessoa" maxOccurs="unbounded">
+          <xs:complexType>
+          <xs:sequence>
+            <xs:elemento name="nome" type="xs:string"/>
+            <xs:elemento name="nome_filho" type="xs:string"
+                 minOccurs="0" maxOccurs="5"/>
+          </xs:sequence>
+        </xs:complexType>
+     </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+
+  </xs:schema>
+
+Temos quatro elementos. O primeiro declarado, o elemento <pessoas>, é um elemento global, porque ele é um filho direto do elemento <schema>. Já as declarações dos elementos <pessoa>, <nome> e <nome_filho> são consideradas locais porque eles não são filhos diretos do elemento <schema>. Esses elementos são validos apenas se a <sequence> especificada for respeitada. Eles não podem ser reutilizados em qualquer lugar do esquema.
+
+Como é possível notar, a declaração local é todo elemento presente dentro de um elemento <complexType> ou <simpleType>. E a declaração global são os elementos filhos de <schema>.
+
+---------------------------------------------------------------------------
+
+Criando tipos globais
+Muitas vezes, elementos terão o mesmo conteúdo. E em vez de declarar elementos locais duplicados, podemos criar um tipo global. Dentro da sua declaração, podemos nos referir a um tipo global pelo nome. Na verdade, já vimos isso:
+
+<xs:elemento name="nome" type="xs:string"/>
+
+Aqui o atributo type se refere ao tipo nativo string, que é um tipo global. Como já vimos, o XML Schema possui vários tipos de dados nativos. Mas também podemos criar os nossos próprios tipos globais e nos referir a eles. Por exemplo:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace:target="http://www.treinaweb.com.br/namespace/schema"
+elementFormDefault="qualified">
+
+  <xs:complexType name="TipoPessoas">
+   <xs:sequence>
+     <xs:elemento name="pessoa" maxOccurs="unbounded">
+       <xs:complexType>
+        <xs:sequence>
+          <xs:elemento name="nome" type="xs:string"/>
+          <xs:elemento name="nome_filho" type="xs:string"
+               minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+       </xs:complexType>
+     </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:elemento name="pessoas" type="target:TipoPessoas" />
+  </xs:schema>
+
+Repare que estamos declarando um tipo global <complexType>:
+
+<xs:complexType name="TipoPessoas">
+
+Por ser um elemento filho de <schema> ele é considerado global. E no elemento esse tipo é referenciado:
+
+<xs:elemento name="pessoas" type="target:TipoPessoas" />
+
+O prefixo target é a referência ao namespace:
+
+targetNamespace:target="http://www.treinaweb.com.br/namespace/schema"
+
+Sendo que quando um tipo global for criado é necessário definir um targetNamespace no XML Schema. Se o namespace não possuir um prefixo, basta informar o nome do tipo criado:
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.treinaweb.com.br/namespace/schema"
+elementFormDefault="qualified">
+
+  <xs:complexType name="TipoPessoas">
+   <xs:sequence>
+     <xs:elemento name="pessoa" maxOccurs="unbounded">
+       <xs:complexType>
+        <xs:sequence>
+          <xs:elemento name="nome" type="xs:string"/>
+          <xs:elemento name="nome_filho" type="xs:string"
+               minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+       </xs:complexType>
+     </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:elemento name="pessoas" type="TipoPessoas" />
+  </xs:schema>
+
+Todo elemento com declaração global é considerado um tipo global, desta forma, uma declaração de elemento pode fazer referência a um elemento com declaração global utilizando o atributo ref:
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace:target="http://www.treinaweb.com.br/namespace/schema"
+elementFormDefault="qualified">
+  <xs:elemento name="nome" type="xs:string"/>
+  <xs:complexType name="TipoPessoas">
+   <xs:sequence>
+     <xs:elemento name="pessoa" maxOccurs="unbounded">
+       <xs:complexType>
+        <xs:sequence>
+          <xs:elemento ref="target:nome" />
+          <xs:elemento name="nome_filho" type="xs:string"
+               minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+       </xs:complexType>
+     </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:elemento name="pessoas" type="target:TipoPessoas" />
+  </xs:schema>
+
+Note que elemento <nome> é declarado como global:
+
+<xs:elemento name="nome" type="xs:string"/>
+
+Desta forma, o elemento local <nome> pode ser referenciado, se ele possuir as mesmas informações:
+
+<xs:elemento ref="target:nome" />
+
+Um ponto importante, agora o XML poderá possuir um elemento <nome> como sua raiz, já que ele foi declarado no mesmo nível do elemento <pessoas> no esquema. Se essa não for à intenção, esse tipo de declaração de elemento global deve ser evitada.
+
+Também podemos criar tipos globais com o <simpleType>:
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace:target="http://www.treinaweb.com.br/namespace/schema"
+elementFormDefault="qualified">
+  <xs:simpleType name="TiposTreinamentos">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="PHP"/>
+          <xs:enumeration value="AJAX"/>
+          <xs:enumeration value="XML"/>
+          <xs:enumeration value="C#"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="treinamentos" type="target:TiposTreinamentos" />
+</xs:schema>
+
+Note que estamos definindo o tipo global com o elemento <simpleType>:
+
+<xs:simpleType name="TiposTreinamentos">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="PHP"/>
+        <xs:enumeration value="AJAX"/>
+        <xs:enumeration value="XML"/>
+        <xs:enumeration value="C#"/>
+    </xs:restriction>
+</xs:simpleType>
+
+Que é atribuído ao elemento treinamentos:
+
+<xs:element name="treinamentos" type="target:TiposTreinamentos" />
+
+Mas também temos outra forma de definir esses elementos. Como o <simpleType> criado é uma lista enumerada, podemos utilizar a declaração <list>, da seguinte forma:
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace:target="http://www.treinaweb.com.br/namespace/schema"
+elementFormDefault="qualified">
+  <xs:simpleType name="TiposTreinamentos">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="PHP"/>
+          <xs:enumeration value="AJAX"/>
+          <xs:enumeration value="XML"/>
+          <xs:enumeration value="C#"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="treinamentos">
+    <xs:simpleType>
+       <list itemType="target:TiposTreinamentos"/>
+     </xs:simpleType >
+  </xs:element>
+</xs:schema>
+
+Note que agora o elemento <treinamentos>:
+
+<xs:element name="treinamentos">
+
+Aceitará uma lista de itens, especificadas no tipo TiposTreinamentos:
+
+<xs:simpleType>
+  <list itemType="target:TiposTreinamentos"/>
+</xs:simpleType >
+
+Note o <list> é definido dentro de um elemento <simpleType>.
+
+Também podemos unir tipos definidos pelo elemento <simpleType>, utilizando a declaração <union>. Por exemplo:
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace:target="http://www.treinaweb.com.br/namespace/schema"
+elementFormDefault="qualified">
+
+  <simpleType name="StringDesconhecida">
+    <restriction base="xs:string">
+       <enumeration value="Desconhecida"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="TipoFloatOuDesconhecido">
+    <union memberTypes="xs:float target:StringDesconhecida"/>
+  </simpleType>
+
+  <element name="latitude" type="target:TipoFloatOuDesconhecido"/>
+  <element name="longitude" type="target:TipoFloatOuDesconhecido"/>
+
+</xs:schema>
+
+Note que primeiro é definido o <simpleType> com um elemento de enumeração com o valor de “Desconhecida”:
+
+<simpleType name="StringDesconhecida">
+  <restriction base="xs:string">
+     <enumeration value="Desconhecida"/>
+  </restriction>
+</simpleType>
+
+Esse <simpleType> é unido a outro <simpleType>:
+
+<simpleType name="TipoFloatOuDesconhecido">
+  <union memberTypes="float target:StringDesconhecida"/>
+</simpleType>
+
+Repare o elemento <union>:
+
+<union memberTypes="xs:float target:UnknownString"/>
+
+Ele está unindo o tipo float ao tipo que definimos no primeiro <simpleType>. É possível definir quantos tipos quiser, basta separá-los por espaço no atributo memberType do <union>.
+
+Esse tipo é atribuído aos elementos:
+
+<element name="latitude" type="target:TipoFloatOuDesconhecido"/>
+<element name="longitude" type="target:TipoFloatOuDesconhecido"/>
+
+Agora, esses elementos podem ter um tipo float ou a string “Desconhecida”. Por exemplo, da seguinte forma:
+
+<latitude>43.847156</latitude>
+<longitude>Desconhecida</longitude>
+
+Mas nunca os dois tipos ao mesmo tempo:
+
+<latitude>Desconhecida</latitude>
+<longitude>43.847156 Desconhecida</longitude>
+
+O elemento <longitude> acima não será validado.
+
+---------------------------------------------------------------------------
+
+Conteúdo misto
+Conteúdo misto pode conter texto e elementos dentro de um único elemento, como no exemplo abaixo:
+
+<funcionario>
+  Dr.<nome>João</nome>.
+  <especialidade>Ortopedista</especialidade>
+</funcionario>
+
+Para declarar esse elemento com conteúdo misto, basta incluir o atributo mixed na definição do <complexType>, conforme o código abaixo:
+
+<xs:elemento name="funcionario" type="xs:string>
+  <xs:complexType mixed="true">
+    <xs:sequence>
+      <xs:element name="nome" type="xs:string"/>
+    <xs:elemento name="especialidade" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:elemento>
+
+---------------------------------------------------------------------------
+
+Criando XML Schema com múltiplos documentos
+Até agora, os esquemas que vimos utilizam apenas um documento, o que é recomendado pela documentação do XML Schema, mas imagine a declaração de 100 elementos? O documento ficaria gigante, mas felizmente podemos declarar os elementos utilizando mais de um documento, o que evita a criação de grandes documentos e nos permite reutilizar as definições. Para fazer isso temos duas opções de declaração:
+
+<import>
+<include>
+
+Vamos vê-las em detalhes.
+
+Declaração <import>
+A declaração <import>, como o nome indica, permite importar declarações globais de outros XML Schema. A declaração <import> é utilizada principalmente para a combinação de XML Schema que possuem diferentes targetNamespaces. Ao importar as declarações, dois esquemas podem ser utilizados em conjunto dentro de um documento XML. Mas note-se que a declaração <import> permite se referir a outras declarações globais dentro de outros XML Schema. A sua utilização típica possui a sintaxe abaixo:
+
+<import namespace="" schemaLocation="">
+
+Onde:
+
+namespace: O namespace utilizado para referenciar o XML Schema importado (que estará definido nele). É importante que esse namespace também seja definido no elemento <schema>;
+schemaLocation: localização do arquivo XML Schema importado.
+Essa declaração sempre deve ser adicionada globalmente dentro do XML Schema (ou seja, ela deve ser um elemento filho do <schema>). Isso significa que a declaração <import> se aplica a todo esquema. Ao importar declarações de outros namespaces, o validador tentará procurar o documento com base no atributo schemaLocation especificado na declaração <import> correspondente do namespace.
+
+Declaração <include>
+A declaração <include> é muito semelhante à declaração <import>, com a diferença que a declaração <include> permite combinar XML Schema que foram projetados para o mesmo targetNamespace. Ou seja, é importante que os dois arquivos XML Schema possuam o mesmo namespace.
+
+Quando o analisador verificar o documento, ele tratará as declarações globais dos esquemas incluídos no arquivo como se tivessem sido declaradas dentro do XML Schema que contém a declaração <include>.
+
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

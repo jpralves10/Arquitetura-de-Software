@@ -520,8 +520,15 @@ Você quer saber como combinar o BFF com o Strangler Fig para migrar uma interfa
 - Adiciona latência durante convivência dos dois
 - Dificuldade em
 
+------------------------------------------------------------------------
 
+*** Anti-corruption Layer e Ambassador Pattern são parecidos? ***
 
+Sim, Anti-corruption Layer (ACL) e Ambassador Pattern são parecidos no sentido de que ambos agem como intermediários (indireção) para resolver problemas de integração. No entanto, eles têm focos diferentes: a ACL protege o modelo de domínio de sistemas legados, enquanto o Ambassador simplifica a comunicação de rede de microsserviços. 
+
+Diferenças Principais:
+- Anti-corruption Layer (ACL): Foca em tradução de modelos. Impede que semânticas de sistemas externos/legados corrompam o modelo do novo sistema. Geralmente implementa padrões Facade ou Adapter.
+- Ambassador Pattern: Foca em infraestrutura e redes. Age como um proxy cliente-side para auxiliar com tarefas como telemetria, roteamento ou segurança, encapsulando funcionalidades
 
 
 

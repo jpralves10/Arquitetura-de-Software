@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.treinaweb.com.br/2010/XMLSchema/tipos">
+    <xs:simpleType name="horario">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9][0-9]:[0-9][0-9]:[0-9][0-9]" />
+            <xs:length value="8" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="passos-instrucoes">
+        <xs:sequence>
+            <xs:element name="passo" maxOccurs="unbounded">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="200" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE receita [
+<!ELEMENT receita (titulo, ingredientes, instrucoes)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT ingredientes (ingrediente+)>
+<!ELEMENT ingrediente (#PCDATA)>
+<!ELEMENT instrucoes (passo+)>
+<!ELEMENT passo (#PCDATA)>
+
+<!ATTLIST receita nome CDATA #REQUIRED>
+<!ATTLIST receita tempo_de_preparo CDATA #REQUIRED>
+<!ATTLIST receita tempo_de_cozimento CDATA #REQUIRED>
+
+<!ATTLIST ingrediente quantidade CDATA #REQUIRED>
+<!ATTLIST ingrediente unidade (xicaras | gramas | colheres) #REQUIRED>
+<!ATTLIST ingrediente estado CDATA #IMPLIED>
+]>
+
+<receita nome="pão" tempo_de_preparo="5 minutos" tempo_de_cozimento="1 hora">
+    <titulo>Pão simples</titulo>
+    <ingredientes>
+        <ingrediente quantidade="3" unidade="xicaras">Farinha</ingrediente>
+        <ingrediente quantidade="7" unidade="gramas">Fermento</ingrediente>
+        <ingrediente quantidade="1.5" unidade="xicaras" estado="morna">Agua</ingrediente>
+        <ingrediente quantidade="1" unidade="colheres">Sal</ingrediente>
+    </ingredientes>
+    <instrucoes>
+        <passo>Misture todos os ingredientes, e dissolva bem.</passo>
+        <passo>Cubra com um pano e deixe por uma hora em um local morno.</passo>
+        <passo>Misture novamente, coloque uma bandeja e asse num forno.</passo>
+    </instrucoes>
+</receita>

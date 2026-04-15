@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="tabela">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="colunas">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="coluna" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="index" type="xs:integer" use="required" />
+                                    <xs:attribute name="titulo" type="xs:string" use="required" />
+                                    <xs:attribute name="tipo" type="xs:string" use="required" />
+                                    <xs:attribute name="tamanho" type="xs:integer" />
+                                    <xs:attribute name="terminacao" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="linhas">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="registro" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="linha" type="xs:integer" />
+                                    <xs:attribute name="conteudo" type="xs:string" />
+                                    <xs:attribute name="separador" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

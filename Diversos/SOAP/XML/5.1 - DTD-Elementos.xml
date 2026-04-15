@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- www.xmlvalidation.com -->
+
+<!-- <!DOCTYPE empresa SYSTEM "empresa.dtd"> -->
+
+<!DOCTYPE empresa [
+<!ELEMENT empresa (funcionarios)>
+<!ELEMENT funcionarios (funcionario+)>
+<!ELEMENT funcionario (nome, cargo, (idade | data-nascimento), dependentes?)>
+<!ELEMENT nome (#PCDATA)>
+<!ELEMENT cargo (#PCDATA)>
+<!ELEMENT idade (#PCDATA)>
+<!ELEMENT data-nascimento (#PCDATA)>
+<!ELEMENT dependentes (dependente+)>
+<!ELEMENT dependente (nome, parentesco)>
+<!ELEMENT parentesco (#PCDATA)>
+]>
+
+<empresa>
+    <funcionarios>
+        <funcionario>
+            <nome>Carlos Santos</nome>
+            <cargo>Gerente de Produção</cargo>
+            <idade>45</idade>
+            <dependentes>
+                <dependente>
+                    <nome>Suzana Santos</nome>
+                    <parentesco>Conjuge</parentesco>
+                </dependente>
+                <dependente>
+                    <nome>Rafael Santos</nome>
+                    <parentesco>Filho</parentesco>
+                </dependente>
+            </dependentes>
+        </funcionario>
+        <funcionario>
+            <nome>Felipe Silva</nome>
+            <cargo>Auxiliar de Produção</cargo>
+            <data-nascimento>03/09/1973</data-nascimento>
+            <dependentes>
+                <dependente>
+                    <nome>Carla Silva</nome>
+                    <parentesco>Conjuge</parentesco>
+                </dependente>
+            </dependentes>
+        </funcionario>
+    </funcionarios>
+</empresa>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="funcionarios">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="funcionario" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nome" type="xs:string" />
+                                        <xs:element name="cargo" type="xs:string" />
+                                        <xs:choice>
+                                            <xs:element name="idade" type="xs:integer" />
+                                            <xs:element name="data-nascimento" type="xs:date" />
+                                        </xs:choice>
+                                        <xs:element name="dependentes">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="dependente" minOccurs="1" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="nome" type="xs:string" />
+                                                                <xs:element name="parentesco" type="xs:string" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

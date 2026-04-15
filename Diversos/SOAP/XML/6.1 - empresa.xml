@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<empresa>
+    <funcionarios>
+        <funcionario>
+            <nome>Carlos Santos</nome>
+            <cargo>Gerente de produção</cargo>
+            <idade>45</idade>
+            <dependentes>
+                <dependente>
+                    <nome>Suzana Santos</nome>
+                    <parentesco>Cônjuge</parentesco>
+                </dependente>
+                <dependente>
+                    <nome>Rafael Santos</nome>
+                    <parentesco>Filho</parentesco>
+                </dependente>
+            </dependentes>
+        </funcionario>
+        <funcionario>
+            <nome>Felipe Silva</nome>
+            <cargo>auxiliar de produção</cargo>
+            <data-nascimento>1973-09-03</data-nascimento>
+            <dependentes>
+                <dependente>
+                    <nome>Carla Silva</nome>
+                    <parentesco>Cônjuge</parentesco>
+                </dependente>
+            </dependentes>
+        </funcionario>
+    </funcionarios>
+</empresa>

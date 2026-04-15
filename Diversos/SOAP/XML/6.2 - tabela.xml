@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tabela>
+  <colunas>
+    <coluna index="1" titulo="Codigo" tipo="Integer"/>
+    <coluna index="2" titulo="Nome" tipo="Char" tamanho="250"/>
+    <coluna index="3" titulo="Descricao" tipo="Text" terminacao="\r\n" />
+  </colunas>
+  <linhas>
+    <registro linha="1" conteudo="1|Mouse|Mouse sem fio" separador="|" />
+    <registro linha="2" conteudo="2|Geladeira|Geladeira inverte" separador="|" />
+  </linhas>
+</tabela>
