@@ -1,0 +1,55 @@
+1 - Quais técnicas você utiliza para otimizar o desempenho de aplicações Node.js e como você mede a eficácia dessas otimizações?
+
+Ao iniciar um processo, o Node.js executa o código síncrono da aplicação. Se houver operações assíncronas (como leitura de arquivos ou requisições de rede), ele as delega para o sistema operacional ou para o pool de threads da biblioteca libuv. Assim que essas operações terminam, o Event Loop as recupera e executa os seus callbacks através de uma série de fases organizadas em ordem.
+A otimização de aplicações Node.js envolve gerenciar a natureza single-threaded do seu Event Loop e maximizar o uso de recursos assíncronos. As técnicas baseiam-se em manter o loop livre para processar requisições, enquanto a medição baseia-se em benchmarking e profiling.
+Benchmarking é o processo de medir o desempenho de um sistema comparando-o com um padrão ou com outras versões dele mesmo. Ele foca em indicadores externos de sucesso.
+Profiling é uma forma de análise dinâmica que mede exatamente onde os recursos (CPU, Memória, I/O) estão sendo consumidos enquanto o programa executa.
+
+2 - Obrigada pela explicação técnica sobre o Event Loop do Node.js. Você pode dar um exemplo prático de uma técnica específica que já utilizou para otimizar o desempenho de uma aplicação Node.js e como verificou a eficácia dessa otimização?
+
+Uma das otimizações mais impactantes que já implementei foi a substituição de operações síncronas de leitura de arquivos e processamento de JSON por Streams, em um serviço que gerava relatórios CSV gigantes a partir de dados brutos.
+O problema: A aplicação tentava carregar um arquivo JSON de 500MB na memória usando fs.readFile, processar os dados e depois escrever o resultado. Resultado: O consumo de memória disparava (atingindo o limite do Heap), o Garbage Collector travava o Event Loop tentando limpar a memória, e a API parava de responder para outros usuários durante o processo. 
+Implementação de Streams: Em vez de carregar o arquivo inteiro, utilizei um fluxo contínuo de dados: 
+- fs.createReadStream: Para ler o arquivo em pequenos pedaços (chunks). 
+- chain (via módulo stream-json): Para parsear o JSON conforme ele chegava. 
+- Transform Stream: Para formatar cada objeto para CSV "no ar". 
+- fs.createWriteStream: Para gravar o resultado direto no disco.
+Para validar, utilizei duas ferramentas que mencionei anteriormente: 
+1. Profiling com Clinic.js Doctor: 
+- Antes: O gráfico mostrava "Event Loop Delay" altíssimo (acima de 100ms) e o gráfico de memória em uma subida íngreme até o crash.
+- Depois: A curva de memória ficou praticamente plana (estável em ~50MB, independentemente do tamanho do arquivo), e o atraso do Event Loop caiu para quase zero.
+2. Benchmarking com Autocannon: 
+- Enquanto o relatório era gerado, rodei o Autocannon em outro endpoint da API.
+- Antes: O endpoint secundário dava timeout porque a thread principal estava ocupada.
+- Depois: O endpoint secundário respondeu com latência estável (sub-10ms), provando que a thread principal estava livre.
+Essa mudança transformou um processo que frequentemente derrubava o servidor em uma tarefa de background leve e previsível.
+
+3 - Descreva uma situação em que você teve que implementar um padrão de governança de API em um projeto anterior. Quais desafios você enfrentou e como os superou?
+
+Em um projeto anterior, atuei em uma equipe de serviços financeiros que passava por uma rápida transformação digital. O principal problema era a falta de padronização no desenvolvimento de APIs: equipes diferentes criavam APIs com estruturas, documentações e métodos de autenticação distintos (algumas usavam REST, outras RPC, algumas com JWT, outras com tokens proprietários).Isso gerava alto custo de manutenção, dificuldades na integração entre sistemas internos e riscos de segurança.A solução foi implementar um framework de Governança de APIs baseado em API-First, utilizando o padrão OpenAPI/Swagger para definir contratos.
+- Desafio: Os desenvolvedores viam a governança como "burocracia" que atrasaria entregas, preferindo focar no código antes da documentação.
+- Superação: Em vez de impor regras de cima para baixo, organizamos workshops para demonstrar os benefícios (menos retrabalho, documentação automática). Criamos um "API Guild" (grupo de especialistas) para definir as normas colaborativamente.
+- Desafio: APIs legados com estruturas muito diferentes (endpoints, tratamento de erro, convenções de nomenclatura).
+- Superação: Implementamos um Style Guide (Guia de Estilo) obrigatório usando Spectral para linting automatizado de contratos OpenAPI. Se o contrato não seguisse as regras (ex: usar camelCase, códigos HTTP corretos), ele não passava no CI/CD
+- Desafio: Cada API gerenciava seu próprio acesso, dificultando a auditoria e o bloqueio de ameaças.
+- Superação: Adotamos um API Gateway para centralizar autenticação/autorização (OAuth 2.0/JWT), Rate Limiting (limitação de taxa) e logs de auditoria.
+- Desafio: Equipes não sabiam quais APIs já existiam, resultando na duplicação de funcionalidades.
+- Superação: Implementamos um Portal do Desenvolvedor centralizado onde todas as APIs aprovadas eram registradas. Isso fomentou o reuso e acelerou o tempo de desenvolvimento de novos serviços.
+Resultado: Com essa implementação, conseguimos reduzir o tempo de onboarding de novos desenvolvedores, aumentamos a segurança com a centralização de autenticação e garantimos a qualidade através da automação das validações de contrato no pipeline de CI/CD
+
+
+4 - Como você aborda a criação de documentações técnicas e ferramentas de CLI para melhorar a experiência do desenvolvedor em projetos anteriores?
+
+A melhor documentação é aquela que está dentro da CLI. Se o desenvolvedor digita um comando errado, a CLI deve atuar como um mentor, explicando o erro e linkando para a parte específica da documentação online se necessário.
+
+
+
+
+
+
+
+
+
+
+
+

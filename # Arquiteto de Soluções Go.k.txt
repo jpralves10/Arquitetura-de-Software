@@ -1,0 +1,85 @@
+Experiência requerida:
+
+· Modelagem arquitetural (visão lógica e física).
+
+· Experiência com requisitos não funcionais (capacity, performance, custo, resiliência etc.).
+
+· Experiência em AWS, Git, Java, arquitetura de microserviços, logging, monitoramento e DevOps (CI/CD).
+
+· Experiência com containers, orquestração, mensageria, APIs (REST/SOAP), segurança, integrações e infraestrutura.
+
+Competências técnicas (hard skills):
+
+· Cloud: AWS e Azure
+
+· Logging: Elastic Stack, Graylog, Splunk, CloudWatch.
+
+· Git (imprescindível).
+
+· Java (imprescindível).
+
+· Arquitetura de Microserviços (imprescindível).
+
+· Monitoramento: Firebase Crashlytics, Dynatrace, Datadog.
+
+· DevOps / CI/CD (imprescindível).
+
+· Mobile: Android/iOS (Kotlin, Swift), Flutter (desejável).
+
+· Frontend: PWA, React e/ou Angular (desejável).
+
+· APIs: REST e SOAP, API Management (Kong, AWS API Gateway).
+
+· Containers e Orquestração: Docker, Kubernetes, ECS, service mesh.
+
+· Mensageria: Kafka, RabbitMQ, AWS SQS/SNS.
+
+· Bancos: RDBMS e NoSQL.
+
+· ETL e integração de dados.
+
+· Infraestrutura: redes, protocolos, balanceamento, AD, servidores, barramentos.
+
+· Linux.
+
+· Provisionamento e config.: Vagrant, Ansible, Puppet, Terraform.
+
+· Segurança da Informação e Cybersecurity (noções).
+
+· Big Data (noções).
+
+· Arquiteturas e padrões: Microsserviços, Hexagonal, DDD, SOLID, SAGA, Event-driven, Strangler, Lift & Shift, SOA.
+
+· 12 Factor App.
+
+ Troubleshooting de aplicações em servidor de aplicação (Flight Recorder,Dump de Threads e AWR)?
+
+Experiência com orquestração de tarefas assíncronas (Celery, APScheduler, Faust ou Twisted)
+
+Familiaridade com ferramentas de crawling e automação web, como Scrapy, Selenium ou Playwright
+
+
+-----------------------------------------------------
+
+Requisitos
+
+
+Implementar APIs e serviços que encapsulam chamadas a LLMs e compõem fluxos de agentes com ferramentas
+
+
+Construir pipelines de RAG: indexação, consulta e governança (inclui anexos/documentos quando aplicável).
+
+
+Garantir “POC que funciona” com caminho claro para hardening (testes, CI/CD, observabilidade, controle de custo)
+
+
+O que é diferencial (não eliminatório):
+
+
+Experiência com orquestração de agentes (ex.: LangGraph) e/ou camadas de integração multi‑provedor (ex.: LiteLLM)
+
+
+Vivência com vetor DB/busca vetorial (ex.: Qdrant) para RAG corporativo
+
+
+Noções de guardrails (segurança/conteúdo/prompt injection) e requisitos de plataforma (auditoria, RBAC, etc.)

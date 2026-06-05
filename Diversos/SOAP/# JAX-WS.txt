@@ -1,0 +1,86 @@
+Antes de tudo: o que é de fato o SOAP?
+SOAP é um acrônimo para Simple Object Access Protocol, ou Protocolo Simples de Acesso a Objetos. Trata-se de um protocolo para troca de informações de maneira descentralizada. Ou seja: SOAP não é um framework, uma linguagem ou mesmo uma tecnologia: trata-se de um protocolo de comunicação.
+
+O SOAP é fortemente baseado no formato XML e é normatizado pela W3C. Suas especificações podem ser acessadas em https://www.w3.org/TR/soap/
+
+O SOAP é um protocolo dito “agnóstico” com relação a maneira como suas requisições são transportadas. Isso quer dizer que você pode utilizar qualquer meio que seja para transportar requisições e respostas SOAP. Porém, existem duas modalidades mais comuns que são utilizadas para o transporte de mensagens SOAP: através do protocolo HTTP e através de RPC (Remote Procedure Call).
+
+----------------------------------------------------------------------------
+
+HTTP vs RPC
+Você deve estar se perguntando: qual a diferença entre HTTP e RPC?
+
+A principal diferença está na semântica como as requisições acontecem nestes dois estilos. O protocolo HTTP é um protocolo por essência semântico, ou seja: as operações são definidas com base na semântica com a qual as requisições são feitas. Mas não se preocupe: a questão da semântica será abordada com mais detalhes quando estivermos falando sobre REST.
+
+No RPC, a definição das operações a serem realizadas acontece muito mais baseada na rota (ou URL) do serviço a ser invocado.
+
+Por exemplo: se você precisa invocar um método que faça a soma de dois números em um webservice baseado em RPC, provavelmente você fará uma requisição para uma rota (ou URL) no estilo “/calculadora/somarDoisNumeros”. Veja que a rota deixa explícito o serviço a ser invocado, sem questões de semântica de requisição envolvidas. Se tivéssemos uma chamada tipicamente HTTP, provavelmente essa requisição seria feita para “/calculadora”, sendo que a semântica da requisição é quem definiria qual operação seria realizada de fato.
+
+Ambas as abordagens possuem vantagens e desvantagens. RPC é mais legível, pois a rota já deixa imediatamente claro que operação deve ser executada em seu webservice. Mas, quando começam a aparecer operações mais complexas, a rota em si passa a não ser tão eficiente para definir de maneira legível a operação a ser realizada. Imagine um RPC que precise somar dois números e tirar o MMC do resultado dessa soma. Provavelmente, teríamos uma rota no estilo “/somarDoisNumerosEObterOMMC”, o que já passa a ser nem um pouco legível. Outro ponto que pesa contra o RPC é a necessidade de tráfego de meta-informações para que seja possível para o cliente que faz a requisição conhecer o formato como os dados devem ser enviados e recebidos. Isso tende a carregar e “inchar” as mensagens trafegadas. Mensagens tipicamente HTTP não sofrem tanto com esse problema das meta-informações, mas pecam na questão da legibilidade, como ficará mais claro quando o REST for abordado.
+
+Arquiteturas baseadas em SOAP têm uma grande tendência a utilizarem mais o RPC do que a semântica do protocolo HTTP, tendo em vista que mensagens SOAP não necessariamente trafegam sobre o protocolo HTTP.
+
+----------------------------------------------------------------------------
+
+Componentes de uma mensagem SOAP
+Quando falamos sobre mensagens SOAP, estas costumam ser divididas em três partes:
+
+- Envelope: define o começo e o fim da mensagem SOAP, servindo como um “encapsulador” de uma mensagem SOAP. Todas as demais partes sempre estarão dentro de um envelope;
+- Header: é uma estrutura opcional, embora esteja presente em quase todas as requisições SOAP. O header geralmente contém meta-informações relacionadas a aplicação que expõe o serviço, como a versão do SOAP a ser utilizada (1.1, 1.2 ou 2.0), o encoding da mensagem ou até mesmo a versão do serviço;
+- Body: contém o corpo da requisição SOAP em si. É no body que nós colocamos, por exemplo, os valores a serem enviados como parâmetros para o serviço a ser invocado. Trata-se de um componente obrigatório.
+
+Quando falamos especificamente sobre o response, ainda pode haver a presença de um quarto elemento, conhecido como fault. Este elemento geralmente traz informações de erro retornadas pelo serviço caso haja um problema ao invocá-lo. Estas informações de erro podem se referenciar desde problemas de ambiente (como servidor fora de operação) a problemas de negócio (como a passagem de parâmetros inválidos para o serviço em questão).
+
+----------------------------------------------------------------------------
+
+WSDL e XSD
+Por ser fortemente baseado em XML, existem dois elementos muito importantes que surgem ao manipularmos serviços SOAP: o WSDL e o XSD.
+
+O WSDL (Web Services Description Language) é um documento XML responsável por descrever um serviço web, funcionando através de um contrato. É através do WSDL que podemos obter de um web service SOAP quais operações são suportadas, qual a versão do SOAP que deve ser utilizada e a maneira como o serviço deve ser consumido. Quando criamos um consumidor para um serviço SOAP, nós nos baseamos no WSDL do serviço para gerarmos o consumidor em questão, já que o WSDL define toda a estrutura de um serviço.
+
+Um dos componentes de um WSDL são os arquivos XSD (XML Schema Definition). Os XSDs definem o formato das mensagens que deverão ser trafegadas em uma mensagem SOAP, definindo, por exemplo, nomes de parâmetros e tipos de dados. Os XSDs costumam ser utilizados internamente pelos serviços SOAP para validar o formato das mensagens recebidas dentro do body, verificando se as mensagens foram enviadas no formato esperado.
+
+----------------------------------------------------------------------------
+
+JAX/WS e JSR-224
+Existe uma normativa para a criação de serviços SOAP no Java, assim como existe a JPA por exemplo. Trata-se da JSR-224, também chamada de JAX-WS 2.0. Trata-se de uma padronização das APIs do Java EE para a criação de serviços SOAP dentro do Java EE/Jakarta Project. Isso quer dizer que qualquer framework dentro do Java que quiser expor as funcionalidades para a criação de serviços SOAP precisa seguir as interfaces e padronizações previstas nessa JSR. É o caso do Apache CXF, framework que utilizaremos neste curso.
+
+Você pode ver mais detalhes da JSR-224 na página oficial: https://jcp.org/en/jsr/detail?id=224
+
+----------------------------------------------------------------------------
+
+Etapas de Configuração:
+
+1. baixar jdk 8 e instalar
+2. baixar apache-cxf-4.2.0 e copiar na pasta /usuários/jpralves
+3. baixar apache-tomcat-9.0.117 e copiar na pasta /usuários/jpralves
+4. abrir Eclipse e clicar em Windows/Preferences
+5. na opção Java/Installed JREs, add jdk 1.8
+6. em Java/Compiler, selecionar compiler level 1.8
+7. em Preferences, na opção Web Service/CXF 2.x Preferences, selecionar a pasta do apache-cxf-4.2.0
+8. criar um "Dynamic Web Project"
+9. selecionar tomcat 9, e vincular a pasta do tomcat que está em /usuários/jpralves
+
+----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

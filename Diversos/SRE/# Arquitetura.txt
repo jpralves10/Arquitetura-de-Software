@@ -532,13 +532,34 @@ Quando um cliente realiza uma compra em um e-commerce (Sistema A), o sistema de 
 Diferença entre Webhook e API:
 Enquanto uma API funciona no modelo "chamada/resposta" (onde você pergunta e a API responde), o webhook funciona como um retorno de chamada (o sistema avisa quando a ação é concluída), sendo frequentemente chamado de "API reversa"
 
+----------------------------------------------------------------------------------
 
+--- estratégias de cache ---
 
+As estratégias de cache otimizam o desempenho da aplicação gerenciando a consistência entre a memória rápida (cache) e o banco de dados (fonte de verdade). Cache-Aside (lazy loading) carrega dados sob demanda, ideal para leitura intensa; Write-Through grava no cache e no banco simultaneamente, garantindo consistência alta, mas com latência maior na escrita. 
 
+Principais Estratégias de Cache
 
+1. Cache-Aside (ou Cache-Aside Pattern)
+- Como funciona: A aplicação verifica o cache primeiro. Se os dados não estiverem lá (cache miss), ela busca no banco de dados, popula o cache e retorna o dado.
+- Vantagens: Eficiente para leitura, resiliente a falhas no cache (a aplicação continua funcionando, apenas fica mais lenta).
+- Desvantagens: O primeiro acesso é lento e os dados podem ficar obsoletos (stale) se o banco for atualizado sem limpar o cache. Geralmente usa TTL (Time-to-Live) para expirar dados antigos. 
 
+2. Write-Through (Gravação Direta)
+- Como funciona: A aplicação grava os dados diretamente no cache e, sincronamente, no banco de dados. O cache e o banco são sempre atualizados ao mesmo tempo.
+- Vantagens: Consistência de dados muito alta, pois o cache nunca fica defasado.
+- Desvantagens: Maior latência na escrita, pois a aplicação aguarda a atualização de ambos os sistemas (banco e cache).
 
+3. Write-Back (ou Write-Behind)
+- A aplicação grava apenas no cache e recebe uma confirmação imediata. O cache atualiza o banco de dados de forma assíncrona depois, aumentando a velocidade de escrita, mas com risco de perda de dados se o cache falhar. 
 
+Write-Around 
+- A aplicação grava diretamente no banco de dados e pula o cache. É ideal para dados que são escritos, mas raramente lidos em seguida. 
+
+Quando usar cada uma?
+- Use Cache-Aside: Para sistemas de leitura intensiva, como feeds de redes sociais ou páginas de produtos, onde a consistência imediata não é crítica.
+- Use Write-Through: Para aplicações críticas onde a consistência é prioridade, como sistemas financeiros.
+- Use Write-Back: Para cenários de altíssima performance de escrita, como logs ou contadores, aceitando o risco de perda assíncrona.
 
 
 

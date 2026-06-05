@@ -1,0 +1,141 @@
+*** quais são os decorators do angular ? ***
+
+Decorators no Angular são funções especiais prefixadas com @ que adicionam metadados a classes, métodos ou propriedades. Eles dizem ao framework exatamente como tratar ou compilar cada parte do seu código, sendo divididos em categorias para classes, propriedades, parâmetros e métodos
+
+Os principais decorators do Angular são:
+
+1. Decorators de Classe
+Usados para definir a finalidade principal de uma classe dentro da aplicação.
+
+- @Component: Transforma uma classe em um componente Angular, permitindo definir seu template (HTML), estilos (CSS) e seletor.
+- @Directive: Cria uma diretiva, permitindo alterar o comportamento ou a aparência de elementos DOM existentes.
+- @Injectable: Declara que uma classe (geralmente um serviço) pode ser injetada em outras partes da aplicação usando Injeção de Dependência.
+- @NgModule: Agrupa componentes, diretivas e pipes em um único módulo coeso (muito comum em versões anteriores e coexistindo em standalone)
+
+2. Decorators de Propriedade
+Usados para configurar os dados de entrada/saída ou buscar referências de elementos.
+
+- @Input: Permite que um componente ou diretiva receba dados (propriedades) de um componente pai.
+- @Output: Emite eventos customizados do componente filho para o componente pai.
+- @ViewChild / @ViewChildren: Usados para acessar e manipular elementos ou componentes filhos diretamente dentro do arquivo TypeScript.
+- @ContentChild / @ContentChildren: Similares aos ViewChild, mas focados em acessar elementos passados de fora via Content Projection ().
+
+3. Decorators de Método
+Usados para interceptar ou responder a eventos de ciclo de vida e interações.
+
+- @HostListener: Escuta um evento do DOM no elemento hospedeiro (como um clique ou tecla pressionada) e dispara um método do TypeScript.
+
+4. Decorators de Parâmetro e Propriedade (Injeção)
+Usados para injetar serviços específicos em locais restritos, como dentro de um construtor.
+
+- @Inject: Usado para injetar um serviço ou dependência específica de forma manual em um parâmetro
+- @Optional: Usado em conjunto com a injeção de dependência para sinalizar ao Angular que um serviço é opcional, evitando erros caso ele não exista.
+- @Host: Limita a busca por uma dependência injetável apenas ao elemento hospedeiro.
+- @Self: Força a injeção a procurar a dependência exclusivamente dentro do próprio injetor do elemento
+- @SkipSelf: Instrui o Angular a ignorar o injetor local e buscar a dependência nos injetores acima na árvore de componentes.
+
+---------------------------------------------------------------------------------
+
+*** o que são diretivas no angular? ***
+
+No Angular, diretivas são classes que adicionam comportamentos extras, manipulam o DOM ou alteram a aparência dos elementos HTML em suas páginas. Pense nelas como instruções especiais que dizem ao Angular como renderizar ou controlar um determinado elemento.Existem três tipos principais de diretivas no Angular:
+
+1. Diretivas Estruturais
+Mudam a estrutura do DOM, adicionando, removendo ou substituindo elementos HTML. Elas sempre começam com um asterisco (*).
+
+Exemplos comuns:
+*ngIf: Renderiza um elemento apenas se uma condição for verdadeira.
+*ngFor: Percorre uma lista de dados e renderiza um elemento para cada item.
+
+Nota de Atualização: Em versões mais recentes do Angular, a equipe do framework recomenda o uso das Control Flows (como @if e @for) em vez de *ngIf e *ngFor, por oferecerem melhor desempenho e sintaxe mais limpa.
+
+2. Diretivas de Atributo
+Alteram a aparência ou o comportamento de um elemento existente, mas sem modificar a estrutura do DOM.
+
+Exemplos comuns:
+[ngClass]: Adiciona ou remove classes CSS dinamicamente.
+[ngStyle]: Altera estilos CSS em linha com base em variáveis.
+[(ngModel)]: Cria uma ligação de dados bidirecional (two-way data binding) entre o input do usuário e o seu código TypeScript.
+
+3. Diretivas de ComponenteOs próprios Componentes são um tipo especial de diretiva! A única diferença é que, além do comportamento, eles possuem um template (código HTML próprio) associado a eles.
+
+---------------------------------------------------------------------------------
+
+*** o que são pipe no angular ? ***
+
+Pipes no Angular são recursos usados nos templates HTML para transformar ou formatar dados antes de exibi-los na tela. Eles funcionam como filtros que alteram a apresentação visual (como datas, moedas ou textos) sem modificar o valor original guardado na lógica do componente.
+
+Como funcionam?
+A sintaxe é simples: você escreve a variável, seguida pelo caractere barra vertical (|), o nome do pipe e, caso precise, parâmetros de configuração.
+
+
+html
+<p>Olá, {{ nome | uppercase }}!</p>
+
+Tipos de Pipes
+
+1. Pipes Nativos (Embutidos)
+O Angular já fornece diversos pipes prontos para uso comum:
+
+- date: Formata objetos de data.
+Exemplo: {{ hoje | date: 'dd/MM/yyyy' }}
+- currency: Converte números para formatos de moeda.
+Exemplo: {{ preco | currency: 'BRL' }}
+- uppercase / lowercase: Altera a capitalização de strings.
+Exemplo: {{ titulo | uppercase }}
+- json: Exibe objetos complexos de forma legível na tela (excelente para debug).
+Exemplo: {{ usuario | json }}
+
+2. Pipes Personalizados (Custom Pipes)Se a sua aplicação exige formatações muito específicas não cobertas nativamente, você pode criar os seus próprios pipes usando o decorator @Pipe e implementando a interface PipeTransform.
+
+Se você estiver lidando com formulários ou requisições de API, talvez esteja pensando no pipe do RxJS, que serve para manipular fluxos de dados (Streams) ao invés de apenas formatar visualmente.
+
+Se quiser se aprofundar, me diga:
+Você precisa de ajuda com pipes de template HTML ou com o método pipe do RxJS?
+
+---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

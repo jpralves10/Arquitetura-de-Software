@@ -51,7 +51,27 @@ No mercado atual, o Spring Boot é o padrão "de fato" para microsserviços.
 
 Resumo: Um microsserviço com Spring Boot é uma aplicação que roda no Java Standard, mas que entrega todas as capacidades de um sistema Enterprise de forma muito mais leve e moderna
 
+-------------------------------------------------------------------------------------
 
+O Payara é um servidor de aplicação Java de código aberto, derivado do GlassFish, projetado para alta disponibilidade em nuvem e ambientes de microsserviços. Ele suporta Jakarta EE (anteriormente Java EE) e MicroProfile, sendo ideal para aplicações modernas, conteinerizadas e escaláveis, oferecendo versões como Payara Server e Payara Micro. 
+
+Principais Aspectos e Usos (Exemplos):
+
+- Payara Micro: Plataforma minimalista (menos de 70 MB) para microsserviços, ideal para contêineres e execução direta via linha de comando. 
+
+- Payara Server: Servidor de aplicação tradicional para produção, oferecendo estabilidade, suporte a clustering automático e patches de segurança. 
+
+- Payara Cloud: Solução "serverless" onde é possível implantar arquivos WAR apenas arrastando e soltando, sem gerenciar infraestrutura. 
+
+- Uso com Docker/Kubernetes: Otimizado para arquiteturas nativas da nuvem, facilitando a portabilidade e escalabilidade. 
+
+Sinônimos/Termos Relacionados:
+
+- Payara Platform (abrange Server, Micro e Cloud).
+- Servidor Java EE/Jakarta EE.
+- Middleware de código aberto. 
+
+O Payara foi criado para preencher a lacuna de suporte do GlassFish, oferecendo uma alternativa sólida e com suporte corporativo para empresas que utilizam Java. 
 
 
 

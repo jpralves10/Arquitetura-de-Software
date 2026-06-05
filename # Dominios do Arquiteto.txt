@@ -45,6 +45,8 @@ Plataformas GCP
 NGINEX
 Anthos Service Mesh
 
+Experiência com orquestração de tarefas assíncronas (Celery, APScheduler, Faust ou Twisted)
+
 ------------------------------------------------------------------------------------
 
 Requisitos Obrigatório:

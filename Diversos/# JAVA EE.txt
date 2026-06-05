@@ -1,0 +1,57 @@
+--- Arquillian ---
+
+Arquillian é uma plataforma de testes inovadora e de código aberto para a JVM, focada em simplificar testes de integração e funcionais para aplicações Jakarta EE (anteriormente Java EE). Ele permite executar testes diretamente dentro do container de aplicação (como WildFly, Tomcat ou GlassFish), eliminando a necessidade de gerenciar o ambiente de implantação manualmente.
+
+Principais Características e Benefícios:
+- Testes em Container Real: Diferente de testes unitários que simulam o ambiente, o Arquillian roda o código dentro de um servidor real, garantindo que o teste reflita o comportamento em produção.
+- Facilidade de Uso: Torna os testes de integração tão simples quanto escrever testes unitários JUnit ou TestNG.
+- Gerenciamento de Ciclo de Vida: O framework cuida da implantação (deploy) do artefato de teste, execução e desimplantação, suportando containers embutidos, gerenciados e remotos.
+- Integração com ShrinkWrap: Utiliza a biblioteca ShrinkWrap para criar arquivos de arquivo (ex: .war, .ear) programaticamente para os testes.
+- Suporte a CDI e EJB: Facilita a injeção de dependência (@Inject) diretamente nos testes, ideal para testar componentes CDI e EJB.
+
+O Arquillian é altamente extensível e "container-agnostic", significando que o mesmo teste pode ser executado em diferentes servidores de aplicação compatíveis
+
+---------------------------------------------------------------------------
+
+--- Cypress ---
+
+O Cypress é um framework de automação de testes de front-end de última geração, focado em aplicações web modernas. É uma ferramenta de código aberto (open-source) e gratuita, construída para rodar diretamente no navegador, permitindo testes rápidos e confiáveis de ponta a ponta (E2E), componentes e integração
+
+Principais Características e Vantagens:
+- Foco em JS/TS: Utiliza JavaScript ou TypeScript, sendo ideal para frameworks modernos como React, Angular e Vue.
+- Arquitetura Diferenciada: Diferente do Selenium, o Cypress não utiliza WebDriver, executando dentro do navegador, o que reduz testes instáveis (flaky tests).
+- Facilidade de Uso: Possui uma baixa curva de aprendizado, sendo recomendado para iniciantes em automação.
+- Depuração Rápida: Oferece ferramentas visuais que facilitam a depuração (debugging) de testes em tempo real.
+- Recursos Únicos: Inclui time-travel (visualizar o estado da aplicação em cada etapa), snapshots automáticos e reloads rápidos.
+
+Limitações:
+Não suporta múltiplas abas de navegador.
+Funciona apenas com JavaScript/TypeScript.
+
+O Cypress é amplamente adotado no mercado, sendo uma das ferramentas mais populares para QA e desenvolvedores frontend atualmente.
+
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

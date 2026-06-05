@@ -1,0 +1,26 @@
+Clean Code (ou código limpo) é uma filosofia de desenvolvimento focada em criar códigos altamente legíveis, fáceis de manter e escaláveis. Popularizada por Robert C. Martin (Uncle Bob), a premissa central é que o código é lido muito mais vezes do que escrito, devendo ser compreensível por qualquer humano.
+
+Princípios e Boas Práticas
+Os princípios básicos que guiam o desenvolvimento de um código limpo envolvem: 
+
+- Nomes Significativos: Variáveis, funções, parâmetros e classes devem ter nomes autoexplicativos que revelam sua intenção. Evite abreviações obscuras e nomes genéricos como a, b ou temp.
+
+- Funções Pequenas e Focadas: Funções devem ser curtas, fazer apenas uma coisa (Princípio da Responsabilidade Única) e conter um único nível de abstração.
+
+- DRY (Don't Repeat Yourself): Não repita a si mesmo. Elimine duplicações de código criando abstrações ou métodos reutilizáveis para evitar alterações múltiplas em caso de correção de bugs.
+
+- KISS (Keep It Stupid Simple): Mantenha o código o mais simples possível. Se algo pode ser feito de forma simples, evite arquiteturas complexas e desnecessárias.
+
+- Regra do Escoteiro: "Deixe a área de acampamento mais limpa do que como a encontrou". Sempre que alterar um código, melhore sua estrutura e legibilidade, mesmo que minimamente.
+
+- Código Autoexplicativo (Comentários): O código deve ser tão claro que dispensa comentários explicativos sobre "o que" ele faz. Comentários devem ser usados apenas para explicar o "porquê" de decisões complexas.
+
+- Testes Automatizados: Um código limpo é testável. A criação de testes unitários garante a segurança para refatorar e alterar o sistema sem medo de quebrá-lo.
+
+
+
+
+
+
+
+

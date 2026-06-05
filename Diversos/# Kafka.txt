@@ -1,0 +1,82 @@
+No Apache Kafka, as partições são as unidades básicas de armazenamento e paralelismo. Elas dividem um tópico em vários blocos distribuídos pelo cluster. Isso permite escalabilidade horizontal e alta taxa de transferência (throughput), garantindo a ordem dos eventos e a tolerância a falhas.
+
+Conceitos Fundamentais
+- Ordem e Offsets: Cada partição é uma sequência imutável de mensagens. Cada mensagem recebe um ID sequencial chamado offset. A ordem cronológica é garantida apenas dentro da mesma partição.
+- Balanceamento e Distribuição: Mensagens enviadas pelos Producers são distribuídas entre as partições. Se houver uma chave na mensagem, o Kafka a utiliza para garantir que eventos com a mesma chave caiam sempre na mesma partição.
+- Líder e Réplicas: Para evitar perda de dados, cada partição tem um Leader (que responde às requisições de leitura e escrita) e múltiplas Replicas (cópias de segurança armazenadas em outros Brokers).
+
+Escalabilidade e Consumidores
+O número de partições dita a capacidade de processamento do seu sistema. 
+
+- Regra de ouro: Em um grupo de consumidores (Consumer Group), uma partição só pode ser lida por um único consumidor por vez.
+- Isso significa que para aumentar a velocidade de leitura em paralelo, você precisa aumentar o número de partições e adicionar mais consumidores, até o limite em que o número de consumidores seja igual ao número de partições. 
+
+Como Definir o Número de Partições?
+Para definir a quantidade ideal, é necessário calcular a volumetria da sua aplicação. O cálculo básico se baseia na taxa de transferência desejada:
+
+N = max(Produtor total/Produtor por consumidor, Consumidor total/Consumidor por consumidor)
+
+- Producer throughput: Qual a velocidade que sua aplicação grava mensagens por segundo?
+- Consumer throughput: Qual a velocidade máxima que sua aplicação consome/processa mensagens por segundo?
+
+Se você dimensionar mal, terá problemas: poucas partições limitam o paralelismo, e muitas partições exigem mais recursos de memória e conexões do sistema. 
+
+----------------------------------------------------------------------------
+
+O particionamento no Apache Kafka é a divisão de um tópico (canal de mensagens) em pedaços menores e independentes chamados de partições. Ele é o pilar que permite ao Kafka escalar horizontalmente e processar grandes volumes de dados em paralelo
+
+Como funciona
+- Unidade de Armazenamento: As mensagens são gravadas fisicamente nas partições. Cada mensagem recebe um ID sequencial chamado offset.
+- Distribuição: As partições de um tópico são distribuídas entre os diferentes servidores (brokers) do cluster Kafka.
+- Garantia de Ordenação: O Kafka garante que as mensagens sejam lidas exatamente na mesma ordem em que foram gravadas, mas apenas dentro de uma mesma partição.
+
+Por que ele é essencial?
+1. Escalabilidade: Como o tópico é dividido, diferentes servidores podem processar partes diferentes do mesmo canal de dados.
+2. Paralelismo de Consumo: A leitura no Kafka é feita por grupos de consumidores (Consumer Groups). O número máximo de consumidores lendo simultaneamente em um grupo é igual ao número de partições
+
+Estratégias de Divisão de Dados
+Quando um produtor envia uma mensagem, ele precisa decidir para qual partição ela vai. As principais abordagens são:
+
+- Baseado em Chave (Key-based): Se você enviar uma chave (ex: o ID do cliente), o Kafka usa um algoritmo de hash para garantir que todas as mensagens daquele cliente caiam na mesma partição, preservando a ordem dos eventos dele.
+- Round-Robin: Se nenhuma chave for fornecida, o Kafka distribui as mensagens de forma equilibrada entre todas as partições do tópico.
+- Customizado: Você pode criar sua própria regra de negócio para definir qual partição recebe a mensagem
+
+Pontos de Atenção
+- Aumentar o número de partições: É possível adicionar mais partições a um tópico existente, mas isso pode quebrar o mapeamento de chave para partição se você não usar um partitioner customizado.
+- Diminuir o número de partições: O Kafka não permite diminuir o número de partições. Se precisar fazer isso, a solução é criar um novo tópico.
+
+Se você estiver planejando estruturar seus tópicos, posso ajudar a dimensionar melhor o seu sistema. Se quiser, me informe:
+- Qual é a volumetria esperada de mensagens?
+- Você precisa de ordenação global estrita ou por entidade (ex: por usuário)?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

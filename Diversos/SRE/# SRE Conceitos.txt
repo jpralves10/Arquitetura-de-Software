@@ -1,0 +1,101 @@
+*** SRE ***
+
+Foco: o foco principal do SRE está em garantir a confiabilidade, disponibilidade e desempenho de um software e serviço
+
+Objetivo: Equilíbrio entre confiabilidade e velocidade de desenvolvimento (inovação)
+
+Roles & Responsability (R&R): Atividades como planejamento de capacidade, resposta a incidentes, planejamento de recuperação de desastres, otimização de desempenho e automação do sistema. Eles também ficam de plantão!
+
+Medições: A métrica chave para a SRE está relacionada ao tempo de atividade e confiabilidade do serviço. Os Objetivos de Nível de Serviço (SLOs) e os orçamentos de erros são usados para medir o desempenho em relação a metas de confiabilidade e incidentes.
+
+*** DevOps ***
+
+Foco: É uma abordagem cultural e colaborativa para o desenvolvimento de software e Operações em geral. O principal objetivo é quebrar as barreiras tradicionais entre desenvolvimento e Operações, fomentando uma melhor comunicação, colaboração e integração ao longo dos ciclos de desenvolvimento de software. 
+
+Objetivos: Melhorar a eficiência e eficácia geral dos processos de desenvolvimento e implantação de software (Liberar Rápido)
+
+R&R: Promove um modelo de responsabilidade compartilhada, onde DEV e OPS podem trabalhar juntos. Os Engenheiros DevOps focam na otimização do ciclo de vida do desenvolvimento de software, automação do processo de implantação e infraestrutura como Código (IAC)
+
+Medições: Enfatiza a melhoria contínua e a eficiência. As métricas frequentemente incluem frequência de implantação, tempo de execução, tempo médio para recuperação (MTTR) e percentual de sucesso
+
+*** SRE vs DevOps ***
+
+Sobreposição: há sobreposição entre SRE e DevOps em termos de automação e foco em confiabilidade. Ambas as disciplinas valorizam a automação para reduzir o trabalho manual e tarefas repetitivas!
+
+Implementação: Em algumas organizações, o papel de SRE e DevOps pode ser combinado, dividido ou ter um nome diferente. Tudo varia de acordo com o tamanho e a estrutura da empresa.
+
+--------------------------------------------------------------------------
+
+*** SRE Technology stack ***
+
+- Ferramentas de Monitoração e Alerta
+- Ferramentas de Gerenciamento de Incidentes
+- Automação e Configuration Management
+- Infraestrutura como Código (IaC)
+- Teste
+- Segurança e Gerenciamento de Identidade
+- Soluções de Backup e DR
+- Observabilidade
+- Balanceadores de Carga e Proxies
+- Contêineres e Orquestração
+- Cloud
+- Deployment de Aplicação
+
+--------------------------------------------------------------------------
+
+*** SRE Tenets (Princípios) - Google ***
+
+- Garantindo um Foco Duradouro na Engenharia
+- Buscando a Máxima Velocidade de Mudança Sem Violar o SLO de um Serviço
+- Monitoramento (Alertas, Tickets e Logs)
+- Resposta a Emergências
+- Gestão de Mudanças
+- Previsão de Demanda e Planejamento de Capacidade
+- Provisionamento
+- Eficiência e Desempenho
+
+--------------------------------------------------------------------------
+
+*** SRE Princípios - Embracing Risk ***
+
+- Disponibilidade do Serviço
+- Error Budget \ Orçamento de Erros
+- Gestão de Riscos
+- Inovação vs Experimentação
+
+--------------------------------------------------------------------------
+
+*** SRE Princípios - Service Level Objectives ***
+
+- Indicadores de Nível de Serviço (SLI)
+-- Ex: latência de solicitação, taxa de erro, taxa de transferência do sistema, solicitações 3xx, solicitações 500, tempo de atividade...
+- Objetivos de Nível de Serviço (SLO)
+- Acordos de Nível de Serviço (SLA)
+- Métricas Mensuráveis
+-- Ex: SOMA, MÉDIA, P40, P90 ou P99
+- Padronizar Indicadores
+- Expectativas do Cliente
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

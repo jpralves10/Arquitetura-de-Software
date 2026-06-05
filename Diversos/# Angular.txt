@@ -1,0 +1,43 @@
+--- Angular ---
+
+O Angular é um framework de código aberto para desenvolvimento frontend, mantido pelo Google, focado na criação de aplicações web modernas, reativas e de página única (SPAs). Baseado em TypeScript, ele organiza o código em componentes independentes, facilitando a manutenção e a reutilização.
+
+Principais Recursos do Angular:
+- Arquitetura Baseada em Componentes: A interface é dividida em blocos lógicos e reutilizáveis (template HTML + lógica TypeScript + estilos CSS).
+- TypeScript: Linguagem padrão, que oferece tipagem forte e recursos modernos de JavaScript.
+- Data Binding (Vinculação de Dados): O Angular automatiza a sincronização de dados entre a lógica do componente e a interface (view), tornando-o reativo.
+- Injeção de Dependências: Sistema eficiente que gerencia e fornece componentes com as dependências necessárias, aumentando a modularidade e teste.
+- CLI Angular (Command Line Interface): Ferramenta de linha de comando poderosa para criar, desenvolver, testar e implantar projetos rapidamente.
+- Roteamento (Routing): Permite navegar entre diferentes visualizações da SPA sem recarregar a página.
+
+O Angular é ideal para projetos corporativos e aplicações complexas que exigem alta performance.
+
+--------------------------------------------------------------------
+
+o que internamente de recursos o angular oferece?
+
+O Angular é frequentemente chamado de "framework de plataforma" porque ele já traz, de forma nativa, quase tudo o que uma aplicação complexa precisa para rodar, sem depender de muitas bibliotecas externas.
+
+Internamente, ele oferece os seguintes recursos fundamentais:
+
+1. Sistema de Injeção de Dependências (DI)O Angular possui um mecanismo interno que gerencia como diferentes partes do código (como serviços) são compartilhadas. Em vez de você criar manualmente uma instância de um serviço em cada componente, o framework "injeta" essa dependência automaticamente onde ela for solicitada, o que facilita testes e melhora a organização.
+
+2. Reatividade Nativa com RxJS e Signals
+- RxJS (Observables): O Angular usa a biblioteca RxJS internamente para lidar com operações assíncronas (como requisições HTTP) de forma reativa, permitindo tratar fluxos de dados contínuos em vez de apenas uma resposta única.
+- Signals: Introduzidos recentemente, os Signals são uma nova forma de gerenciar o estado que permite ao Angular identificar exatamente qual parte da tela precisa ser atualizada, tornando a aplicação muito mais rápida.
+
+3. Módulos e Componentes Standalone
+- Módulos (NgModule): Tradicionalmente, o Angular usa módulos para agrupar componentes, diretivas e serviços relacionados, facilitando o Lazy Loading (carregar partes do site apenas quando necessário).
+- Standalone Components: Nas versões mais atuais, o Angular permite criar componentes que não precisam de módulos, simplificando drasticamente a estrutura inicial do projeto.
+
+4. Roteamento e Proteção de Rotas
+O framework inclui um sistema de rotas robusto que permite criar SPAs com múltiplas páginas. Ele também oferece os Guards, que são recursos internos para proteger rotas (ex: impedir que um usuário não logado acesse o painel de controle)
+
+5. Formulários (Reativos e Template-driven)
+Diferente de outros frameworks, o Angular tem um módulo interno específico para formulários (FormsModule e ReactiveFormsModule). Isso permite validações complexas, acompanhamento de mudanças em tempo real e tratamento de erros de forma padronizada.
+
+6. Renderização Avançada (SSR e Hydration)
+O Angular oferece suporte nativo para Server-Side Rendering (SSR), onde a página é montada no servidor para melhorar o SEO. Recentemente, ele aprimorou a Hydration (Hidratação), que permite que o navegador reaproveite o HTML vindo do servidor sem precisar destruir e recriar tudo do zero.
+
+Você gostaria de ver um exemplo prático de como funciona a injeção de dependência ou prefere entender mais sobre os Signals?
+

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="77ae2616-1f26-4b50-ba10-b22f711d6126" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../# Dominios do Arquiteto.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../# Dominios do Arquiteto.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../# Estilos Populares de Arquitetura de API.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../# JAVA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../# JAVA.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SRE/# Arquitetura.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../SRE/# Arquitetura.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/20+Templates+Reutilizáveis+de+Prompt.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Agentes de IA/ReaçãoAgente.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Agentes de IA/TiposAgentes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Agentes de IA/tipos_de_agentes_ia.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/MBA Engenharia de Software + IA.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Machine Learning/Algoritmos de Machine Learning.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Redes Neurais.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/1.Introdução/1.1.Apresentação e Conteúdo do Curso.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/1.Introdução/1.2.Orientações Gerais do Curso.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/1.Introdução/1.4.Ambiente.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/1.1.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/2.1.Tecnicas estatisticas.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/3.1.Machine Learning.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/4.1.Deep Learning.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/4.3.LSTM informações.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/5.1.Time series.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/Arima.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/AutoencodersAnomalias.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/ExpSmoothing.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/IQR.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/IsolationForest.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/LSTMAnomalias.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/Lof.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/MediaMovel.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/STD.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/Salestest.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/Salestrain.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/10.Detecção de Anomalias/Zscore.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/1.0.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/1.1.Evolução Biológica.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/2.1.Introdução ao GA.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/3.1.Como Funciona.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/3.2.Como Funciona.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/3.3.Como Funciona.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/4.1.Exemplo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/6.1.Exemplo com valor Real.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/7.1.Exemplo Binário.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/Binario.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/Function.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/11.Algoritmos Genéticos/ValorReal.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/12.Algoritmos de Busca e Otimização/1.1.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/12.Algoritmos de Busca e Otimização/1.2.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/12.Algoritmos de Busca e Otimização/2.1.Hill Climbing.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/12.Algoritmos de Busca e Otimização/3.1.Força Bruta com BFS,  DFS.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/12.Algoritmos de Busca e Otimização/4.1.Caminhos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/12.Algoritmos de Busca e Otimização/5.1.TabuSearch e Simulated Annealing.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/12.Algoritmos de Busca e Otimização/6.1.Simulated Annealing com Python.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/12.Algoritmos de Busca e Otimização/SimulatedAnnealing.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/13.Lógica Difusa/1.1.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/13.Lógica Difusa/1.2.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/13.Lógica Difusa/2.2.Prática.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/13.Lógica Difusa/FUZZY.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/14.Projeto Final/desafio.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/14.Projeto Final/test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/14.Projeto Final/train.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/14.Projeto Final/validation.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/1.1.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/2.1.Aplicações.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/3.1.Definições.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/3.2.Conceitos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/4.1.Classificação.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/4.2.Avaliação de Performance e Matriz de Confusão.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/4.5.Avalição de Performance para Regressão.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/4.7.codificação de categorias.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/4.8.Dimensionamento de Características.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/5.1.Agrupamentos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/2.Fundamentos de Machine Learning/6.1.Regras de Associação.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/1.1.Introdução a Correlação e Regressão Linear.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/1.2.Regressão Linear - Condições.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/1.3.Cálculos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/1.8.mtcars.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/10.1.Apriori.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/2.1.Naivebayes.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/3.1.Redes Baysianas.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/4.1.Árvores de Decisão.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/4.2.Opcional Calculos Arvores Decisao.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/7.1.Aprendizado Baseado em Grupos com Random Forest.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/8.1.Aprendizado Baseado em Instância.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/8.2.Aprendizado Baseado em Instância.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/9.1.kmeans.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/Clusters.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/DecisionTree.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/NaiveBayes.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/RandonForest.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/Regras.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/RegressaoLinear.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/Regressaocomstatsmodels.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/Transacoes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/insurance.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/knn.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/3.Algoritmos de Machine Learning/mt_cars.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/1.1.Engenharia e Seleção de Atributos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/1.6.PCA.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/1.8.Seleção de Atributos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/2.1.Avaliando a variabilidade de um modelo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/3.1.Avaliando desempenho de modelos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/4.1.Custo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/5.1.Técnicas Avançadas de Clusters.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/6.1.ClassificacacaoMultilabel.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/6.2.Metricas para Multilabel.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/7.1.datasets desbalanceados.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/8.1.AutoML e Tunning de Modelos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/8.2.AutoML e Tunning de Modelos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/AutoML.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/AutoMLH2O.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/BestCluster.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/Churn_prever.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/Churn_treino.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/Cluster.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/EngAtributos.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/Multilabel.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/Musica.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/PCA.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/SelecaoAtributos.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/Unbal.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/ad.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/credit_simple.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/hopkins.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/insurance.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/metric.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/4.Tópicos Avançados de Machine Learning/visual_assessment_of_tendency.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/1.1.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/10.1.LSTM.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/10.2.Conjunto de Dados Stock.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/11.1.Autoencoders.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/11.2.Atividade Autoencoders.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/12.1.Detecção de Objetos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/2.1.Perpectron.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/2.2.Classificacao com Perceptron.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/2.3.Classificacao com Perceptron.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/3.1.Redes Neurais.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/5.1.Deep Learning.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/6.1.Hiperparametrros.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/9.1.Computer vision CNN - Convolution.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/9.2.Computer vision CNN - Pooling.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/9.3.Computer vision CNN - Flattening.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/9.4.Computer vision CNN - Full connected.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/9.5.Dados cifar10.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/Autoencoders.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/CNN.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/Churn_treino.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/DeteccaoObjetos.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/Google_Stock_Price_Test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/Google_Stock_Price_Train.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/LSTM.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/MLP.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/MobileNetSSD_deploy.caffemodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/MobileNetSSD_deploy.prototxt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/RNAKeras.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/nopeople.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/5.Redes Neurais, Deep Learning e Computer Vision/people.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/6.Machine Learning Explicável/1.O que é XAI.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/6.Machine Learning Explicável/2.Por que um modelo precisa ser explicavel.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/6.Machine Learning Explicável/3.Conceitos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/6.Machine Learning Explicável/4.Modelos White black box.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/6.Machine Learning Explicável/Credit.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/6.Machine Learning Explicável/XAI.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/7.Processamento de Linguagem Natura/1.1.Introdução.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/7.Processamento de Linguagem Natura/1.2.Aplicações.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/7.Processamento de Linguagem Natura/1.4.Conceitos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/7.Processamento de Linguagem Natura/3.1.Word Embedding e Transformers.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/7.Processamento de Linguagem Natura/5.1.LLM.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/7.Processamento de Linguagem Natura/NLPRna..ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/7.Processamento de Linguagem Natura/NLTK.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/7.Processamento de Linguagem Natura/spam.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/8.LLMs e Inteligência Artificial generativa/3.1.Dall-e.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/8.LLMs e Inteligência Artificial generativa/4.1.Whisper.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/8.LLMs e Inteligência Artificial generativa/CodigoFonte.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/9.Agentes de IA/2.1.Apresentação de Agentes.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/9.Agentes de IA/2.2.Tipos de Agentes.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/9.Agentes de IA/3.1.Rags.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/9.Agentes de IA/4.1.Demais Conceitos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/9.Agentes de IA/6.1AgenteRagEspecializado.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/9.Agentes de IA/7.1.MCP.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/9.Agentes de IA/8.1.Agentes e Automação Low Code.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/CursoIA/9.Agentes de IA/CodigoFonte.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/Expert IA Generativa/# Vibe Coding.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../IA/Udemy 2026/Expert IA Generativa/Curso.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="3DMPzV8zBuxhyabFgo0Jkfi0sIJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CustomersAdministrationApplication.executor": "Run",
+    "Maven.customers-administration [org.codehaus.mojo:jaxb2-maven-plugin:1.6:help].executor": "Run",
+    "Maven.customers-administration [org.codehaus.mojo:jaxb2-maven-plugin:1.6:schemagen].executor": "Run",
+    "Maven.customers-administration [org.codehaus.mojo:jaxb2-maven-plugin:1.6:testXjc].executor": "Run",
+    "Maven.customers-administration [org.codehaus.mojo:jaxb2-maven-plugin:1.6:xjc].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/# MATERIAL/PROGRAMAS/Arquitetura-de-Software/Diversos/SpringBoot/projeto-teste/pom.xml",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\# MATERIAL\PROGRAMAS\Arquitetura-de-Software\Diversos\SOAP\customers-administration\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CustomersAdministrationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jeanalves.soap.webservice.customers_administration.CustomersAdministrationApplication" />
+      <module name="customers-administration" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jeanalves.soap.webservice.customers_administration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="customers-administration" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="customers-administration" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CustomersAdministrationApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="77ae2616-1f26-4b50-ba10-b22f711d6126" name="Changes" comment="" />
+      <created>1778089227893</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778089227893</updated>
+    </task>
+    <servers />
+  </component>
+</project>

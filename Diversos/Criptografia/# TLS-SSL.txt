@@ -443,6 +443,7 @@ Você pode pensar: "E se o hacker me enviar um certificado falso com uma chave p
 
 Por que o TLS 1.3 é mais "paranoico"?
 No TLS 1.3, o servidor assina todo o histórico da conversa até aquele momento. Isso evita ataques de "downgrade", onde um hacker tenta forçar o navegador a usar uma versão mais antiga e fraca do SSL (como o SSL 3.0) para quebrar a criptografia.
+
 Resumo visual do fluxo:
 1. Identidade: "Eu sou o servidor X, aqui está meu certificado assinado por uma autoridade que você confia."
 2. Prova: "Aqui está minha parte da matemática (DH), assinada com minha chave privada para provar que sou eu mesmo agora."
@@ -453,7 +454,23 @@ Se qualquer um desses passos falhar, o navegador exibe aquele famoso aviso verme
 Agora que você entende a segurança, quer saber como testar se o seu servidor está configurado corretamente com TLS 1.3 e sem vulnerabilidades?
 
 
+---------------------------------------------------------------------
 
+*** mTLS ***
+
+O mTLS (Mutual Transport Layer Security ou TLS Mútuo) é um protocolo de segurança que garante que tanto o cliente quanto o servidor em uma conexão de rede são quem dizem ser. Ele adiciona uma camada de verificação bidirecional ao padrão TLS tradicional (usado nos cadeados do HTTPS), que normalmente autentica apenas o servidor. 
+
+Como funciona
+1. Verificação do Servidor: O cliente acessa o servidor e verifica o certificado digital do servidor para garantir que está conversando com a máquina certa.
+2. Verificação do Cliente: Diferente do TLS comum, o servidor exige que o cliente também envie o seu próprio certificado digital.
+3. Criptografia: Após a troca e validação mútua, uma conexão criptografada e privada é estabelecida para a troca de dados. 
+
+Onde e por que é usado
+- Segurança: Bloqueia ataques de Man-in-the-Middle e protege contra acessos não autorizados.
+- Microserviços: Usado para comunicação ultra-segura entre aplicações em nuvem, garantindo que apenas serviços autorizados conversem entre si.
+- APIs Financeiras: Muito comum em integrações restritas (como o sistema Pix no Brasil) para validar exatamente qual instituição está fazendo a requisição.
+
+---------------------------------------------------------------------
 
 
 

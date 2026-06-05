@@ -1,0 +1,54 @@
+O Prometheus e o Grafana formam uma das duplas mais populares no mundo da tecnologia para o monitoramento e observabilidade de sistemas e aplicações.
+
+Em poucas palavras:
+- O Prometheus é o "cérebro": ele coleta e armazena os dados técnicos das suas aplicações.
+- O Grafana é o "rosto": ele pega esses dados e os exibe em gráficos e painéis visuais fáceis de entender.
+
+1. Prometheus (O Coletor)
+
+O Prometheus é um sistema de monitoramento de código aberto (open-source) focado em coletar e armazenar métricas. Ele funciona principalmente no modelo pull, onde ele acessa as suas aplicações em intervalos regulares (ex: a cada 15 segundos) para "puxar" informações.
+
+- O que ele coleta: Quantidade de requisições, tempo de resposta, uso de CPU e memória, erros do sistema, etc.
+- Banco de Dados: Ele armazena esses dados em um formato especial chamado Time Series Database (Banco de Dados de Séries Temporais), otimizado para lidar com dados que mudam com o passar do tempo
+- Alertas: Ele possui uma linguagem de consulta própria (chamada PromQL) e também é capaz de disparar alertas caso algo dê errado no servidor.
+
+2. Grafana (O Visualizador)
+
+O Grafana é uma plataforma de análise e visualização de código aberto. Ele não coleta dados sozinho; em vez disso, ele se conecta a bancos de dados — sendo o Prometheus a sua fonte mais famosa.
+
+- Dashboards (Painéis): Ele transforma números brutos e difíceis de ler em gráficos coloridos, painéis interativos e relatórios em tempo real.
+- Customização: Permite que desenvolvedores, gerentes ou equipes de operações criem visuais personalizados para entender a "saúde" do negócio.
+- Alertas Visuais: Você pode configurar limites nos gráficos que mudam de cor ou avisam as equipes caso o sistema fique fora do ar.
+
+Como funcionam juntos?
+
+Eles trabalham como uma linha de montagem: a aplicação gera os dados de uso, o Prometheus captura e guarda esses números, e o Grafana lê esses números do Prometheus para desenhar os gráficos e mostrar para você em uma tela bonita.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

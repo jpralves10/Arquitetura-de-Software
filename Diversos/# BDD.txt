@@ -1,0 +1,32 @@
+BDD (Behavior-Driven Development ou Desenvolvimento Orientado a Comportamento) é uma técnica ágil que foca em definir o comportamento de um software antes de criá-lo, unindo times de negócios e técnicos. Criada por Dan North, utiliza linguagem simples (Dado/Quando/Então) para descrever cenários funcionais, melhorando a colaboração e reduzindo retrabalho.
+
+Principais Características e Benefícios do BDD:
+
+- Foco no Comportamento: Ao invés de focar apenas em testes técnicos (como no TDD), o BDD foca no comportamento do usuário e no valor de negócio.
+
+- Linguagem Ubíqua (Comum): Utiliza uma linguagem natural que tanto desenvolvedores quanto partes interessadas (stakeholders) de negócios entendem.
+
+- Estrutura Dado/Quando/Então (Gherkin):
+-- Dado (Given): O contexto inicial (pré-condições).
+-- Quando (When): A ação realizada pelo usuário.
+-- Então (Then): O resultado esperado.
+
+Colaboração: Incentiva conversas entre QA, Dev e Product Owner para definir cenários antes da codificação.
+
+Automação: Os cenários escritos podem ser facilmente automatizados com ferramentas como o Cucumber.
+
+BDD vs. TDD (Test Driven Development)
+
+O BDD é considerado uma evolução do TDD. Enquanto o TDD foca na implementação técnica e escrita de testes unitários antes do código, o BDD foca na regra de negócio e no comportamento do software.
+
+Exemplo Prático de BDD:
+
+Funcionalidade: Login do usuário
+Cenário: Login com sucesso
+-- Dado que estou na página de login
+-- Quando eu insiro "usuario@teste.com" e a senha "123456"E clico no botão "Entrar"
+-- Então devo ser redirecionado para a "Home Page"
+
+
+
+

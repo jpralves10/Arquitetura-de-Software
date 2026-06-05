@@ -1,0 +1,12 @@
+docker run -p 9092:9092 apache/kafka:4.2.0
+
+docker exec -it 99fddb3d9d92 /opt/kafka/bin/kafka-topics.sh --create --topic principalTopic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+------------------------------------------------------------------------------
+
+docker run --name my-redis -p 6379:6379 redis
+
+docker run --name my-redis -p 6379:6379 redis redis-server --requirepass "123"
+
+------------------------------------------------------------------------------
+
